@@ -1,0 +1,30 @@
+# Local environment and secrets
+env*
+.env*
+
+# Credentials, keys and certificates
+*credential*
+*credentials*
+*secret*
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+
+# Databases, dumps and backups
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+*.backup
+backup/
+backups/
+
+# Dependencies
+node_modules/
+
