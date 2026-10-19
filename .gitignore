@@ -20,6 +20,9 @@ id_ed25519*
 *.sqlite
 *.sqlite3
 *.dump
+*.sql
+*.sql.gz
+*.sql.zip
 *.bak
 *.backup
 backup/
@@ -27,4 +30,5 @@ backups/
 
 # Dependencies
 node_modules/
+
 
