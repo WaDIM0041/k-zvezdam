@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}{{ ch['title'] }} — {{ BOOK_TITLE }}{% endblock %}
+{% block bodyclass %}reading{% if ch['audio_url'] %} has-audio{% endif %}{% endblock %}
+{% block content %}
+<div class="reader-stars"></div>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Оглавление" title="Оглавление">☰</button>
+<div class="toc-backdrop" id="tocBackdrop"></div>
+<aside class="toc-drawer" id="tocDrawer" aria-hidden="true">
+  <div class="toc-head">Оглавление <button class="toc-close" id="tocClose" aria-label="Закрыть">✕</button></div>
+  <nav class="toc-list">
+    {% for c in all_chapters %}
+    <a class="toc-item{% if c['id'] == ch['id'] %} cur{% endif %}" href="{{ url_for('read', cid=c['id']) }}">
+      <span class="tk">{{ c['kind'] or 'Глава' }}</span>
+      <span class="tt">{{ c['title'] }}</span>
+    </a>
+    {% endfor %}
+  </nav>
+</aside>
+
+<article class="reader{% if ch['audio_url'] %} has-audio{% endif %}">
+  <div class="eyebrow">{{ ch['kind'] or 'Глава' }}</div>
+  <h1>{{ ch['title'] }}</h1>
+  <div class="read-meta">
+    <span>≈ {{ reading_time(ch['body']) }} мин</span>
+    <span class="dot">·</span>
+    <span>{{ ch['views'] or 0 }} прочт.</span>
+    <span class="rt-tools">
+      <button type="button" id="fsDown" title="Меньше шрифт" aria-label="Меньше">А−</button>
+      <button type="button" id="fsUp" title="Больше шрифт" aria-label="Больше">А+</button>
+    </span>
+  </div>
+  <div class="orn"></div>
+  <div class="read-body" id="readBody">
+    {{ body }}
+  </div>
+
+  <div class="read-actions">
+    <button type="button" class="act-like" id="likeBtn" data-cid="{{ ch['id'] }}">
+      <span class="hb">♥</span> <span id="likeCount">{{ ch['likes'] or 0 }}</span>
+    </button>
+    <button type="button" class="act-share" id="shareBtn">↗ Поделиться</button>
+  </div>
+
+  <div class="navrow">
+    {% if prev_ch %}
+    <a class="pg" href="{{ url_for('read', cid=prev_ch['id']) }}">
+      <span class="l">← Назад</span><span class="t">{{ prev_ch['title'] }}</span></a>
+    {% else %}<span class="pg dis"><span class="l">← Назад</span><span class="t">—</span></span>{% endif %}
+    {% if next_ch %}
+    <a class="pg next" href="{{ url_for('read', cid=next_ch['id']) }}">
+      <span class="l">Дальше →</span><span class="t">{{ next_ch['title'] }}</span></a>
+    {% else %}<span class="pg next dis"><span class="l">Дальше →</span><span class="t">Продолжение следует</span></span>{% endif %}
+  </div>
+  <div class="back-toc"><a href="{{ url_for('chapters') }}">↑ Ко всем главам</a></div>
+</article>
+
+{% if ch['audio_url'] %}
+<div class="audiobar" id="audiobar">
+  <div class="ab-in">
+    <div class="ab-title"><span class="ab-ic">♪</span> Аудиоверсия · {{ ch['title'] }}</div>
+    <audio id="chapaudio" src="{{ ch['audio_url'] }}" controls preload="none"></audio>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% if ch['audio_url'] %}
+<script nonce="{{ csp_nonce }}">
+// Media Session — управление с экрана блокировки на смартфоне
+var a=document.getElementById('chapaudio');
+if(a && 'mediaSession' in navigator){
+  navigator.mediaSession.metadata=new MediaMetadata({title:{{ ch['title']|tojson }},artist:{{ BOOK_AUTHOR|tojson }},album:{{ BOOK_TITLE|tojson }}});
+  navigator.mediaSession.setActionHandler('play',function(){a.play()});
+  navigator.mediaSession.setActionHandler('pause',function(){a.pause()});
+}
+</script>
+{% endif %}
+<script nonce="{{ csp_nonce }}">
+(function(){
+  // «Продолжить чтение» — запомнить текущую главу
+  try{ localStorage.setItem('kz_last', JSON.stringify({id:{{ ch['id'] }}, title:{{ ch['title']|tojson }}})); }catch(e){}
+
+  // Размер шрифта
+  var body=document.getElementById('readBody');
+  var key='kz_fs', fs=parseInt(localStorage.getItem(key)||'',10); if(!fs) fs=17;
+  function applyFs(){ if(body) body.style.fontSize=fs+'px'; }
+  applyFs();
+  var u=document.getElementById('fsUp'), d=document.getElementById('fsDown');
+  if(u) u.onclick=function(){ fs=Math.min(23,fs+1); applyFs(); try{localStorage.setItem(key,fs)}catch(e){} };
+  if(d) d.onclick=function(){ fs=Math.max(15,fs-1); applyFs(); try{localStorage.setItem(key,fs)}catch(e){} };
+
+  // Лайк
+  var lb=document.getElementById('likeBtn');
+  if(lb){
+    var cid=lb.dataset.cid, lkey='kz_liked_'+cid;
+    if(localStorage.getItem(lkey)) lb.classList.add('liked');
+    lb.onclick=function(){
+      if(localStorage.getItem(lkey)) return;
+      lb.classList.add('liked');
+      fetch('/like/'+cid,{method:'POST',headers:{'X-CSRF-Token':document.querySelector('meta[name="csrf-token"]').content}})
+        .then(function(r){if(!r.ok) throw new Error('request failed'); return r.json();})
+        .then(function(j){ if(j&&typeof j.likes!=='undefined'){ document.getElementById('likeCount').textContent=j.likes; } try{localStorage.setItem(lkey,'1')}catch(e){} })
+        .catch(function(){ lb.classList.remove('liked'); });
+    };
+  }
+
+  // Поделиться
+  var sb=document.getElementById('shareBtn');
+  if(sb){
+    sb.onclick=function(){
+      if(navigator.share){ navigator.share({title:document.title, url:location.href}).catch(function(){}); }
+      else if(navigator.clipboard){ navigator.clipboard.writeText(location.href); var o=sb.textContent; sb.textContent='✓ Ссылка скопирована'; setTimeout(function(){sb.textContent=o;},2000); }
+      else { window.open('https://vk.com/share.php?url='+encodeURIComponent(location.href),'_blank'); }
+    };
+  }
+
+  // Оглавление-шторка
+  var tg=document.getElementById('tocToggle'), dr=document.getElementById('tocDrawer'),
+      bd=document.getElementById('tocBackdrop'), cl=document.getElementById('tocClose');
+  function openToc(){ if(dr){dr.classList.add('open');dr.setAttribute('aria-hidden','false');} if(bd)bd.classList.add('show'); }
+  function closeToc(){ if(dr){dr.classList.remove('open');dr.setAttribute('aria-hidden','true');} if(bd)bd.classList.remove('show'); }
+  if(tg) tg.onclick=openToc;
+  if(cl) cl.onclick=closeToc;
+  if(bd) bd.onclick=closeToc;
+})();
+</script>
+{% endblock %}

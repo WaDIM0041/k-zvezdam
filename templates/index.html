@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block bodyclass %}has-hero{% endblock %}
+
+{% block content %}
+<header class="hero" id="hero">
+  <canvas id="space"></canvas>
+  <div class="hero-veil"></div>
+  <div class="hero-in wrap">
+    <div class="hero-content" id="heroContent">
+      <div class="author-line">{{ BOOK_AUTHOR }}</div>
+      <h1 class="glitch" data-text="Через время к звёздам">Через время<br>к звёздам</h1>
+      <p class="epigraph">«Я — твоё завтра».</p>
+      <p class="tag">{{ BOOK_TAGLINE }}</p>
+      <div class="btns">
+        {% if chapters %}
+        <a class="btn btn-p" href="{{ url_for('read', cid=chapters[0]['id']) }}">Начать чтение</a>
+        {% endif %}
+        <a class="btn btn-c" id="continueBtn" href="#" hidden>Продолжить чтение</a>
+        <a class="btn btn-g" href="{{ url_for('chapters') }}">Оглавление</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">листайте вниз</div>
+</header>
+
+<section class="section annot">
+  <div class="wrap">
+    <div class="eyebrow reveal">О чём книга</div>
+    <p class="quote reveal">Пережив безумие Хаоса, где реальность рассыпалась на осколки, команда Вадима находит путь обратно на Землю. Но спасение оборачивается шоком: <b>прошло 200 лет</b>. Камчатка стала колыбелью киберпанк-цивилизации, а сами герои — мифическими «Первопроходцами», чьего возвращения ждали веками.</p>
+  </div>
+</section>
+
+<section class="section list-s">
+  <div class="wrap">
+    <div class="eyebrow reveal">Содержание</div>
+    <h2 class="reveal">Главы</h2>
+    {% if chapters %}
+    <div class="clist reveal">
+      {% for c in chapters %}
+      <a class="crow" href="{{ url_for('read', cid=c['id']) }}">
+        <span class="num">{{ c['kind'] or 'Глава' }}</span>
+        <span class="t">{{ c['title'] }}</span>
+        <span class="ar">→</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="lead reveal">Главы скоро появятся.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section author-s">
+  <div class="wrap">
+    <div class="eyebrow reveal">Автор</div>
+    <h2 class="reveal">{{ BOOK_AUTHOR }}</h2>
+    <p class="lead reveal">Автор научно-фантастического цикла «Через время к звёздам». Новые главы выходят здесь — возвращайтесь за продолжением.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script nonce="{{ csp_nonce }}" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="{{ csp_nonce }}" src="{{ url_for('static', filename='js/hero.js') }}"></script>
+<script nonce="{{ csp_nonce }}">
+// scroll reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+// «Продолжить чтение» — если читатель уже где-то остановился
+(function(){
+  try{
+    var last=JSON.parse(localStorage.getItem('kz_last')||'null');
+    if(last && last.id){
+      var b=document.getElementById('continueBtn');
+      if(b){ b.href='/read/'+last.id; b.textContent='Продолжить: '+(last.title||'глава'); b.hidden=false; }
+    }
+  }catch(e){}
+})();
+</script>
+{% endblock %}

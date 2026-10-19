@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Редактирование' if ch else 'Новая глава' }} — Админка{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Админка</div>
+    <h2>{{ 'Редактирование главы' if ch else 'Новая глава' }}</h2>
+
+    <form method="post" class="form editor">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+      <div class="row2">
+        <label>Тип
+          <input type="text" name="kind" value="{{ ch['kind'] if ch else 'Глава' }}" placeholder="Глава / Пролог">
+        </label>
+        <label>Порядок (номер)
+          <input type="number" name="position" value="{{ ch['position'] if ch else nextpos }}">
+        </label>
+      </div>
+      <label>Название
+        <input type="text" name="title" value="{{ ch['title'] if ch else '' }}" required>
+      </label>
+      <label>Аудиоверсия главы — ссылка на MP3 (необязательно)
+        <input type="url" name="audio_url" value="{{ ch['audio_url'] if ch else '' }}" placeholder="https://…/glava.mp3">
+      </label>
+
+      <div class="toolbar">
+        <button type="button" data-ins="**|**">Жирный</button>
+        <button type="button" data-ins="*|*">Курсив</button>
+        <label class="upl" id="uplBtn">⬆ Загрузить картинку<input type="file" id="imgfile" accept="image/*" hidden></label>
+        <button type="button" data-block="[img]|[/img]">🔗 Картинка по ссылке</button>
+        <button type="button" data-block="[video]|[/video]">▶ Видео</button>
+        <button type="button" data-block="[audio]|[/audio]">♪ Аудио</button>
+      </div>
+      <label>Текст главы
+        <div class="ta-wrap">
+          <div id="taHi" class="ta-hi" aria-hidden="true"></div>
+        <textarea name="body" id="body" rows="22" placeholder="Пишите текст. Пустая строка — новый абзац.&#10;&#10;Чтобы вставить картинку в нужном месте: поставьте курсор туда и нажмите «Загрузить картинку».&#10;&#10;Также можно вставить медиа ссылкой отдельной строкой:&#10;[img]https://…/картинка.jpg[/img]&#10;[video]https://youtu.be/…[/video]&#10;[audio]https://…/аудио.mp3[/audio]">{{ ch['body'] if ch else '' }}</textarea>
+        </div>
+      </label>
+      <div class="ed-prev-head">Предпросмотр — картинки видны на своих местах (обновляется на ходу)</div>
+      <div id="edPreview" class="ed-preview"></div>
+      <p class="hint">Картинку можно загрузить прямо с компьютера («Загрузить картинку») — она вставится туда, где стоит курсор. Видео и аудио — по внешним ссылкам (YouTube, VK, Rutube, .mp4, .mp3).</p>
+
+      <label class="chk"><input type="checkbox" name="published" {{ 'checked' if (not ch) or ch['published'] else '' }}> Опубликовать (иначе — черновик)</label>
+
+      <div class="btns">
+        <button class="btn btn-p" type="submit">Сохранить</button>
+        <a class="btn btn-g" href="{{ url_for('admin') }}">Отмена</a>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script nonce="{{ csp_nonce }}">
+var ta=document.getElementById('body');
+
+// Подсветка тегов картинок/медиа прямо в поле: курсив + цвет
+(function(){
+  var hi=document.getElementById('taHi'); if(!hi||!ta) return;
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function hl(){
+    var s=esc(ta.value).replace(/\[(img|video|audio)\]([\s\S]*?)\[\/(img|video|audio)\]/g,'<span class="tok tok-$1">[$1]$2[/$3]</span>');
+    hi.innerHTML=s+'\n';
+  }
+  function sync(){ hi.scrollTop=ta.scrollTop; hi.scrollLeft=ta.scrollLeft; }
+  ta.addEventListener('input',hl);
+  ta.addEventListener('scroll',sync);
+  hl(); sync();
+})();
+
+document.querySelectorAll('.toolbar button').forEach(function(b){
+  b.onclick=function(){
+    var ins=b.dataset.ins, block=b.dataset.block;
+    var s=ta.selectionStart, e=ta.selectionEnd, v=ta.value, sel=v.slice(s,e);
+    var tpl=ins||block, parts=tpl.split('|');
+    var mid = ins ? sel : (sel||'');
+    var pad = block ? '\n\n' : '';
+    var text = pad + parts[0] + mid + (parts[1]||'') + pad;
+    ta.value=v.slice(0,s)+text+v.slice(e);
+    ta.dispatchEvent(new Event('input',{bubbles:true}));
+    ta.focus();
+    var cpos = s + pad.length + parts[0].length + mid.length;
+    ta.setSelectionRange(cpos,cpos);
+  };
+});
+// вставка строки в позицию курсора
+function insertAtCursor(str){
+  var s=ta.selectionStart, e=ta.selectionEnd, v=ta.value;
+  ta.value=v.slice(0,s)+str+v.slice(e);
+  ta.dispatchEvent(new Event('input',{bubbles:true}));
+  var cpos=s+str.length; ta.focus(); ta.setSelectionRange(cpos,cpos);
+}
+// загрузка картинки с компьютера в место курсора
+var imgfile=document.getElementById('imgfile');
+var uplBtn=document.getElementById('uplBtn');
+var lblText=uplBtn.childNodes[0];
+imgfile.onchange=function(){
+  var f=this.files[0]; if(!f) return;
+  lblText.nodeValue='⏳ Загрузка…';
+  var fd=new FormData(); fd.append('file',f);
+  fetch('{{ url_for("admin_upload") }}',{method:'POST',headers:{'X-CSRF-Token':document.querySelector('meta[name="csrf-token"]').content},body:fd})
+    .then(function(r){return Promise.all([r.ok, r.json()]);})
+    .then(function(a){
+      if(a[0] && a[1].url){ insertAtCursor('\n\n[img]'+a[1].url+'[/img]\n\n'); }
+      else { alert('Ошибка: '+((a[1]&&a[1].error)||'не удалось загрузить')); }
+    })
+    .catch(function(){ alert('Ошибка загрузки'); })
+    .finally(function(){ lblText.nodeValue='⬆ Загрузить картинку'; imgfile.value=''; });
+};
+
+// Живой предпросмотр: медиа видно на своих местах
+(function(){
+  var prev=document.getElementById('edPreview'); if(!prev) return;
+  function safeMedia(raw){
+    var value=(raw||'').trim();
+    if(!value||/[\\\u0000-\u001f\u007f]/.test(value)) return null;
+    var decoded=value; try{decoded=decodeURIComponent(value);}catch(e){return null;}
+    if(decoded.split('/').some(function(part){return part==='..';})) return null;
+    if(value.charAt(0)==='/' && value.slice(0,2)!=='//'){
+      if(/^\/static\/uploads\/[A-Za-z0-9_.-]+$/.test(value)) return '/chapter-images/'+value.split('/').pop();
+      return value;
+    }
+    try{var u=new URL(value); if((u.protocol==='http:'||u.protocol==='https:')&&!u.username&&!u.password) return value;}catch(e){}
+    return null;
+  }
+  function inlineHtml(t){
+    return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  }
+  function render(){
+    var v=ta.value.replace(/\r\n/g,'\n').trim();
+    var m;
+    prev.replaceChildren();
+    v.split(/\n\s*\n/).forEach(function(b){
+      var s=b.trim(); if(!s) return;
+      if(m=s.match(/^\[img\]([\s\S]+?)\[\/img\]$/)){
+        var src=safeMedia(m[1]); if(!src) return;
+        var fig=document.createElement('figure'), img=document.createElement('img'), cap=document.createElement('figcaption');
+        fig.className='pv-img'; img.src=src; img.alt=''; img.loading='lazy'; cap.textContent='🖼 картинка';
+        fig.append(img,cap); prev.appendChild(fig);
+      } else if(m=s.match(/^\[video\]([\s\S]+?)\[\/video\]$/)){
+        var video=document.createElement('div'); video.className='pv-media';
+        video.textContent='▶ Видео: '+(safeMedia(m[1])||'ссылка не прошла проверку'); prev.appendChild(video);
+      } else if(m=s.match(/^\[audio\]([\s\S]+?)\[\/audio\]$/)){
+        var audioSrc=safeMedia(m[1]), audioWrap=document.createElement('div'); audioWrap.className='pv-media';
+        if(audioSrc){var player=document.createElement('audio'); player.src=audioSrc; player.controls=true; player.preload='none'; audioWrap.appendChild(player);}
+        else audioWrap.textContent='♪ Аудио: ссылка не прошла проверку';
+        prev.appendChild(audioWrap);
+      } else {
+        var p=document.createElement('p'); p.innerHTML=s.split('\n').map(inlineHtml).join('<br>'); prev.appendChild(p);
+      }
+    });
+    if(!prev.childNodes.length){var empty=document.createElement('p'); empty.className='pv-empty'; empty.textContent='Здесь появится предпросмотр…'; prev.appendChild(empty);}
+  }
+  var tmr; ta.addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(render,250);});
+  render();
+})();
+
+// Сохранение без ухода со страницы: запомнить место прокрутки + подтверждение
+(function(){
+  var form=document.querySelector('form.editor');
+  if(form){ form.addEventListener('submit',function(){ try{sessionStorage.setItem('edScroll',String(window.scrollY));}catch(e){} }); }
+  var sp=new URLSearchParams(location.search);
+  if(sp.get('saved')){
+    var y=0; try{y=parseInt(sessionStorage.getItem('edScroll')||'0',10);sessionStorage.removeItem('edScroll');}catch(e){}
+    if(y>0){ window.scrollTo(0,y); setTimeout(function(){window.scrollTo(0,y);},300); }
+    var t=document.createElement('div'); t.className='ed-toast'; t.textContent='✓ Текст сохранён — можно продолжать';
+    document.body.appendChild(t);
+    requestAnimationFrame(function(){ t.classList.add('show'); });
+    setTimeout(function(){ t.classList.remove('show'); },2800);
+    setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },3400);
+    history.replaceState(null,'',location.pathname);
+  }
+})();
+</script>
+{% endblock %}

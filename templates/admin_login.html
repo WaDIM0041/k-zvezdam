@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Вход — Админка{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="wrap narrow">
+    <div class="eyebrow">Админка</div>
+    <h2>Вход для автора</h2>
+    <form method="post" class="form">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="next" value="{{ next_url }}">
+      <label>Пароль
+        <input type="password" name="password" autofocus required>
+      </label>
+      <button class="btn btn-p" type="submit">Войти</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Админка — {{ BOOK_TITLE }}{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <div class="admin-head">
+      <div>
+        <div class="eyebrow">Админка</div>
+        <h2>Главы ({{ chapters|length }})</h2>
+      </div>
+      <a class="btn btn-p" href="{{ url_for('admin_new') }}">+ Новая глава</a>
+    </div>
+
+    <div class="atable">
+      {% for c in chapters %}
+      <div class="arow {% if not c['published'] %}draft{% endif %}">
+        <div class="apos">
+          <form method="post" action="{{ url_for('admin_move', cid=c['id'], direction='up') }}"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><button title="Выше">▲</button></form>
+          <span>{{ c['position'] }}</span>
+          <form method="post" action="{{ url_for('admin_move', cid=c['id'], direction='down') }}"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><button title="Ниже">▼</button></form>
+        </div>
+        <div class="ainfo">
+          <div class="at">{{ c['kind'] }} — {{ c['title'] }}
+            {% if c['audio_url'] %}<span class="badge-a">♪</span>{% endif %}
+          </div>
+          <div class="ameta">{% if c['published'] %}<span class="pub">опубликовано</span>{% else %}<span class="dr">черновик</span>{% endif %}</div>
+        </div>
+        <div class="aact">
+          {% if c['published'] %}<a class="ab" href="{{ url_for('read', cid=c['id']) }}" target="_blank">Открыть</a>{% endif %}
+          <a class="ab" href="{{ url_for('admin_edit', cid=c['id']) }}">Править</a>
+          <form method="post" action="{{ url_for('admin_toggle', cid=c['id']) }}"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><button class="ab">{% if c['published'] %}Снять{% else %}Опубл.{% endif %}</button></form>
+          <form method="post" action="{{ url_for('admin_delete', cid=c['id']) }}" data-confirm-delete><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><button class="ab del">Удалить</button></form>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script nonce="{{ csp_nonce }}">document.querySelectorAll("form[data-confirm-delete]").forEach(function(f){f.addEventListener("submit",function(e){if(!window.confirm("Удалить выбранную главу?"))e.preventDefault();});});</script>{% endblock %}

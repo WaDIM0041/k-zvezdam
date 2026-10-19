@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Оглавление — {{ BOOK_TITLE }}{% endblock %}
+{% block content %}
+<section class="section page-top">
+  <div class="wrap">
+    <div class="eyebrow">{{ BOOK_TITLE }}</div>
+    <h2>Оглавление</h2>
+    {% if chapters %}
+    <div class="clist">
+      {% for c in chapters %}
+      <a class="crow" href="{{ url_for('read', cid=c['id']) }}">
+        <span class="num">{{ c['kind'] or 'Глава' }}</span>
+        <span class="t">{{ c['title'] }}
+          {% if c['audio_url'] %}<span class="badge-a" title="Есть аудио">♪</span>{% endif %}
+        </span>
+        <span class="cmeta">≈ {{ reading_time(c['body']) }} мин · {{ c['views'] or 0 }} прочт.</span>
+        <span class="ar">→</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="lead">Главы скоро появятся.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

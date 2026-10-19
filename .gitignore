@@ -32,3 +32,23 @@ backups/
 node_modules/
 
 
+
+# Flask runtime and local tests
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+instance/
+.env
+.env.*
+!.env.example
+static/uploads/
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+.venv/
+venv/
+
