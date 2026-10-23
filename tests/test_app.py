@@ -126,6 +126,22 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn("youtube-nocookie.com/embed", embed)
         self.assertIn("noopener noreferrer", embed)
 
+    def test_chapter_video_placement_and_safe_local_urls(self):
+        with site.app.test_request_context():
+            for body in (
+                '[video]/static/video/prologue.mp4[/video]\n\nНачало главы',
+                'До ролика\n\n[video]/static/video/prologue.mp4[/video]\n\nПосле ролика',
+            ):
+                markup = str(site.render_body(body))
+                self.assertIn('controls playsinline preload="metadata"', markup)
+                self.assertIn('src="/static/video/prologue.mp4"', markup)
+                self.assertNotIn('autoplay', markup)
+                if 'До ролика' in body:
+                    self.assertLess(markup.index('До ролика'), markup.index('<video'))
+                    self.assertLess(markup.index('</video>'), markup.index('После ролика'))
+            for unsafe in ('javascript:alert(1)', '//attacker.test/a.mp4', '/%2e%2e/a.mp4'):
+                self.assertNotIn('<video', site._video_embed(unsafe))
+
     def test_upload_requires_auth_csrf_and_valid_image_bytes(self):
         page = self.client.get("/admin/login")
         token = self.csrf(page)

@@ -23,7 +23,7 @@
 <body class="{% block bodyclass %}{% endblock %}">
 <nav id="nav">
   <div class="nav-in">
-    <a class="brand" href="{{ url_for('index') }}">Через время <b>к звёздам</b></a>
+    <a class="brand" href="{{ url_for('index') }}"><span class="brand-cube" aria-hidden="true"><span class="cube-form"><i></i><i></i><i></i><i></i><i></i><i></i><span class="cube-core"></span></span></span><span>Через время <b>к звёздам</b></span></a>
     <div class="nav-links">
       <a href="{{ url_for('index') }}">Главная</a>
       <a href="{{ url_for('chapters') }}">Оглавление</a>
@@ -49,11 +49,15 @@
 <div id="rprog"></div>
 <button id="toTop" aria-label="Наверх" title="Наверх">↑</button>
 
-<footer>
+<div class="closing-space">
+  <canvas class="space-scene" aria-hidden="true"></canvas>
+  {% block author_section %}{% endblock %}
+<footer id="footer">
   <div class="wrap">
-    «{{ BOOK_TITLE }}» · {{ BOOK_AUTHOR }} · {{ year }}
+    «{{ BOOK_TITLE }}» · <span class="glitch footer-author" data-text="{{ BOOK_AUTHOR }}">{{ BOOK_AUTHOR }}</span> · {{ year }}
   </div>
 </footer>
+</div>
 <script nonce="{{ csp_nonce }}">
 (function(){
   var n=document.getElementById('nav'),
@@ -74,6 +78,9 @@
   if(t) t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 })();
 </script>
+<script nonce="{{ csp_nonce }}" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="{{ csp_nonce }}" src="{{ url_for('static', filename='js/hero.js') }}"></script>
+<script nonce="{{ csp_nonce }}" src="{{ url_for('static', filename='js/flyby.js') }}"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

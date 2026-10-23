@@ -243,7 +243,7 @@ def _image_url(raw: str) -> str | None:
 
 
 def _video_embed(raw_url: str) -> str:
-    value = _valid_web_url(raw_url, allow_root=False)
+    value = _valid_web_url(raw_url, allow_root=True)
     if not value:
         return "<p>Видео недоступно: ссылка не прошла проверку.</p>"
     parsed = urlsplit(value)
@@ -272,7 +272,12 @@ def _video_embed(raw_url: str) -> str:
             return (f'<div class="embed"><iframe src="https://rutube.ru/play/embed/{m.group(1)}" '
                     'title="Rutube video" loading="lazy" allowfullscreen></iframe></div>')
     if parsed.path.lower().endswith((".mp4", ".webm", ".ogg")):
-        return f'<div class="embed"><video src="{html.escape(value, quote=True)}" controls preload="metadata"></video></div>'
+        safe_url = html.escape(value, quote=True)
+        return (f'<div class="embed"><video src="{safe_url}" controls playsinline preload="metadata" '
+                f'aria-label="Видео к главе">Ваш браузер не поддерживает видео. '
+                f'<a href="{safe_url}">Открыть видео</a></video></div>'
+                f'<p class="video-fallback"><a href="{safe_url}" target="_blank" '
+                'rel="noopener noreferrer">Открыть видео отдельно ↗</a></p>')
     return f'<p><a href="{html.escape(value, quote=True)}" target="_blank" rel="noopener noreferrer">Видео ↗</a></p>'
 
 
