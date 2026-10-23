@@ -49,6 +49,7 @@ app.config.update(
     ADMIN_PASSWORD=os.environ.get("ROMAN_ADMIN_PASSWORD", ""),
     SITE_ORIGIN=(os.environ.get("SITE_ORIGIN") or "https://k-zvezdam.ru").rstrip("/"),
     PREVIEW_NOINDEX=os.environ.get("PREVIEW_NOINDEX", "1").lower() not in {"0", "false", "no"},
+    STATIC_EXPORT=os.environ.get("ROMAN_STATIC_EXPORT", "0").lower() in {"1", "true", "yes"},
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
     SESSION_COOKIE_SECURE=os.environ.get("SESSION_COOKIE_SECURE", "0").lower() in {"1", "true", "yes"},
@@ -334,6 +335,7 @@ def template_globals():
         "is_admin": bool(session.get("admin")), "year": datetime.now().year,
         "excerpt": excerpt, "reading_time": reading_time, "csrf_token": csrf_token,
         "canonical_url": canonical, "csp_nonce": getattr(g, "csp_nonce", ""),
+        "static_export": bool(current_app.config.get("STATIC_EXPORT")),
     }
 
 

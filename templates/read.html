@@ -23,8 +23,10 @@
   <h1>{{ ch['title'] }}</h1>
   <div class="read-meta">
     <span>≈ {{ reading_time(ch['body']) }} мин</span>
+    {% if not static_export %}
     <span class="dot">·</span>
     <span>{{ ch['views'] or 0 }} прочт.</span>
+    {% endif %}
     <span class="rt-tools">
       <button type="button" id="fsDown" title="Меньше шрифт" aria-label="Меньше">А−</button>
       <button type="button" id="fsUp" title="Больше шрифт" aria-label="Больше">А+</button>
@@ -36,9 +38,11 @@
   </div>
 
   <div class="read-actions">
+    {% if not static_export %}
     <button type="button" class="act-like" id="likeBtn" data-cid="{{ ch['id'] }}">
       <span class="hb">♥</span> <span id="likeCount">{{ ch['likes'] or 0 }}</span>
     </button>
+    {% endif %}
     <button type="button" class="act-share" id="shareBtn">↗ Поделиться</button>
   </div>
 
@@ -92,6 +96,7 @@ if(a && 'mediaSession' in navigator){
   if(d) d.onclick=function(){ fs=Math.max(15,fs-1); applyFs(); try{localStorage.setItem(key,fs)}catch(e){} };
 
   // Лайк
+  {% if not static_export %}
   var lb=document.getElementById('likeBtn');
   if(lb){
     var cid=lb.dataset.cid, lkey='kz_liked_'+cid;
@@ -105,6 +110,7 @@ if(a && 'mediaSession' in navigator){
         .catch(function(){ lb.classList.remove('liked'); });
     };
   }
+  {% endif %}
 
   // Поделиться
   var sb=document.getElementById('shareBtn');

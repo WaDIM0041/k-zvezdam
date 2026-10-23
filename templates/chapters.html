@@ -13,7 +13,7 @@
         <span class="t">{{ c['title'] }}
           {% if c['audio_url'] %}<span class="badge-a" title="Есть аудио">♪</span>{% endif %}
         </span>
-        <span class="cmeta">≈ {{ reading_time(c['body']) }} мин · {{ c['views'] or 0 }} прочт.</span>
+        <span class="cmeta">≈ {{ reading_time(c['body']) }} мин{% if not static_export %} · {{ c['views'] or 0 }} прочт.{% endif %}</span>
         <span class="ar">→</span>
       </a>
       {% endfor %}
