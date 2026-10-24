@@ -91,7 +91,7 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
     var last=JSON.parse(localStorage.getItem('kz_last')||'null');
     if(last && last.id){
       var b=document.getElementById('continueBtn');
-      if(b){ b.href='/read/'+last.id; b.textContent='Продолжить: '+(last.title||'глава'); b.hidden=false; }
+      if(b && /^\d+$/.test(String(last.id))){ b.href=new URL('read/'+last.id+'/',document.querySelector('.brand').href).href; b.textContent='Продолжить: '+(last.title||'глава'); b.hidden=false; }
     }
   }catch(e){}
 })();

@@ -245,6 +245,8 @@ def main(argv: list[str] | None = None) -> int:
 
         with site.app.test_request_context("/404"):
             not_found = postprocess(site.render_template("404.html"))
+        if args.base_path:
+            not_found = re.sub(r'((?:href|src|poster)=")/(?!/)', lambda m: m[1] + args.base_path.rstrip("/") + "/", not_found)
         check_no_local_refs(not_found, "404")
         write(out / "404.html", not_found)
         written.append("/404.html")
