@@ -1,0 +1,25 @@
+{
+  "site": "https://wadim0041.github.io",
+  "builtAt": "2026-10-24T22:06:10+00:00",
+  "commit": "66d927d7b3586f2a1fa82f07421034ce4e6597eb",
+  "chapters": 11,
+  "pages": [
+    "/",
+    "/chapters",
+    "/about",
+    "/read/1",
+    "/read/2",
+    "/read/3",
+    "/read/4",
+    "/read/5",
+    "/read/6",
+    "/read/7",
+    "/read/8",
+    "/read/9",
+    "/read/10",
+    "/read/11",
+    "/promo",
+    "/404.html"
+  ],
+  "noindex": true
+}
