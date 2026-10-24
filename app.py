@@ -291,9 +291,33 @@ def _inline(value: str) -> str:
 def render_body(body: str) -> Markup:
     chunks = re.split(r"\n\s*\n", (body or "").replace("\r\n", "\n").strip())
     rendered: list[str] = []
+    open_ambient = False
+    ambient_keys = {
+        "cable": "Кабель подаёт едва заметный признак движения",
+        "shadows": "Бесформенная тень смещается на стене",
+        "cube": "Куб медленно проступает из темноты",
+    }
     for chunk in chunks:
         text = chunk.strip()
         if not text:
+            continue
+        ambient = re.fullmatch(r"\[ambient\]([a-z0-9-]+)\[/ambient\]", text)
+        if ambient:
+            key = ambient.group(1)
+            if key in ambient_keys:
+                if open_ambient:
+                    rendered.append("</section>")
+                label = html.escape(ambient_keys[key], quote=True)
+                rendered.append(
+                    f'<section class="scene-ambient scene-ambient-{key}" '
+                    f'aria-label="{label}"><span class="scene-ambient-art" aria-hidden="true"></span>'
+                )
+                open_ambient = True
+            continue
+        if re.fullmatch(r"\[ambient-end\]\[/ambient-end\]", text):
+            if open_ambient:
+                rendered.append("</section>")
+                open_ambient = False
             continue
         scene = re.fullmatch(r"\[scene\]([a-z0-9-]+)\[/scene\]", text)
         if scene:
@@ -317,6 +341,8 @@ def render_body(body: str) -> Markup:
             continue
         para = "<br>".join(_inline(line) for line in text.split("\n"))
         rendered.append(f"<p>{para}</p>")
+    if open_ambient:
+        rendered.append("</section>")
     return Markup("\n".join(rendered))
 
 
@@ -349,13 +375,13 @@ def _scene_media(key: str) -> str:
 
 
 def excerpt(body: str, n: int = 160) -> str:
-    clean = re.sub(r"\[(?:img|video|audio|scene)\].*?\[/(?:img|video|audio|scene)\]", " ", body or "", flags=re.S)
+    clean = re.sub(r"\[(?:img|video|audio|scene|ambient|ambient-end)\].*?\[/(?:img|video|audio|scene|ambient|ambient-end)\]", " ", body or "", flags=re.S)
     clean = re.sub(r"\s+", " ", clean).strip()
     return clean[:n] + ("…" if len(clean) > n else "")
 
 
 def reading_time(body: str) -> int:
-    clean = re.sub(r"\[(?:img|video|audio|scene)\].*?\[/(?:img|video|audio|scene)\]", " ", body or "", flags=re.S)
+    clean = re.sub(r"\[(?:img|video|audio|scene|ambient|ambient-end)\].*?\[/(?:img|video|audio|scene|ambient|ambient-end)\]", " ", body or "", flags=re.S)
     return max(1, round(len(re.findall(r"\S+", clean)) / 170))
 
 

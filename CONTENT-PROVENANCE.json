@@ -8,7 +8,7 @@
       "title": "Вскрытие прошлого",
       "kind": "Пролог",
       "bodySource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
-      "bodySha256": "e47ee46c4f07a902a7fdf723554a7674824648694da07d6bd33675ab105f5a50",
+      "bodySha256": "0db5d8667bb548551ef43eb5024c2f520ad46049f7faa81cc9f0e12ae3605712",
       "titleSource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
       "publishedInPreview": true,
       "previousBodySha256": "aa079478d60183f4e5f65f8081f36612e0ce7816983ac10c9a62f46508605968",
@@ -20,7 +20,7 @@
       "title": "Синий огонь",
       "kind": "Глава 1",
       "bodySource": "roman_deploy_all.zip::bodies/glava1.txt",
-      "bodySha256": "350e726f4f99079272c62eb05df1dd9beba2ec3d09f1cb5fc05192eae38ec9e2",
+      "bodySha256": "254e5c438bc23c0a31311ce33123bfd25e807c46da172402761c6e03e6ee4eb8",
       "titleSource": "Глава1_НОВАЯ_черновик.md::heading",
       "publishedInPreview": true
     },

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sqlite3
 from pathlib import Path
 
 
@@ -26,6 +27,11 @@ def main() -> None:
     PROVENANCE.write_text(
         json.dumps(provenance, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+
+    database = ROOT / "instance" / "roman.db"
+    if database.is_file():
+        with sqlite3.connect(database) as connection:
+            connection.execute("UPDATE chapters SET body = ? WHERE position = 0", (body,))
 
 
 if __name__ == "__main__":

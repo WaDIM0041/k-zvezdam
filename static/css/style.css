@@ -348,6 +348,37 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 @media(min-width:1000px){.scene-media{width:calc(100% + 160px);margin-left:-80px;margin-right:-80px}}
 @media(max-width:600px){.scene-media{margin-top:30px;margin-bottom:32px}.scene-media figcaption{font-size:.73rem}}
 
+/* Локальные хоррор-эффекты пролога: появляются только в своей сцене. */
+.scene-ambient{position:relative;isolation:isolate;overflow:hidden;margin:38px -28px 42px;padding:28px 28px 30px;border-top:1px solid rgba(119,152,190,.14);border-bottom:1px solid rgba(119,152,190,.1);background:linear-gradient(100deg,rgba(6,9,15,.82),rgba(13,19,27,.36),rgba(5,7,12,.86));scroll-margin-top:90px}
+.scene-ambient>*:not(.scene-ambient-art){position:relative;z-index:1}
+.scene-ambient .scene-ambient-art,.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{position:absolute;pointer-events:none;content:"";display:block}
+.scene-ambient .scene-ambient-art{inset:0;z-index:-1;overflow:hidden}
+.scene-ambient-cable .scene-ambient-art::before{width:145%;height:21px;left:-23%;top:47%;border-radius:999px;background:linear-gradient(180deg,#080c10 0 24%,#778a94 42%,#182029 55%,#020405 100%);box-shadow:0 0 0 1px rgba(143,181,196,.24),0 0 25px rgba(98,177,205,.18),0 0 60px rgba(0,0,0,.9);opacity:0;transform:rotate(-7deg) translateX(-18%)}
+.scene-ambient-cable .scene-ambient-art::after{width:39%;height:82px;right:7%;top:28%;border-radius:50%;background:radial-gradient(ellipse,rgba(97,190,214,.16),rgba(53,99,117,.045) 45%,transparent 69%);filter:blur(8px);opacity:0}
+.scene-ambient-cable.is-visible .scene-ambient-art::before{animation:cablePass 3.6s cubic-bezier(.2,.7,.25,1) both}
+.scene-ambient-cable.is-visible .scene-ambient-art::after{animation:cablePulse 3.6s ease-out both}
+@keyframes cablePass{0%,8%{opacity:0;transform:rotate(-7deg) translateX(-18%)}18%{opacity:.88;transform:rotate(-7deg) translateX(-8%)}34%{transform:rotate(-6deg) translateX(2%) translateY(-5px)}49%{transform:rotate(-8deg) translateX(11%) translateY(4px)}65%{opacity:.77;transform:rotate(-6deg) translateX(21%) translateY(-3px)}100%{opacity:0;transform:rotate(-7deg) translateX(43%)}}
+@keyframes cablePulse{0%,12%{opacity:0;transform:scale(.7)}30%,55%{opacity:1;transform:scale(1.08)}100%{opacity:0;transform:scale(1.28)}}
+
+.scene-ambient-shadows{padding-top:32px;padding-bottom:34px;background:linear-gradient(100deg,rgba(6,8,13,.92),rgba(13,16,23,.58),rgba(5,7,11,.94))}
+.scene-ambient-shadows .scene-ambient-art::before{width:260px;height:180px;left:58%;top:15%;border-radius:47% 53% 60% 39% / 42% 38% 61% 58%;background:radial-gradient(ellipse at 42% 49%,rgba(0,0,0,.96) 0 33%,rgba(5,7,12,.73) 52%,transparent 73%);filter:blur(4px);mix-blend-mode:multiply;opacity:0;transform:translate3d(88px,17px,0) scale(.58)}
+.scene-ambient-shadows .scene-ambient-art::after{inset:0;background:linear-gradient(90deg,transparent 16%,rgba(143,176,196,.055) 51%,transparent 84%);opacity:0;transform:translateX(-30%)}
+.scene-ambient-shadows.is-visible .scene-ambient-art::before{animation:shadowShift 4.1s cubic-bezier(.25,.7,.25,1) both}
+.scene-ambient-shadows.is-visible .scene-ambient-art::after{animation:shadowShear 4.1s ease-out both}
+@keyframes shadowShift{0%,11%{opacity:0;transform:translate3d(88px,17px,0) scale(.58)}24%{opacity:.78;transform:translate3d(30px,6px,0) scale(1)}48%{opacity:.83;transform:translate3d(-18px,-5px,0) scale(1.13)}66%{opacity:.58;transform:translate3d(-38px,8px,0) scale(.91)}100%{opacity:0;transform:translate3d(-92px,26px,0) scale(.44)}}
+@keyframes shadowShear{0%,15%{opacity:0;transform:translateX(-30%)}38%{opacity:1;transform:translateX(0)}57%{opacity:.65;transform:translateX(12%)}100%{opacity:0;transform:translateX(36%)}}
+
+.scene-ambient-cube{min-height:720px;padding-top:42px;padding-bottom:46px;background:radial-gradient(ellipse at 72% 38%,rgba(25,37,52,.36),transparent 43%),linear-gradient(100deg,rgba(5,7,11,.94),rgba(10,15,22,.72),rgba(4,6,10,.97))}
+.scene-ambient-cube .scene-ambient-art::before{width:min(64vw,680px);height:min(64vw,680px);right:-15%;top:3%;background:linear-gradient(142deg,rgba(0,0,0,.98) 0 49%,rgba(31,43,55,.4) 50%,rgba(0,0,0,.98) 54% 100%);border:1px solid rgba(132,173,201,.24);box-shadow:-26px 22px 0 -1px rgba(0,0,0,.86),-26px 22px 0 0 rgba(124,162,186,.12),0 0 90px rgba(0,0,0,.96),inset 0 0 62px rgba(0,0,0,.92);opacity:0;transform:perspective(900px) rotateX(63deg) rotateZ(-18deg) scale(.52);transform-origin:center}
+.scene-ambient-cube .scene-ambient-art::after{width:min(48vw,500px);height:min(48vw,500px);right:-5%;top:16%;background:radial-gradient(ellipse,rgba(109,183,225,.11),rgba(35,68,94,.04) 43%,transparent 70%);filter:blur(10px);opacity:0}
+.scene-ambient-cube.is-visible .scene-ambient-art::before{animation:cubeEmerge 7s cubic-bezier(.17,.73,.21,1) forwards}
+.scene-ambient-cube.is-visible .scene-ambient-art::after{animation:cubeHalo 7s ease-out forwards}
+@keyframes cubeEmerge{0%,9%{opacity:0;transform:perspective(900px) rotateX(63deg) rotateZ(-18deg) scale(.52)}42%{opacity:.42;transform:perspective(900px) rotateX(56deg) rotateZ(-12deg) scale(.86)}72%{opacity:.5;transform:perspective(900px) rotateX(58deg) rotateZ(-10deg) scale(.92) translateY(-8px)}100%{opacity:.46;transform:perspective(900px) rotateX(57deg) rotateZ(-11deg) scale(.91) translateY(2px)}}
+@keyframes cubeHalo{0%,22%{opacity:0;transform:scale(.6)}58%{opacity:.82;transform:scale(1.05)}100%{opacity:.48;transform:scale(1)}}
+
+@media(max-width:680px){.scene-ambient{margin-left:-14px;margin-right:-14px;padding:23px 18px 25px}.scene-ambient-cube{min-height:560px}.scene-ambient-cube .scene-ambient-art::before{width:94vw;height:94vw;right:-42%;top:13%}}
+@media(prefers-reduced-motion:reduce){.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{animation:none!important}.scene-ambient-cable.is-visible .scene-ambient-art::before{opacity:.28;transform:rotate(-7deg) translateX(6%)}.scene-ambient-shadows.is-visible .scene-ambient-art::before{opacity:.28;transform:translate3d(0,0,0) scale(.86)}.scene-ambient-cube.is-visible .scene-ambient-art::before{opacity:.38;transform:perspective(900px) rotateX(57deg) rotateZ(-11deg) scale(.91)}}
+
 .hero-content.flash-active::before{animation:titleFlash 23s linear both}
 .hero-content.flash-active::after{animation:titleAfterglow 23s linear both}
 @media(prefers-reduced-motion:reduce){.hero-content.flash-active::before,.hero-content.flash-active::after{animation:none}}

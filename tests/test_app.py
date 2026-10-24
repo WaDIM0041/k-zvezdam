@@ -154,11 +154,16 @@ class SiteTests(unittest.TestCase):
         page = self.client.get('/read/1').get_data(as_text=True)
         self.assertEqual(page.count('<video '), 4)
         self.assertEqual(page.count('class="scene-media'), 8)
+        self.assertEqual(page.count('<section class="scene-ambient'), 3)
+        self.assertIn('scene-ambient-cable', page)
+        self.assertIn('scene-ambient-shadows', page)
+        self.assertIn('scene-ambient-cube', page)
         self.assertIn('%202.mp4', page)
         self.assertIn('id="scene-ending"', page)
         self.assertIn('— Ваад…', page)
         self.assertNotIn('«печатала»', page)
         self.assertNotIn('[scene]', page)
+        self.assertNotIn('[ambient]', page)
 
     def test_upload_requires_auth_csrf_and_valid_image_bytes(self):
         page = self.client.get("/admin/login")
