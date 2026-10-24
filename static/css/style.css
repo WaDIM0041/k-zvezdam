@@ -338,6 +338,16 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .ta-wrap textarea::placeholder{color:var(--dim)}
 [hidden] { display: none !important; }
 
+/* Chapter scenes: deliberate pauses between prose, with playback by choice. */
+.scene-media{margin:44px 0 46px;scroll-margin-top:90px}
+.scene-media img,.scene-media video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#050708;border:1px solid #27303a;border-radius:4px}
+.scene-media a{display:block}
+.scene-media a:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
+.scene-media figcaption{font-size:.76rem;line-height:1.6;color:#a3adba;margin-top:12px;text-align:left;letter-spacing:.015em}
+.scene-media:has(video){margin-top:36px}
+@media(min-width:1000px){.scene-media{width:calc(100% + 160px);margin-left:-80px;margin-right:-80px}}
+@media(max-width:600px){.scene-media{margin-top:30px;margin-bottom:32px}.scene-media figcaption{font-size:.73rem}}
+
 .hero-content.flash-active::before{animation:titleFlash 23s linear both}
 .hero-content.flash-active::after{animation:titleAfterglow 23s linear both}
 @media(prefers-reduced-motion:reduce){.hero-content.flash-active::before,.hero-content.flash-active::after{animation:none}}

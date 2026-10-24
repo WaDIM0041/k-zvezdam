@@ -142,6 +142,22 @@ class SiteTests(unittest.TestCase):
             for unsafe in ('javascript:alert(1)', '//attacker.test/a.mp4', '/%2e%2e/a.mp4'):
                 self.assertNotIn('<video', site._video_embed(unsafe))
 
+    def test_curated_prologue_media_and_finale(self):
+        from urllib.parse import unquote
+        root = Path(site.__file__).resolve().parent
+        media = json.loads((root / 'content/prologue-media.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(media), 7)
+        for item in media.values():
+            for field in ('src', 'poster'):
+                if field in item:
+                    self.assertTrue((root / unquote(item[field]).lstrip('/')).is_file())
+        page = self.client.get('/read/1').get_data(as_text=True)
+        self.assertEqual(page.count('<video '), 4)
+        self.assertEqual(page.count('class="scene-media'), 7)
+        self.assertIn('— Ваад…', page)
+        self.assertNotIn('«печатала»', page)
+        self.assertNotIn('[scene]', page)
+
     def test_upload_requires_auth_csrf_and_valid_image_bytes(self):
         page = self.client.get("/admin/login")
         token = self.csrf(page)

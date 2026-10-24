@@ -295,6 +295,10 @@ def render_body(body: str) -> Markup:
         text = chunk.strip()
         if not text:
             continue
+        scene = re.fullmatch(r"\[scene\]([a-z0-9-]+)\[/scene\]", text)
+        if scene:
+            rendered.append(_scene_media(scene.group(1)))
+            continue
         image = re.fullmatch(r"\[img\](.+?)\[/img\]", text, re.S)
         if image:
             src = _image_url(image.group(1))
@@ -316,14 +320,42 @@ def render_body(body: str) -> Markup:
     return Markup("\n".join(rendered))
 
 
+def _scene_media(key: str) -> str:
+    """Render the curated chapter media without accepting raw HTML in prose."""
+    manifest = BASE / "content" / "prologue-media.json"
+    if not manifest.is_file():
+        return ""
+    item = json.loads(manifest.read_text(encoding="utf-8")).get(key)
+    if not item:
+        return ""
+    src = _valid_web_url(item.get("src", ""))
+    if not src:
+        return ""
+    src = html.escape(src, quote=True)
+    label = html.escape(item.get("title", ""), quote=True)
+    caption = f'<figcaption>{label}</figcaption>' if label else ""
+    if item.get("type") == "video":
+        poster = _valid_web_url(item.get("poster", ""))
+        poster_attr = f' poster="{html.escape(poster, quote=True)}"' if poster else ""
+        return (f'<figure class="scene-media scene-video" id="scene-{key}">'
+                f'<video src="{src}"{poster_attr} controls playsinline preload="none" '
+                f'aria-label="{label}">Ваш браузер не поддерживает видео. '
+                f'<a href="{src}">Открыть видео</a></video>{caption}</figure>')
+    return (f'<figure class="scene-media" id="scene-{key}">'
+            f'<a href="{src}" target="_blank" rel="noopener noreferrer" '
+            f'aria-label="Открыть иллюстрацию: {label}">'
+            f'<img src="{src}" alt="{label}" width="1672" height="941" '
+            f'loading="lazy" decoding="async"></a>{caption}</figure>')
+
+
 def excerpt(body: str, n: int = 160) -> str:
-    clean = re.sub(r"\[(?:img|video|audio)\].*?\[/(?:img|video|audio)\]", " ", body or "", flags=re.S)
+    clean = re.sub(r"\[(?:img|video|audio|scene)\].*?\[/(?:img|video|audio|scene)\]", " ", body or "", flags=re.S)
     clean = re.sub(r"\s+", " ", clean).strip()
     return clean[:n] + ("…" if len(clean) > n else "")
 
 
 def reading_time(body: str) -> int:
-    clean = re.sub(r"\[(?:img|video|audio)\].*?\[/(?:img|video|audio)\]", " ", body or "", flags=re.S)
+    clean = re.sub(r"\[(?:img|video|audio|scene)\].*?\[/(?:img|video|audio|scene)\]", " ", body or "", flags=re.S)
     return max(1, round(len(re.findall(r"\S+", clean)) / 170))
 
 

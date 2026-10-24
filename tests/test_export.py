@@ -47,10 +47,16 @@ class StaticExportTests(unittest.TestCase):
         page = self.read("read/1/index.html")
         body_start = page.index('id="readBody">')
         self.assertLess(page.index("<video"), page.index("<p>", body_start))
-        self.assertIn('<video src="/static/video/prologue.mp4" controls playsinline preload="metadata"', page)
+        self.assertIn('id="scene-opening"', page)
+        self.assertEqual(page.count('<video '), 4)
+        self.assertEqual(page.count('preload="none"'), 4)
+        self.assertEqual(page.count('class="scene-media'), 7)
         self.assertNotIn("autoplay", page)
-        self.assertIn("Открыть видео отдельно", page)
         self.assertNotIn("[video]", page)
+        self.assertNotIn("[scene]", page)
+        self.assertIn("— Ваад…", page)
+        self.assertNotIn("«печатала»", page)
+        self.assertNotIn("— Я — твое завтра. Вадим.", page)
 
     def test_all_illustrations_are_exported_and_reachable(self):
         images = set()

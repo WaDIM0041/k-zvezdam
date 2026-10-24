@@ -8,9 +8,12 @@
       "title": "Вскрытие прошлого",
       "kind": "Пролог",
       "bodySource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
-      "bodySha256": "aa079478d60183f4e5f65f8081f36612e0ce7816983ac10c9a62f46508605968",
+      "bodySha256": "bea44c540e52835d22f3a77810165b3dac1cb3b54d99dfc298b76a5a92a86d67",
       "titleSource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
-      "publishedInPreview": true
+      "publishedInPreview": true,
+      "previousBodySha256": "aa079478d60183f4e5f65f8081f36612e0ce7816983ac10c9a62f46508605968",
+      "revision": "Авторская редакция хоррор-пролога из литературного кабинета, 23.10.2026; собрана по прямому поручению автора для интернет-предпросмотра",
+      "revisionSource": "content/prologue.txt"
     },
     {
       "position": 1,

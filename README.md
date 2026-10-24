@@ -45,3 +45,21 @@ python tools/verify_site.py --base https://kzvezdam.annakam.ru --expect-sha <sha
 ## Безопасность и пределы
 
 Сессии используют HttpOnly/SameSite cookies; все state-changing POST требуют CSRF token; logout — POST. Upload принимает только декодируемые JPEG/PNG/GIF/WEBP до 5 MiB с соответствующим расширением и случайным именем. Медиа и SQLite находятся в локальных каталогах. Content Security Policy включена в режиме Report-Only для наблюдения за существующими inline-скриптами и стилями; она пока не является блокирующей политикой. Всё перечисленное относится к локальному Flask-приложению: публичная статическая сборка не принимает POST, не хранит сессии и не содержит админки, поэтому эти риски на поддомен не переносятся.
+
+## Редакция пролога для GitHub Pages — 24.10.2026
+
+Полный текст: `content/prologue.txt`; размещение медиа: `content/prologue-media.json`.
+Новая редакция синхронизирована с записью пролога в `chapters_seed.json`.
+Четыре ролика и три иллюстрации размещены по ходу текста, видео запускаются по нажатию.
+
+Исходная ветка: `prologue-horror-preview` в закрытом репозитории приложения.
+Публичный репозиторий готового сайта: https://github.com/WaDIM0041/k-zvezdam-prologue-preview .
+Предпросмотр: https://wadim0041.github.io/k-zvezdam-prologue-preview/read/1/ .
+GitHub Pages закрытого репозитория недоступен на текущем тарифе; публичная версия содержит только готовый экспорт.
+Автодеплой main на kzvezdam.annakam.ru в рамках этой работы не запускать: автор переносит обновление самостоятельно.
+
+Сборка для GitHub Pages:
+`python tools/export_static.py --out ../publication/k-zvezdam-prologue-preview --origin https://wadim0041.github.io/k-zvezdam-prologue-preview --base-path /k-zvezdam-prologue-preview`
+
+Сборка для корня домена:
+`python tools/export_static.py --out ../publication/hosting --origin https://kzvezdam.annakam.ru`

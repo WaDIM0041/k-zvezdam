@@ -102,6 +102,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--origin", default=DEFAULT_ORIGIN, help="canonical-origin сайта")
     parser.add_argument("--db", default=None, help="исходная SQLite-база (копируется, не меняется)")
     parser.add_argument("--no-video", action="store_true", help="не добавлять блок [video] в пролог")
+    parser.add_argument("--base-path", default="", help="префикс адресов для GitHub Pages")
     return parser.parse_args(argv)
 
 
@@ -192,7 +193,10 @@ def main(argv: list[str] | None = None) -> int:
         with site.app.app_context():
             site.init_db(db_path)
 
-        if not args.no_video:
+        # The curated edition carries its own media placement, including the opening.
+        with sqlite3.connect(str(db_path)) as db:
+            curated = db.execute("SELECT body FROM chapters WHERE kind='Пролог'").fetchone()
+        if not args.no_video and not (curated and "[scene]opening[/scene]" in curated[0]):
             ensure_prologue_video(db_path, DEFAULT_VIDEO_TAG)
 
         client = site.app.test_client()
@@ -214,6 +218,11 @@ def main(argv: list[str] | None = None) -> int:
             if response.status_code != 200:
                 raise SystemExit(f"{path}: HTTP {response.status_code}")
             html = postprocess(response.get_data(as_text=True))
+            prefix = args.base_path.rstrip("/")
+            if prefix:
+                if not re.fullmatch(r"/[A-Za-z0-9_-]+", prefix):
+                    raise SystemExit("Недопустимый base-path")
+                html = re.sub(r'((?:href|src|poster)=")/(?!/)', lambda m: m[1] + prefix + "/", html)
             check_no_local_refs(html, path)
             return html
 
@@ -243,6 +252,7 @@ def main(argv: list[str] | None = None) -> int:
         shutil.copytree(ROOT / "static", out / "static")
         write(out / ".htaccess", HTACCESS)
         write(out / MARKER, "static export of the Flask reader\n")
+        write(out / ".nojekyll", "")
 
         version = {
             "site": origin,
