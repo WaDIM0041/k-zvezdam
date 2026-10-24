@@ -105,7 +105,7 @@ if(a && 'mediaSession' in navigator){
     entries.forEach(function(entry){
       if(entry.isIntersecting) return;
       var scene=entry.target;
-      if(scene.classList.contains('scene-ambient-cable') || scene.classList.contains('scene-ambient-shadows')) scene.classList.remove('is-visible');
+      if(scene.classList.contains('scene-ambient-shadows')) scene.classList.remove('is-visible');
       scene.classList.remove('glitch-visible');
     });
   });

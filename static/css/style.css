@@ -361,12 +361,6 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient-abyss .ambient-object{position:absolute;bottom:9%;left:7%;right:7%;height:120px;opacity:0;background:repeating-linear-gradient(0deg,transparent 0 16px,rgba(152,194,209,.48) 17px,transparent 20px 31px),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 78%/100% 500%;clip-path:polygon(5% 8%,95% 8%,95% 23%,18% 23%,18% 40%,84% 40%,84% 55%,8% 55%,8% 77%,92% 77%,92% 94%,5% 94%);filter:brightness(1.65)}
 .scene-ambient-abyss.glitch-visible .ambient-object{animation:abyssDistortion 8s linear both}
 @keyframes abyssDistortion{0%,12%,39%,57%,89%,100%{opacity:0;transform:translateX(0)}17%{opacity:.92;transform:translateX(-16px) skewX(-9deg)}29%{opacity:.78;transform:translateX(10px) skewX(4deg)}63%{opacity:.88;transform:translateX(17px) skewX(7deg)}77%{opacity:.65;transform:translateX(-11px) skewX(-5deg)}}
-.scene-ambient-cable .scene-ambient-art::before{width:145%;height:32px;left:-23%;top:47%;border-radius:999px;background:linear-gradient(180deg,#080c10 0 20%,#adbfca 39%,#566a78 47%,#1b2833 60%,#020405 100%);box-shadow:0 0 0 1px rgba(162,202,216,.46),0 0 32px rgba(98,177,205,.32),0 0 60px rgba(0,0,0,.9);opacity:0;transform:rotate(-7deg) translateX(-18%)}
-.scene-ambient-cable .scene-ambient-art::after{width:39%;height:82px;right:7%;top:28%;border-radius:50%;background:radial-gradient(ellipse,rgba(97,190,214,.16),rgba(53,99,117,.045) 45%,transparent 69%);filter:blur(8px);opacity:0}
-.scene-ambient-cable.is-visible .scene-ambient-art::before{animation:cablePass 8s cubic-bezier(.2,.7,.25,1) both}
-.scene-ambient-cable.is-visible .scene-ambient-art::after{animation:cablePulse 8s ease-out both}
-@keyframes cablePass{0%,12%{opacity:0;transform:rotate(-7deg) translateX(-18%)}24%{opacity:1;transform:rotate(-7deg) translateX(-8%)}40%{opacity:1;transform:rotate(-4deg) translateX(2%) translateY(-14px)}57%{opacity:1;transform:rotate(-9deg) translateX(11%) translateY(12px)}75%{opacity:.94;transform:rotate(-5deg) translateX(21%) translateY(-9px)}100%{opacity:0;transform:rotate(-7deg) translateX(43%)}}
-@keyframes cablePulse{0%,12%{opacity:0;transform:scale(.7)}30%,65%{opacity:1;transform:scale(1.18)}100%{opacity:0;transform:scale(1.38)}}
 
 .scene-ambient-shadows{padding-top:32px;padding-bottom:34px;background:radial-gradient(ellipse 650px 430px at 55% 140px,rgba(65,80,98,.36),transparent 84%),linear-gradient(100deg,rgba(6,8,13,.92),rgba(13,16,23,.58),rgba(5,7,11,.94))}
 .scene-ambient-shadows .scene-ambient-art::before{width:340px;height:240px;left:58%;top:15%;border-radius:47% 53% 60% 39% / 42% 38% 61% 58%;background:radial-gradient(ellipse at 42% 49%,#000 0 40%,rgba(0,0,0,.9) 57%,transparent 76%);filter:blur(2px);opacity:0;transform:translate3d(120px,17px,0) scale(.58)}
@@ -377,30 +371,22 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 @keyframes shadowShear{0%,12%{opacity:0;transform:translateX(-30%)}32%,60%{opacity:1;transform:translateX(0)}78%{opacity:.65;transform:translateX(12%)}100%{opacity:0;transform:translateX(36%)}}
 
 .scene-ambient-cube{min-height:720px;padding-top:42px;padding-bottom:46px;background:radial-gradient(ellipse at 72% 38%,rgba(25,37,52,.36),transparent 43%),linear-gradient(100deg,rgba(5,7,11,.94),rgba(10,15,22,.72),rgba(4,6,10,.97))}
-.scene-ambient-cube .scene-ambient-art::before{width:min(64vw,680px);height:min(64vw,680px);right:-15%;top:3%;background:linear-gradient(142deg,rgba(0,0,0,.98) 0 49%,rgba(31,43,55,.4) 50%,rgba(0,0,0,.98) 54% 100%);border:1px solid rgba(132,173,201,.24);box-shadow:-26px 22px 0 -1px rgba(0,0,0,.86),-26px 22px 0 0 rgba(124,162,186,.12),0 0 90px rgba(0,0,0,.96),inset 0 0 62px rgba(0,0,0,.92);opacity:0;transform:perspective(900px) rotateX(63deg) rotateZ(-18deg) scale(.52);transform-origin:center}
-.scene-ambient-cube .scene-ambient-art::after{width:min(48vw,500px);height:min(48vw,500px);right:-5%;top:16%;background:radial-gradient(ellipse,rgba(109,183,225,.11),rgba(35,68,94,.04) 43%,transparent 70%);filter:blur(10px);opacity:0}
-.scene-ambient-cube.is-visible .scene-ambient-art::before{animation:cubeEmerge 7s cubic-bezier(.17,.73,.21,1) forwards}
-.scene-ambient-cube.is-visible .scene-ambient-art::after{animation:cubeHalo 7s ease-out forwards}
-@keyframes cubeEmerge{0%,9%{opacity:0;transform:perspective(900px) rotateX(63deg) rotateZ(-18deg) scale(.52)}42%{opacity:.42;transform:perspective(900px) rotateX(56deg) rotateZ(-12deg) scale(.86)}72%{opacity:.5;transform:perspective(900px) rotateX(58deg) rotateZ(-10deg) scale(.92) translateY(-8px)}100%{opacity:.46;transform:perspective(900px) rotateX(57deg) rotateZ(-11deg) scale(.91) translateY(2px)}}
-@keyframes cubeHalo{0%,22%{opacity:0;transform:scale(.6)}58%{opacity:.82;transform:scale(1.05)}100%{opacity:.48;transform:scale(1)}}
 
 /* Keep brief events near their text anchor; let the final cube follow its scene. */
-.scene-ambient-cable .scene-ambient-art::before{top:125px}
-.scene-ambient-cable .scene-ambient-art::after{top:90px}
 .scene-ambient-shadows .scene-ambient-art::before{top:70px;left:48%;box-shadow:0 0 70px rgba(105,131,159,.13)}
 .scene-ambient-cube{overflow:clip}
-.scene-ambient-cube .scene-ambient-art{overflow:clip}
+.scene-ambient-cube .scene-ambient-art{overflow:clip;background:radial-gradient(ellipse 520px 460px at 70% 40vh,rgba(102,125,139,.14),transparent 78%)}
 .scene-ambient-cube .scene-ambient-art::before,.scene-ambient-cube .scene-ambient-art::after{display:none}
-.scene-ambient-cube .ambient-object{display:block;position:sticky;top:24vh;margin:130px 0 0 auto;width:min(72vw,560px);height:490px;perspective:850px;opacity:0;transition:opacity 3.8s ease-out}
-.scene-ambient-cube.is-visible .ambient-object{opacity:.76}
-.scene-ambient-cube .ambient-object::before{content:"";display:block;position:absolute;inset:0;background:linear-gradient(145deg,#2b4055 0 37%,#05090e 37.3% 71%,#182634 71.3%);clip-path:polygon(17% 0,94% 16%,94% 81%,72% 100%,0 77%,0 15%);border:1px solid rgba(130,168,190,.6);filter:drop-shadow(0 10px 25px #000);transform:rotate(-5deg) scale(.94)}
+.scene-ambient-cube .ambient-object{display:block;position:sticky;top:19vh;margin:100px 0 0 auto;width:min(85vw,650px);height:560px;opacity:0;transition:opacity 4.2s ease-out}
+.scene-ambient-cube.is-visible .ambient-object{opacity:1}
+.scene-ambient-cube .ambient-object::before{content:"";display:block;position:absolute;inset:0;background:url("../prologue/Чёрный Куб из финала — v001.webp") center/contain no-repeat;filter:drop-shadow(0 18px 35px rgba(0,0,0,.85));transform:rotate(-1deg) scale(.96)}
 .scene-ambient-cube.is-visible .ambient-object::before{animation:ambientCubeFloat 13s ease-in-out infinite}
-@keyframes ambientCubeFloat{0%,100%{transform:rotate(-5deg) translateY(0) scale(.94)}50%{transform:rotate(-1.5deg) translateY(-21px) scale(.98)}}
+@keyframes ambientCubeFloat{0%,100%{transform:rotate(-1deg) translateY(0) scale(.96)}50%{transform:rotate(.6deg) translateY(-14px) scale(.975)}}
 @media(max-width:680px){.scene-ambient-abyss{min-height:780px;padding-top:35px;padding-bottom:52px}.scene-ambient-abyss .scene-ambient-art{background-position:45% center}.scene-ambient-cube .ambient-object{height:330px;margin-top:90px;width:95%}}
 @media(prefers-reduced-motion:reduce){.scene-ambient-abyss .scene-ambient-art,.scene-ambient-cube .ambient-object{transition:none}.scene-ambient-abyss .ambient-object,.scene-ambient-cube .ambient-object::before{animation:none!important}.scene-ambient-abyss .ambient-object{display:none}}
 
-@media(max-width:680px){.scene-ambient{margin-left:-14px;margin-right:-14px;padding:23px 18px 25px}.scene-ambient-cube{min-height:560px}.scene-ambient-cube .scene-ambient-art::before{width:94vw;height:94vw;right:-42%;top:13%}}
-@media(prefers-reduced-motion:reduce){.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{animation:none!important}.scene-ambient-cable.is-visible .scene-ambient-art::before{opacity:.28;transform:rotate(-7deg) translateX(6%)}.scene-ambient-shadows.is-visible .scene-ambient-art::before{opacity:.28;transform:translate3d(0,0,0) scale(.86)}.scene-ambient-cube.is-visible .scene-ambient-art::before{opacity:.38;transform:perspective(900px) rotateX(57deg) rotateZ(-11deg) scale(.91)}}
+@media(max-width:680px){.scene-ambient{margin-left:-14px;margin-right:-14px;padding:23px 18px 25px}.scene-ambient-cube{min-height:560px}}
+@media(prefers-reduced-motion:reduce){.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{animation:none!important}.scene-ambient-shadows.is-visible .scene-ambient-art::before{opacity:.28;transform:translate3d(0,0,0) scale(.86)}}
 
 .hero-content.flash-active::before{animation:titleFlash 23s linear both}
 .hero-content.flash-active::after{animation:titleAfterglow 23s linear both}
