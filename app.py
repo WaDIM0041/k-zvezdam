@@ -293,6 +293,7 @@ def render_body(body: str) -> Markup:
     rendered: list[str] = []
     open_ambient = False
     ambient_keys = {
+        "abyss": "Взгляд в бездонную шахту станции",
         "cable": "Кабель подаёт едва заметный признак движения",
         "shadows": "Бесформенная тень смещается на стене",
         "cube": "Куб медленно проступает из темноты",
@@ -308,9 +309,10 @@ def render_body(body: str) -> Markup:
                 if open_ambient:
                     rendered.append("</section>")
                 label = html.escape(ambient_keys[key], quote=True)
+                trigger = '<span class="ambient-glitch-trigger" aria-hidden="true"></span>' if key == "abyss" else ""
                 rendered.append(
                     f'<section id="ambient-{key}" class="scene-ambient scene-ambient-{key}" '
-                    f'aria-label="{label}"><span class="scene-ambient-art" aria-hidden="true"></span>'
+                    f'aria-label="{label}"><span class="scene-ambient-art" aria-hidden="true"><span class="ambient-object"></span></span>{trigger}'
                 )
                 open_ambient = True
             continue

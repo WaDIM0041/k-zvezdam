@@ -93,11 +93,14 @@ if(a && 'mediaSession' in navigator){
   var observer=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(!entry.isIntersecting) return;
-      reveal(entry.target);
+      var scene=entry.target.closest('.scene-ambient');
+      if(entry.target.classList.contains('ambient-glitch-trigger')) scene.classList.add('glitch-visible');
+      else reveal(scene);
       observer.unobserve(entry.target);
     });
-  },{rootMargin:'0px 0px -16% 0px',threshold:.14});
-  scenes.forEach(function(scene){observer.observe(scene)});
+  },{rootMargin:'-10% 0px -24% 0px',threshold:0});
+  scenes.forEach(function(scene){observer.observe(scene.querySelector('p') || scene)});
+  document.querySelectorAll('.ambient-glitch-trigger').forEach(function(trigger){observer.observe(trigger)});
 })();
 </script>
 <script nonce="{{ csp_nonce }}">

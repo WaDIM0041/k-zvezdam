@@ -154,7 +154,8 @@ class SiteTests(unittest.TestCase):
         page = self.client.get('/read/1').get_data(as_text=True)
         self.assertEqual(page.count('<video '), 4)
         self.assertEqual(page.count('class="scene-media'), 8)
-        self.assertEqual(page.count('<section id="ambient-'), 3)
+        self.assertEqual(page.count('<section id="ambient-'), 4)
+        self.assertIn('id="ambient-abyss"', page)
         self.assertIn('scene-ambient-cable', page)
         self.assertIn('scene-ambient-shadows', page)
         self.assertIn('scene-ambient-cube', page)
@@ -167,6 +168,11 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn('«печатала»', page)
         self.assertNotIn('[scene]', page)
         self.assertNotIn('[ambient]', page)
+        abyss = page.split('id="ambient-abyss"', 1)[1].split('</section>', 1)[0]
+        self.assertIn('Всё пытаюсь понять, где здесь низ.', abyss)
+        self.assertIn('Дальше луч терялся.', abyss)
+        self.assertNotIn('У следующей колонны', abyss)
+        self.assertNotIn('scene-ambient-abyss', self.client.get('/read/2').get_data(as_text=True))
 
     def test_upload_requires_auth_csrf_and_valid_image_bytes(self):
         page = self.client.get("/admin/login")

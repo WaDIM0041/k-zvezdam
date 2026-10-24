@@ -353,6 +353,14 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient>*:not(.scene-ambient-art){position:relative;z-index:1}
 .scene-ambient .scene-ambient-art,.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{position:absolute;pointer-events:none;content:"";display:block}
 .scene-ambient .scene-ambient-art{inset:0;z-index:0;overflow:hidden}
+.scene-ambient-abyss{min-height:760px;margin-top:26px;padding-top:54px;padding-bottom:68px;background:#03070b;border:0;border-radius:3px}
+.scene-ambient-abyss .scene-ambient-art{background:linear-gradient(180deg,rgba(3,6,10,.35),rgba(3,6,10,.38) 58%,rgba(2,4,8,.76)),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 60%/cover no-repeat;opacity:0;transition:opacity 2.4s ease-out;mask-image:linear-gradient(180deg,transparent,black 7%,black 91%,transparent)}
+.scene-ambient-abyss.is-visible .scene-ambient-art{opacity:.65}
+.scene-ambient-abyss p{text-shadow:0 1px 5px #000,0 0 18px #000}
+.scene-ambient-abyss .ambient-glitch-trigger{position:absolute!important;top:74%;left:0;width:1px;height:2px;pointer-events:none}
+.scene-ambient-abyss .ambient-object{position:absolute;bottom:11%;left:13%;right:13%;height:62px;opacity:0;background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(105,153,168,.19) 10px,transparent 12px 19px);clip-path:polygon(13% 18%,87% 18%,87% 27%,29% 27%,29% 54%,71% 54%,71% 61%,17% 61%,17% 85%,84% 85%,84% 91%,13% 91%);filter:blur(.35px)}
+.scene-ambient-abyss.glitch-visible .ambient-object{animation:abyssDistortion 5.2s linear both}
+@keyframes abyssDistortion{0%,14%,23%,47%,58%,100%{opacity:0;transform:translateX(0)}16%,20%{opacity:.65;transform:translateX(-9px) skewX(-8deg)}49%,54%{opacity:.43;transform:translateX(7px) skewX(5deg)}}
 .scene-ambient-cable .scene-ambient-art::before{width:145%;height:21px;left:-23%;top:47%;border-radius:999px;background:linear-gradient(180deg,#080c10 0 24%,#778a94 42%,#182029 55%,#020405 100%);box-shadow:0 0 0 1px rgba(143,181,196,.24),0 0 25px rgba(98,177,205,.18),0 0 60px rgba(0,0,0,.9);opacity:0;transform:rotate(-7deg) translateX(-18%)}
 .scene-ambient-cable .scene-ambient-art::after{width:39%;height:82px;right:7%;top:28%;border-radius:50%;background:radial-gradient(ellipse,rgba(97,190,214,.16),rgba(53,99,117,.045) 45%,transparent 69%);filter:blur(8px);opacity:0}
 .scene-ambient-cable.is-visible .scene-ambient-art::before{animation:cablePass 3.6s cubic-bezier(.2,.7,.25,1) both}
@@ -375,6 +383,21 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient-cube.is-visible .scene-ambient-art::after{animation:cubeHalo 7s ease-out forwards}
 @keyframes cubeEmerge{0%,9%{opacity:0;transform:perspective(900px) rotateX(63deg) rotateZ(-18deg) scale(.52)}42%{opacity:.42;transform:perspective(900px) rotateX(56deg) rotateZ(-12deg) scale(.86)}72%{opacity:.5;transform:perspective(900px) rotateX(58deg) rotateZ(-10deg) scale(.92) translateY(-8px)}100%{opacity:.46;transform:perspective(900px) rotateX(57deg) rotateZ(-11deg) scale(.91) translateY(2px)}}
 @keyframes cubeHalo{0%,22%{opacity:0;transform:scale(.6)}58%{opacity:.82;transform:scale(1.05)}100%{opacity:.48;transform:scale(1)}}
+
+/* Keep brief events near their text anchor; let the final cube follow its scene. */
+.scene-ambient-cable .scene-ambient-art::before{top:125px}
+.scene-ambient-cable .scene-ambient-art::after{top:90px}
+.scene-ambient-shadows .scene-ambient-art::before{top:70px;left:48%;box-shadow:0 0 70px rgba(105,131,159,.13)}
+.scene-ambient-cube{overflow:clip}
+.scene-ambient-cube .scene-ambient-art{overflow:clip}
+.scene-ambient-cube .scene-ambient-art::before,.scene-ambient-cube .scene-ambient-art::after{display:none}
+.scene-ambient-cube .ambient-object{display:block;position:sticky;top:24vh;margin:130px 0 0 auto;width:min(66vw,490px);height:450px;perspective:850px;opacity:0;transition:opacity 5s ease-out}
+.scene-ambient-cube.is-visible .ambient-object{opacity:.42}
+.scene-ambient-cube .ambient-object::before{content:"";display:block;position:absolute;inset:0;background:linear-gradient(145deg,#111a24 0 37%,#010304 37.3% 71%,#080e14 71.3%);clip-path:polygon(17% 0,94% 16%,94% 81%,72% 100%,0 77%,0 15%);border:1px solid rgba(130,168,190,.32);filter:drop-shadow(0 10px 25px #000);transform:rotate(-5deg) scale(.94)}
+.scene-ambient-cube.is-visible .ambient-object::before{animation:ambientCubeFloat 13s ease-in-out infinite}
+@keyframes ambientCubeFloat{0%,100%{transform:rotate(-5deg) translateY(0) scale(.94)}50%{transform:rotate(-3deg) translateY(-13px) scale(.96)}}
+@media(max-width:680px){.scene-ambient-abyss{min-height:780px;padding-top:35px;padding-bottom:52px}.scene-ambient-abyss .scene-ambient-art{background-position:45% center}.scene-ambient-cube .ambient-object{height:330px;margin-top:90px;width:95%}}
+@media(prefers-reduced-motion:reduce){.scene-ambient-abyss .scene-ambient-art,.scene-ambient-cube .ambient-object{transition:none}.scene-ambient-abyss .ambient-object,.scene-ambient-cube .ambient-object::before{animation:none!important}.scene-ambient-abyss .ambient-object{display:none}}
 
 @media(max-width:680px){.scene-ambient{margin-left:-14px;margin-right:-14px;padding:23px 18px 25px}.scene-ambient-cube{min-height:560px}.scene-ambient-cube .scene-ambient-art::before{width:94vw;height:94vw;right:-42%;top:13%}}
 @media(prefers-reduced-motion:reduce){.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{animation:none!important}.scene-ambient-cable.is-visible .scene-ambient-art::before{opacity:.28;transform:rotate(-7deg) translateX(6%)}.scene-ambient-shadows.is-visible .scene-ambient-art::before{opacity:.28;transform:translate3d(0,0,0) scale(.86)}.scene-ambient-cube.is-visible .scene-ambient-art::before{opacity:.38;transform:perspective(900px) rotateX(57deg) rotateZ(-11deg) scale(.91)}}
