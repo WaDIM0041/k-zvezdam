@@ -232,6 +232,9 @@ def main(argv: list[str] | None = None) -> int:
         write(out / "chapters" / "index.html", fetch("/chapters"))
         written.append("/chapters")
 
+        write(out / "about" / "index.html", fetch("/about"))
+        written.append("/about")
+
         for row in chapters:
             cid = int(row["id"])
             write(out / "read" / str(cid) / "index.html", fetch(f"/read/{cid}"))

@@ -411,6 +411,11 @@ def index():
     return render_template("index.html", chapters=rows)
 
 
+@app.route("/about")
+def about_project():
+    return render_template("about_project.html")
+
+
 @app.route("/chapters")
 def chapters():
     rows = get_db().execute("SELECT * FROM chapters WHERE published=1 ORDER BY position, id").fetchall()

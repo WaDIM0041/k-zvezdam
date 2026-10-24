@@ -391,3 +391,20 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .hero-content.flash-active::before{animation:titleFlash 23s linear both}
 .hero-content.flash-active::after{animation:titleAfterglow 23s linear both}
 @media(prefers-reduced-motion:reduce){.hero-content.flash-active::before,.hero-content.flash-active::after{animation:none}}
+
+/* Footer: a new star draws attention briefly, then rests. */
+.project-about{margin:0 auto 30px;max-width:760px}
+.project-about-button{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:12px;min-height:50px;padding:12px 28px;border:1px solid #83cfff;border-radius:999px;background:#0b2037;color:#eaf7ff;font:600 1rem Manrope,sans-serif;cursor:pointer;list-style:none;box-shadow:0 0 22px #65baff26;animation:projectStarGlow 12s ease-in-out infinite}
+.project-about-button::-webkit-details-marker{display:none}
+.project-about-button{background:transparent;border-color:rgba(131,207,255,.14)}
+.project-about-button:hover{background:transparent;border-color:rgba(208,238,255,.25)}
+.project-about-button:focus-visible{outline:3px solid #d0eeff;outline-offset:6px}
+.project-star{position:relative;color:#a8e2ff;font-size:24px;line-height:1}
+.project-star::after{content:'';position:absolute;inset:-16px;background:radial-gradient(circle,#fff 0%,#c6efff 10%,#73c6ff66 28%,transparent 68%);opacity:0;pointer-events:none;animation:projectStarBirth 12s ease-out infinite}
+.project-about-copy{margin-top:26px;padding:26px clamp(18px,4vw,36px);text-align:left;background:#070e1be8;border:1px solid #81caff40;border-radius:16px;color:#becddd;font-size:1rem;line-height:1.8}
+.project-about-copy h2{margin:0 0 18px;color:#edf6ff;font:600 clamp(26px,4vw,36px)/1.2 'Cormorant Garamond',serif}
+.project-about-copy p{margin:0 0 16px}
+.project-about-copy p:last-child{margin-bottom:0}
+@keyframes projectStarBirth{0%,77%,88%,100%{opacity:0;transform:scale(.5)}80%{opacity:.95;transform:scale(1.35)}84%{opacity:.25;transform:scale(1.9)}}
+@keyframes projectStarGlow{0%,77%,90%,100%{box-shadow:0 0 22px #65baff26}81%{box-shadow:0 0 28px #99dbff88,0 0 55px #65baff33}85%{box-shadow:0 0 30px #65baff44}}
+@media(prefers-reduced-motion:reduce){.project-about-button,.project-star::after{animation:none}}
