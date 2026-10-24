@@ -30,7 +30,7 @@
         footerFlash.style.setProperty('--flash-y',(20+Math.random()*60)+'%');
         void footerFlash.offsetWidth;
         footerFlash.classList.add('flash-active');
-        scheduleFooterFlash(14000+Math.random()*8000);
+        scheduleFooterFlash(14000+Math.random()*2000);
       },delay);
     }
     new IntersectionObserver(function(entries){
