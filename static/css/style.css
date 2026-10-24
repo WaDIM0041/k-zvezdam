@@ -408,3 +408,10 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 @keyframes projectStarBirth{0%,77%,88%,100%{opacity:0;transform:scale(.5)}80%{opacity:.95;transform:scale(1.35)}84%{opacity:.25;transform:scale(1.9)}}
 @keyframes projectStarGlow{0%,77%,90%,100%{box-shadow:0 0 22px #65baff26}81%{box-shadow:0 0 28px #99dbff88,0 0 55px #65baff33}85%{box-shadow:0 0 30px #65baff44}}
 @media(prefers-reduced-motion:reduce){.project-about-button,.project-star::after{animation:none}}
+.footer-flashes{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.footer-flashes::before,.footer-flashes::after{content:'';position:absolute;left:var(--flash-x,50%);top:var(--flash-y,50%);width:540px;height:340px;max-width:95vw;transform:translate(-50%,-50%);opacity:0;border-radius:50%;pointer-events:none}
+.footer-flashes::before{background:radial-gradient(ellipse,rgba(255,255,255,.95) 0%,rgba(174,228,255,.7) 5%,rgba(95,170,255,.3) 22%,transparent 65%)}
+.footer-flashes::after{background:radial-gradient(ellipse,rgba(205,40,55,.42),rgba(130,15,40,.25) 35%,transparent 70%)}
+.footer-flashes.flash-active::before{animation:titleFlash 23s linear both}
+.footer-flashes.flash-active::after{animation:titleAfterglow 23s linear both}
+@media(prefers-reduced-motion:reduce){.footer-flashes{display:none}}
