@@ -94,19 +94,19 @@ if(a && 'mediaSession' in navigator){
     entries.forEach(function(entry){
       if(!entry.isIntersecting) return;
       var scene=entry.target.closest('.scene-ambient');
-      if(entry.target.classList.contains('ambient-glitch-trigger')) scene.classList.add('glitch-visible');
+      if(entry.target.classList.contains('ambient-glow-trigger')) scene.classList.add('glow-visible');
       else reveal(scene);
     });
   },{rootMargin:'-10% 0px -24% 0px',threshold:0});
   scenes.forEach(function(scene){observer.observe(scene.querySelector('p') || scene)});
-  document.querySelectorAll('.ambient-glitch-trigger').forEach(function(trigger){observer.observe(trigger)});
+  document.querySelectorAll('.ambient-glow-trigger').forEach(function(trigger){observer.observe(trigger)});
   // Rearm brief events only after their whole scene leaves the viewport.
   var resetObserver=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting) return;
       var scene=entry.target;
       if(scene.classList.contains('scene-ambient-shadows')) scene.classList.remove('is-visible');
-      scene.classList.remove('glitch-visible');
+      scene.classList.remove('glow-visible');
     });
   });
   scenes.forEach(function(scene){if(!scene.classList.contains('scene-ambient-cube')) resetObserver.observe(scene)});

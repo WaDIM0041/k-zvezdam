@@ -357,10 +357,10 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient-abyss .scene-ambient-art{background:linear-gradient(180deg,rgba(3,6,10,.12),rgba(3,6,10,.19) 58%,rgba(2,4,8,.44)),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 60%/cover no-repeat;opacity:0;transition:opacity 1.8s ease-out;mask-image:linear-gradient(180deg,transparent,black 7%,black 91%,transparent)}
 .scene-ambient-abyss.is-visible .scene-ambient-art{opacity:.94}
 .scene-ambient-abyss p{text-shadow:0 1px 5px #000,0 0 18px #000}
-.scene-ambient-abyss .ambient-glitch-trigger{position:absolute!important;top:74%;left:0;width:1px;height:2px;pointer-events:none}
-.scene-ambient-abyss .ambient-object{position:absolute;bottom:9%;left:7%;right:7%;height:120px;opacity:0;background:repeating-linear-gradient(0deg,transparent 0 16px,rgba(152,194,209,.48) 17px,transparent 20px 31px),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 78%/100% 500%;clip-path:polygon(5% 8%,95% 8%,95% 23%,18% 23%,18% 40%,84% 40%,84% 55%,8% 55%,8% 77%,92% 77%,92% 94%,5% 94%);filter:brightness(1.65)}
-.scene-ambient-abyss.glitch-visible .ambient-object{animation:abyssDistortion 8s linear both}
-@keyframes abyssDistortion{0%,12%,39%,57%,89%,100%{opacity:0;transform:translateX(0)}17%{opacity:.92;transform:translateX(-16px) skewX(-9deg)}29%{opacity:.78;transform:translateX(10px) skewX(4deg)}63%{opacity:.88;transform:translateX(17px) skewX(7deg)}77%{opacity:.65;transform:translateX(-11px) skewX(-5deg)}}
+.scene-ambient-abyss .ambient-glow-trigger{position:absolute!important;top:74%;left:0;width:1px;height:2px;pointer-events:none}
+.scene-ambient-abyss .ambient-object{position:absolute;top:85%;left:58%;width:110px;height:82px;opacity:0;transform:translate(-50%,-50%);background:radial-gradient(ellipse at 50% 55%,rgba(217,240,246,.96) 0,rgba(137,203,219,.78) 8%,rgba(78,142,166,.4) 27%,rgba(47,98,128,.16) 46%,transparent 72%);filter:blur(3px);mix-blend-mode:screen}
+.scene-ambient-abyss.glow-visible .ambient-object{animation:abyssDepthGlow 11s ease-in-out infinite}
+@keyframes abyssDepthGlow{0%,10%,88%,100%{opacity:0}42%{opacity:.92}62%{opacity:.5}}
 
 .scene-ambient-shadows{padding-top:32px;padding-bottom:34px;background:radial-gradient(ellipse 650px 430px at 55% 140px,rgba(65,80,98,.36),transparent 84%),linear-gradient(100deg,rgba(6,8,13,.92),rgba(13,16,23,.58),rgba(5,7,11,.94))}
 .scene-ambient-shadows .scene-ambient-art::before{width:340px;height:240px;left:58%;top:15%;border-radius:47% 53% 60% 39% / 42% 38% 61% 58%;background:radial-gradient(ellipse at 42% 49%,#000 0 40%,rgba(0,0,0,.9) 57%,transparent 76%);filter:blur(2px);opacity:0;transform:translate3d(120px,17px,0) scale(.58)}

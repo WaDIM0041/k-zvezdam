@@ -308,7 +308,7 @@ def render_body(body: str) -> Markup:
                 if open_ambient:
                     rendered.append("</section>")
                 label = html.escape(ambient_keys[key], quote=True)
-                trigger = '<span class="ambient-glitch-trigger" aria-hidden="true"></span>' if key == "abyss" else ""
+                trigger = '<span class="ambient-glow-trigger" aria-hidden="true"></span>' if key == "abyss" else ""
                 rendered.append(
                     f'<section id="ambient-{key}" class="scene-ambient scene-ambient-{key}" '
                     f'aria-label="{label}"><span class="scene-ambient-art" aria-hidden="true"><span class="ambient-object"></span></span>{trigger}'
