@@ -352,7 +352,7 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient{position:relative;isolation:isolate;overflow:hidden;margin:38px -28px 42px;padding:28px 28px 30px;border-top:1px solid rgba(119,152,190,.14);border-bottom:1px solid rgba(119,152,190,.1);background:linear-gradient(100deg,rgba(6,9,15,.82),rgba(13,19,27,.36),rgba(5,7,12,.86));scroll-margin-top:90px}
 .scene-ambient>*:not(.scene-ambient-art){position:relative;z-index:1}
 .scene-ambient .scene-ambient-art,.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{position:absolute;pointer-events:none;content:"";display:block}
-.scene-ambient .scene-ambient-art{inset:0;z-index:-1;overflow:hidden}
+.scene-ambient .scene-ambient-art{inset:0;z-index:0;overflow:hidden}
 .scene-ambient-cable .scene-ambient-art::before{width:145%;height:21px;left:-23%;top:47%;border-radius:999px;background:linear-gradient(180deg,#080c10 0 24%,#778a94 42%,#182029 55%,#020405 100%);box-shadow:0 0 0 1px rgba(143,181,196,.24),0 0 25px rgba(98,177,205,.18),0 0 60px rgba(0,0,0,.9);opacity:0;transform:rotate(-7deg) translateX(-18%)}
 .scene-ambient-cable .scene-ambient-art::after{width:39%;height:82px;right:7%;top:28%;border-radius:50%;background:radial-gradient(ellipse,rgba(97,190,214,.16),rgba(53,99,117,.045) 45%,transparent 69%);filter:blur(8px);opacity:0}
 .scene-ambient-cable.is-visible .scene-ambient-art::before{animation:cablePass 3.6s cubic-bezier(.2,.7,.25,1) both}
