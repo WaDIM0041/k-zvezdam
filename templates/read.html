@@ -96,11 +96,20 @@ if(a && 'mediaSession' in navigator){
       var scene=entry.target.closest('.scene-ambient');
       if(entry.target.classList.contains('ambient-glitch-trigger')) scene.classList.add('glitch-visible');
       else reveal(scene);
-      observer.unobserve(entry.target);
     });
   },{rootMargin:'-10% 0px -24% 0px',threshold:0});
   scenes.forEach(function(scene){observer.observe(scene.querySelector('p') || scene)});
   document.querySelectorAll('.ambient-glitch-trigger').forEach(function(trigger){observer.observe(trigger)});
+  // Rearm brief events only after their whole scene leaves the viewport.
+  var resetObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) return;
+      var scene=entry.target;
+      if(scene.classList.contains('scene-ambient-cable') || scene.classList.contains('scene-ambient-shadows')) scene.classList.remove('is-visible');
+      scene.classList.remove('glitch-visible');
+    });
+  });
+  scenes.forEach(function(scene){if(!scene.classList.contains('scene-ambient-cube')) resetObserver.observe(scene)});
 })();
 </script>
 <script nonce="{{ csp_nonce }}">

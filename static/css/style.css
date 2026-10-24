@@ -354,27 +354,27 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient .scene-ambient-art,.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{position:absolute;pointer-events:none;content:"";display:block}
 .scene-ambient .scene-ambient-art{inset:0;z-index:0;overflow:hidden}
 .scene-ambient-abyss{min-height:760px;margin-top:26px;padding-top:54px;padding-bottom:68px;background:#03070b;border:0;border-radius:3px}
-.scene-ambient-abyss .scene-ambient-art{background:linear-gradient(180deg,rgba(3,6,10,.35),rgba(3,6,10,.38) 58%,rgba(2,4,8,.76)),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 60%/cover no-repeat;opacity:0;transition:opacity 2.4s ease-out;mask-image:linear-gradient(180deg,transparent,black 7%,black 91%,transparent)}
-.scene-ambient-abyss.is-visible .scene-ambient-art{opacity:.65}
+.scene-ambient-abyss .scene-ambient-art{background:linear-gradient(180deg,rgba(3,6,10,.12),rgba(3,6,10,.19) 58%,rgba(2,4,8,.44)),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 60%/cover no-repeat;opacity:0;transition:opacity 1.8s ease-out;mask-image:linear-gradient(180deg,transparent,black 7%,black 91%,transparent)}
+.scene-ambient-abyss.is-visible .scene-ambient-art{opacity:.94}
 .scene-ambient-abyss p{text-shadow:0 1px 5px #000,0 0 18px #000}
 .scene-ambient-abyss .ambient-glitch-trigger{position:absolute!important;top:74%;left:0;width:1px;height:2px;pointer-events:none}
-.scene-ambient-abyss .ambient-object{position:absolute;bottom:11%;left:13%;right:13%;height:62px;opacity:0;background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(105,153,168,.19) 10px,transparent 12px 19px);clip-path:polygon(13% 18%,87% 18%,87% 27%,29% 27%,29% 54%,71% 54%,71% 61%,17% 61%,17% 85%,84% 85%,84% 91%,13% 91%);filter:blur(.35px)}
-.scene-ambient-abyss.glitch-visible .ambient-object{animation:abyssDistortion 5.2s linear both}
-@keyframes abyssDistortion{0%,14%,23%,47%,58%,100%{opacity:0;transform:translateX(0)}16%,20%{opacity:.65;transform:translateX(-9px) skewX(-8deg)}49%,54%{opacity:.43;transform:translateX(7px) skewX(5deg)}}
-.scene-ambient-cable .scene-ambient-art::before{width:145%;height:21px;left:-23%;top:47%;border-radius:999px;background:linear-gradient(180deg,#080c10 0 24%,#778a94 42%,#182029 55%,#020405 100%);box-shadow:0 0 0 1px rgba(143,181,196,.24),0 0 25px rgba(98,177,205,.18),0 0 60px rgba(0,0,0,.9);opacity:0;transform:rotate(-7deg) translateX(-18%)}
+.scene-ambient-abyss .ambient-object{position:absolute;bottom:9%;left:7%;right:7%;height:120px;opacity:0;background:repeating-linear-gradient(0deg,transparent 0 16px,rgba(152,194,209,.48) 17px,transparent 20px 31px),url("../prologue/Настилы уходят в бездонную шахту — v001.webp") center 78%/100% 500%;clip-path:polygon(5% 8%,95% 8%,95% 23%,18% 23%,18% 40%,84% 40%,84% 55%,8% 55%,8% 77%,92% 77%,92% 94%,5% 94%);filter:brightness(1.65)}
+.scene-ambient-abyss.glitch-visible .ambient-object{animation:abyssDistortion 8s linear both}
+@keyframes abyssDistortion{0%,12%,39%,57%,89%,100%{opacity:0;transform:translateX(0)}17%{opacity:.92;transform:translateX(-16px) skewX(-9deg)}29%{opacity:.78;transform:translateX(10px) skewX(4deg)}63%{opacity:.88;transform:translateX(17px) skewX(7deg)}77%{opacity:.65;transform:translateX(-11px) skewX(-5deg)}}
+.scene-ambient-cable .scene-ambient-art::before{width:145%;height:32px;left:-23%;top:47%;border-radius:999px;background:linear-gradient(180deg,#080c10 0 20%,#adbfca 39%,#566a78 47%,#1b2833 60%,#020405 100%);box-shadow:0 0 0 1px rgba(162,202,216,.46),0 0 32px rgba(98,177,205,.32),0 0 60px rgba(0,0,0,.9);opacity:0;transform:rotate(-7deg) translateX(-18%)}
 .scene-ambient-cable .scene-ambient-art::after{width:39%;height:82px;right:7%;top:28%;border-radius:50%;background:radial-gradient(ellipse,rgba(97,190,214,.16),rgba(53,99,117,.045) 45%,transparent 69%);filter:blur(8px);opacity:0}
-.scene-ambient-cable.is-visible .scene-ambient-art::before{animation:cablePass 3.6s cubic-bezier(.2,.7,.25,1) both}
-.scene-ambient-cable.is-visible .scene-ambient-art::after{animation:cablePulse 3.6s ease-out both}
-@keyframes cablePass{0%,8%{opacity:0;transform:rotate(-7deg) translateX(-18%)}18%{opacity:.88;transform:rotate(-7deg) translateX(-8%)}34%{transform:rotate(-6deg) translateX(2%) translateY(-5px)}49%{transform:rotate(-8deg) translateX(11%) translateY(4px)}65%{opacity:.77;transform:rotate(-6deg) translateX(21%) translateY(-3px)}100%{opacity:0;transform:rotate(-7deg) translateX(43%)}}
-@keyframes cablePulse{0%,12%{opacity:0;transform:scale(.7)}30%,55%{opacity:1;transform:scale(1.08)}100%{opacity:0;transform:scale(1.28)}}
+.scene-ambient-cable.is-visible .scene-ambient-art::before{animation:cablePass 8s cubic-bezier(.2,.7,.25,1) both}
+.scene-ambient-cable.is-visible .scene-ambient-art::after{animation:cablePulse 8s ease-out both}
+@keyframes cablePass{0%,12%{opacity:0;transform:rotate(-7deg) translateX(-18%)}24%{opacity:1;transform:rotate(-7deg) translateX(-8%)}40%{opacity:1;transform:rotate(-4deg) translateX(2%) translateY(-14px)}57%{opacity:1;transform:rotate(-9deg) translateX(11%) translateY(12px)}75%{opacity:.94;transform:rotate(-5deg) translateX(21%) translateY(-9px)}100%{opacity:0;transform:rotate(-7deg) translateX(43%)}}
+@keyframes cablePulse{0%,12%{opacity:0;transform:scale(.7)}30%,65%{opacity:1;transform:scale(1.18)}100%{opacity:0;transform:scale(1.38)}}
 
-.scene-ambient-shadows{padding-top:32px;padding-bottom:34px;background:linear-gradient(100deg,rgba(6,8,13,.92),rgba(13,16,23,.58),rgba(5,7,11,.94))}
-.scene-ambient-shadows .scene-ambient-art::before{width:260px;height:180px;left:58%;top:15%;border-radius:47% 53% 60% 39% / 42% 38% 61% 58%;background:radial-gradient(ellipse at 42% 49%,rgba(0,0,0,.96) 0 33%,rgba(5,7,12,.73) 52%,transparent 73%);filter:blur(4px);mix-blend-mode:multiply;opacity:0;transform:translate3d(88px,17px,0) scale(.58)}
-.scene-ambient-shadows .scene-ambient-art::after{inset:0;background:linear-gradient(90deg,transparent 16%,rgba(143,176,196,.055) 51%,transparent 84%);opacity:0;transform:translateX(-30%)}
-.scene-ambient-shadows.is-visible .scene-ambient-art::before{animation:shadowShift 4.1s cubic-bezier(.25,.7,.25,1) both}
-.scene-ambient-shadows.is-visible .scene-ambient-art::after{animation:shadowShear 4.1s ease-out both}
-@keyframes shadowShift{0%,11%{opacity:0;transform:translate3d(88px,17px,0) scale(.58)}24%{opacity:.78;transform:translate3d(30px,6px,0) scale(1)}48%{opacity:.83;transform:translate3d(-18px,-5px,0) scale(1.13)}66%{opacity:.58;transform:translate3d(-38px,8px,0) scale(.91)}100%{opacity:0;transform:translate3d(-92px,26px,0) scale(.44)}}
-@keyframes shadowShear{0%,15%{opacity:0;transform:translateX(-30%)}38%{opacity:1;transform:translateX(0)}57%{opacity:.65;transform:translateX(12%)}100%{opacity:0;transform:translateX(36%)}}
+.scene-ambient-shadows{padding-top:32px;padding-bottom:34px;background:radial-gradient(ellipse 650px 430px at 55% 140px,rgba(65,80,98,.36),transparent 84%),linear-gradient(100deg,rgba(6,8,13,.92),rgba(13,16,23,.58),rgba(5,7,11,.94))}
+.scene-ambient-shadows .scene-ambient-art::before{width:340px;height:240px;left:58%;top:15%;border-radius:47% 53% 60% 39% / 42% 38% 61% 58%;background:radial-gradient(ellipse at 42% 49%,#000 0 40%,rgba(0,0,0,.9) 57%,transparent 76%);filter:blur(2px);opacity:0;transform:translate3d(120px,17px,0) scale(.58)}
+.scene-ambient-shadows .scene-ambient-art::after{inset:0;background:linear-gradient(90deg,transparent 8%,rgba(143,176,196,.15) 51%,transparent 92%);opacity:0;transform:translateX(-30%)}
+.scene-ambient-shadows.is-visible .scene-ambient-art::before{animation:shadowShift 8.5s cubic-bezier(.25,.7,.25,1) both}
+.scene-ambient-shadows.is-visible .scene-ambient-art::after{animation:shadowShear 8.5s ease-out both}
+@keyframes shadowShift{0%,12%{opacity:0;transform:translate3d(120px,17px,0) scale(.58)}27%{opacity:1;transform:translate3d(30px,6px,0) scale(1)}49%{opacity:1;transform:translate3d(-45px,-14px,0) scale(1.17)}73%{opacity:.92;transform:translate3d(-92px,12px,0) scale(1.02)}100%{opacity:0;transform:translate3d(-150px,34px,0) scale(.44)}}
+@keyframes shadowShear{0%,12%{opacity:0;transform:translateX(-30%)}32%,60%{opacity:1;transform:translateX(0)}78%{opacity:.65;transform:translateX(12%)}100%{opacity:0;transform:translateX(36%)}}
 
 .scene-ambient-cube{min-height:720px;padding-top:42px;padding-bottom:46px;background:radial-gradient(ellipse at 72% 38%,rgba(25,37,52,.36),transparent 43%),linear-gradient(100deg,rgba(5,7,11,.94),rgba(10,15,22,.72),rgba(4,6,10,.97))}
 .scene-ambient-cube .scene-ambient-art::before{width:min(64vw,680px);height:min(64vw,680px);right:-15%;top:3%;background:linear-gradient(142deg,rgba(0,0,0,.98) 0 49%,rgba(31,43,55,.4) 50%,rgba(0,0,0,.98) 54% 100%);border:1px solid rgba(132,173,201,.24);box-shadow:-26px 22px 0 -1px rgba(0,0,0,.86),-26px 22px 0 0 rgba(124,162,186,.12),0 0 90px rgba(0,0,0,.96),inset 0 0 62px rgba(0,0,0,.92);opacity:0;transform:perspective(900px) rotateX(63deg) rotateZ(-18deg) scale(.52);transform-origin:center}
@@ -391,11 +391,11 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-ambient-cube{overflow:clip}
 .scene-ambient-cube .scene-ambient-art{overflow:clip}
 .scene-ambient-cube .scene-ambient-art::before,.scene-ambient-cube .scene-ambient-art::after{display:none}
-.scene-ambient-cube .ambient-object{display:block;position:sticky;top:24vh;margin:130px 0 0 auto;width:min(66vw,490px);height:450px;perspective:850px;opacity:0;transition:opacity 5s ease-out}
-.scene-ambient-cube.is-visible .ambient-object{opacity:.42}
-.scene-ambient-cube .ambient-object::before{content:"";display:block;position:absolute;inset:0;background:linear-gradient(145deg,#111a24 0 37%,#010304 37.3% 71%,#080e14 71.3%);clip-path:polygon(17% 0,94% 16%,94% 81%,72% 100%,0 77%,0 15%);border:1px solid rgba(130,168,190,.32);filter:drop-shadow(0 10px 25px #000);transform:rotate(-5deg) scale(.94)}
+.scene-ambient-cube .ambient-object{display:block;position:sticky;top:24vh;margin:130px 0 0 auto;width:min(72vw,560px);height:490px;perspective:850px;opacity:0;transition:opacity 3.8s ease-out}
+.scene-ambient-cube.is-visible .ambient-object{opacity:.76}
+.scene-ambient-cube .ambient-object::before{content:"";display:block;position:absolute;inset:0;background:linear-gradient(145deg,#2b4055 0 37%,#05090e 37.3% 71%,#182634 71.3%);clip-path:polygon(17% 0,94% 16%,94% 81%,72% 100%,0 77%,0 15%);border:1px solid rgba(130,168,190,.6);filter:drop-shadow(0 10px 25px #000);transform:rotate(-5deg) scale(.94)}
 .scene-ambient-cube.is-visible .ambient-object::before{animation:ambientCubeFloat 13s ease-in-out infinite}
-@keyframes ambientCubeFloat{0%,100%{transform:rotate(-5deg) translateY(0) scale(.94)}50%{transform:rotate(-3deg) translateY(-13px) scale(.96)}}
+@keyframes ambientCubeFloat{0%,100%{transform:rotate(-5deg) translateY(0) scale(.94)}50%{transform:rotate(-1.5deg) translateY(-21px) scale(.98)}}
 @media(max-width:680px){.scene-ambient-abyss{min-height:780px;padding-top:35px;padding-bottom:52px}.scene-ambient-abyss .scene-ambient-art{background-position:45% center}.scene-ambient-cube .ambient-object{height:330px;margin-top:90px;width:95%}}
 @media(prefers-reduced-motion:reduce){.scene-ambient-abyss .scene-ambient-art,.scene-ambient-cube .ambient-object{transition:none}.scene-ambient-abyss .ambient-object,.scene-ambient-cube .ambient-object::before{animation:none!important}.scene-ambient-abyss .ambient-object{display:none}}
 
