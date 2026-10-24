@@ -18,6 +18,27 @@
     },delay);
   }
   if(title)scheduleTitleFlash(3500);
+  var footerFlash=document.querySelector('.footer-flashes');
+  if(footerFlash){
+    var footerVisible=false,footerFlashTimer;
+    function scheduleFooterFlash(delay){
+      clearTimeout(footerFlashTimer);
+      footerFlashTimer=setTimeout(function(){
+        if(!footerVisible||document.hidden||reduced.matches){scheduleFooterFlash(4000);return;}
+        footerFlash.classList.remove('flash-active');
+        footerFlash.style.setProperty('--flash-x',(12+Math.random()*76)+'%');
+        footerFlash.style.setProperty('--flash-y',(20+Math.random()*60)+'%');
+        void footerFlash.offsetWidth;
+        footerFlash.classList.add('flash-active');
+        scheduleFooterFlash(14000+Math.random()*8000);
+      },delay);
+    }
+    new IntersectionObserver(function(entries){
+      footerVisible=entries[0].isIntersecting;
+      if(footerVisible)scheduleFooterFlash(2200);
+      else{clearTimeout(footerFlashTimer);footerFlash.classList.remove('flash-active');}
+    },{threshold:.1}).observe(document.getElementById('footer'));
+  }
   var contents=document.querySelector('.list-s');
   if(!contents)return;
   var canvas=document.createElement('canvas');
