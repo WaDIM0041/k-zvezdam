@@ -309,7 +309,7 @@ def render_body(body: str) -> Markup:
                     rendered.append("</section>")
                 label = html.escape(ambient_keys[key], quote=True)
                 rendered.append(
-                    f'<section class="scene-ambient scene-ambient-{key}" '
+                    f'<section id="ambient-{key}" class="scene-ambient scene-ambient-{key}" '
                     f'aria-label="{label}"><span class="scene-ambient-art" aria-hidden="true"></span>'
                 )
                 open_ambient = True
