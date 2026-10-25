@@ -1,7 +1,7 @@
 {
   "edition": "accepted-revision-2026-10-25",
   "acceptedDraftSha256": "6ac7530c96b6ee23f0b20c6c0b0349a00b849ac3785cb162d3a9328aed4ab207",
-  "bodySha256": "d97cf1a145740bad061c3a7bb451ca7b72e7fbbb4a2c7f17033971e4282c9bb0",
+  "bodySha256": "444594c678b05cb918e5636b5bf788e87b66e181f1fbc1d54c078e8e5765f624",
   "scenes": [
     {
       "key": "opening",
@@ -26,7 +26,7 @@
     {
       "key": "terminal",
       "placement": "after",
-      "anchor": "Экран остался чёрным."
+      "anchor": "Сам кабель почти не качнулся."
     },
     {
       "key": "cable",
