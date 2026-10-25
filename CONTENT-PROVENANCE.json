@@ -7,13 +7,14 @@
       "position": 0,
       "title": "Вскрытие прошлого",
       "kind": "Пролог",
-      "bodySource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
-      "bodySha256": "cd5292d8d43947807be89423766c0ea9702bd7a1f2c62d98e9c5d1128fea1656",
+      "bodySource": "content/prologue.txt",
+      "bodySha256": "d97cf1a145740bad061c3a7bb451ca7b72e7fbbb4a2c7f17033971e4282c9bb0",
       "titleSource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
       "publishedInPreview": true,
-      "previousBodySha256": "aa079478d60183f4e5f65f8081f36612e0ce7816983ac10c9a62f46508605968",
-      "revision": "Авторская редакция хоррор-пролога из литературного кабинета, 23.10.2026; собрана по прямому поручению автора для интернет-предпросмотра",
-      "revisionSource": "content/prologue.txt"
+      "previousBodySha256": "cd5292d8d43947807be89423766c0ea9702bd7a1f2c62d98e9c5d1128fea1656",
+      "revision": "Принятая автором новая редакция от 25.10.2026 после замечаний Opus и сверки с N00/T03; медиа расставлены по событиям",
+      "revisionSource": "content/prologue.txt",
+      "sceneMap": "content/prologue-scene-map.json"
     },
     {
       "position": 1,
