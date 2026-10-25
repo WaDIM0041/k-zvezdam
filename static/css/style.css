@@ -346,6 +346,7 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-media figcaption{font-size:.76rem;line-height:1.6;color:#a3adba;margin-top:12px;text-align:left;letter-spacing:.015em}
 .scene-media:has(video){margin-top:36px}
 @media(min-width:1000px){.scene-media{width:calc(100% + 160px);margin-left:-80px;margin-right:-80px}}
+.scene-ambient .scene-media{width:100%;margin-left:0;margin-right:0}
 @media(max-width:600px){.scene-media{margin-top:30px;margin-bottom:32px}.scene-media figcaption{font-size:.73rem}}
 
 /* Локальные хоррор-эффекты пролога: появляются только в своей сцене. */
