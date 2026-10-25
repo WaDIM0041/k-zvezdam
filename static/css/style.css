@@ -416,3 +416,10 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .footer-flashes.flash-active::before{animation:titleFlash 23s linear both}
 .footer-flashes.flash-active::after{animation:titleAfterglow 23s linear both}
 @media(prefers-reduced-motion:reduce){.footer-flashes{display:none}}
+/* Three invitations light up from top to bottom, 1.2 seconds apart. */
+.project-actions>.project-about-copy{scroll-margin-top:100px}
+.project-actions>.project-about-copy .project-about-button{animation:projectStepGlow 12s ease-in-out infinite;animation-delay:1s}
+.project-actions>.project-about-copy:nth-of-type(2) .project-about-button{animation-delay:2.2s}
+.project-actions>.project-about-copy:nth-of-type(3) .project-about-button{animation-delay:3.4s}
+@keyframes projectStepGlow{0%,12%,100%{box-shadow:0 0 22px #65baff26;border-color:rgba(131,207,255,.14)}4%{box-shadow:0 0 28px #99dbff99,0 0 55px #65baff44;border-color:rgba(208,238,255,.55)}8%{box-shadow:0 0 30px #65baff44;border-color:rgba(131,207,255,.25)}}
+@media(prefers-reduced-motion:reduce){.project-actions>.project-about-copy .project-about-button{animation:none}}
