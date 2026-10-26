@@ -291,9 +291,33 @@ def _inline(value: str) -> str:
 def render_body(body: str) -> Markup:
     chunks = re.split(r"\n\s*\n", (body or "").replace("\r\n", "\n").strip())
     rendered: list[str] = []
+    open_ambient = False
+    ambient_keys = {
+        "shadows": "Бесформенная тень смещается на стене",
+        "lighter": "Синий огонь зажигалки на мгновение освещает болотную ночь",
+    }
     for chunk in chunks:
         text = chunk.strip()
         if not text:
+            continue
+        ambient = re.fullmatch(r"\[ambient\]([a-z0-9-]+)\[/ambient\]", text)
+        if ambient:
+            key = ambient.group(1)
+            if key in ambient_keys:
+                if open_ambient:
+                    rendered.append("</section>")
+                label = html.escape(ambient_keys[key], quote=True)
+                trigger = '<span class="ambient-glow-trigger" aria-hidden="true"></span>' if key == "lighter" else ""
+                rendered.append(
+                    f'<section id="ambient-{key}" class="scene-ambient scene-ambient-{key}" '
+                    f'aria-label="{label}"><span class="scene-ambient-art" aria-hidden="true"></span>{trigger}'
+                )
+                open_ambient = True
+            continue
+        if re.fullmatch(r"\[ambient-end\]\[/ambient-end\]", text):
+            if open_ambient:
+                rendered.append("</section>")
+                open_ambient = False
             continue
         scene = re.fullmatch(r"\[scene\]([a-z0-9-]+)\[/scene\]", text)
         if scene:
@@ -317,6 +341,8 @@ def render_body(body: str) -> Markup:
             continue
         para = "<br>".join(_inline(line) for line in text.split("\n"))
         rendered.append(f"<p>{para}</p>")
+    if open_ambient:
+        rendered.append("</section>")
     return Markup("\n".join(rendered))
 
 

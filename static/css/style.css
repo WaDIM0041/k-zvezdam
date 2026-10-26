@@ -348,6 +348,22 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 @media(min-width:1000px){.scene-media{width:calc(100% + 160px);margin-left:-80px;margin-right:-80px}}
 @media(max-width:600px){.scene-media{margin-top:30px;margin-bottom:32px}.scene-media figcaption{font-size:.73rem}}
 
+/* Эффекты первой главы привязаны к соответствующим фрагментам текста. */
+.scene-ambient{position:relative;isolation:isolate;overflow:hidden;margin:38px -28px 42px;padding:28px;background:linear-gradient(100deg,rgba(6,9,15,.82),rgba(13,19,27,.36),rgba(5,7,12,.86));scroll-margin-top:90px}
+.scene-ambient>*:not(.scene-ambient-art){position:relative;z-index:1}
+.scene-ambient .scene-ambient-art,.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{position:absolute;pointer-events:none;content:"";display:block}
+.scene-ambient .scene-ambient-art{inset:0;z-index:0;overflow:hidden}
+.scene-ambient-shadows .scene-ambient-art::before{width:340px;height:240px;left:48%;top:70px;border-radius:47% 53% 60% 39% / 42% 38% 61% 58%;background:radial-gradient(ellipse at 42% 49%,#000 0 40%,rgba(0,0,0,.9) 57%,transparent 76%);filter:blur(2px);opacity:0;transform:translate3d(120px,17px,0) scale(.58)}
+.scene-ambient-shadows.is-visible .scene-ambient-art::before{animation:shadowShift 8.5s cubic-bezier(.25,.7,.25,1) both}
+@keyframes shadowShift{0%,12%{opacity:0;transform:translate3d(120px,17px,0) scale(.58)}27%{opacity:1;transform:translate3d(30px,6px,0) scale(1)}49%{opacity:1;transform:translate3d(-45px,-14px,0) scale(1.17)}73%{opacity:.92;transform:translate3d(-92px,12px,0) scale(1.02)}100%{opacity:0;transform:translate3d(-150px,34px,0) scale(.44)}}
+.scene-ambient-lighter{background:radial-gradient(ellipse 420px 250px at 52% 38%,rgba(28,105,176,.1),transparent 74%),linear-gradient(100deg,rgba(4,7,12,.96),rgba(8,15,25,.76),rgba(3,6,11,.97))}
+.scene-ambient-lighter .scene-ambient-art::before{inset:-12%;background:radial-gradient(circle at 50% 40%,rgba(104,205,255,.42) 0,rgba(37,124,202,.15) 14%,transparent 43%);opacity:0;filter:blur(4px);mix-blend-mode:screen}
+.scene-ambient-lighter.glow-visible .scene-ambient-art::before{animation:lighterBlueFlash 4.8s ease-out both}
+.scene-ambient-lighter p{text-shadow:0 1px 8px #000,0 0 18px rgba(47,142,218,.16)}
+@keyframes lighterBlueFlash{0%,15%{opacity:0}28%{opacity:.95}43%{opacity:.52}62%,100%{opacity:0}}
+@media(max-width:680px){.scene-ambient{margin-left:-14px;margin-right:-14px;padding:23px 18px}}
+@media(prefers-reduced-motion:reduce){.scene-ambient .scene-ambient-art::before{animation:none!important}.scene-ambient-shadows.is-visible .scene-ambient-art::before{opacity:.28;transform:translate3d(0,0,0) scale(.86)}}
+
 .hero-content.flash-active::before{animation:titleFlash 23s linear both}
 .hero-content.flash-active::after{animation:titleAfterglow 23s linear both}
 @media(prefers-reduced-motion:reduce){.hero-content.flash-active::before,.hero-content.flash-active::after{animation:none}}
