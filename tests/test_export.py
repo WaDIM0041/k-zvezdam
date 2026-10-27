@@ -72,7 +72,6 @@ class StaticExportTests(unittest.TestCase):
         chapter_one = self.read("read/2/index.html")
         for filename in (
             "chapter-01-cover-v002-pulkovo.png",
-            "pulkovo-team-briefing-v001.png",
             "pulkovo-kamchatka-map-v001.png",
             "kamchatka-birches.png",
             "kamchatka-closed-door-shadow-v002.png",
@@ -80,6 +79,7 @@ class StaticExportTests(unittest.TestCase):
         ):
             self.assertIn(f'/static/chapter-01/{filename}', chapter_one)
             self.assertTrue((self.out / "static/chapter-01" / filename).is_file(), filename)
+        self.assertNotIn('/static/chapter-01/pulkovo-team-briefing-v001.png', chapter_one)
 
     def test_static_counts_and_no_backend_counters(self):
         chapters = self.read("chapters/index.html")
