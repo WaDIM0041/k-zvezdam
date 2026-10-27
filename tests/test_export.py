@@ -94,7 +94,7 @@ class StaticExportTests(unittest.TestCase):
         self.assertTrue(version["noindex"])
         self.assertTrue((self.out / "static/video/prologue.mp4").is_file())
         self.assertGreater(len(list((self.out / "static/chapter-images").glob("*.jpg"))), 0)
-        self.assertEqual(len(list((self.out / "static/chapter-01").glob("*.mp4"))), 6)
+        self.assertEqual(len(list((self.out / "static/chapter-01").glob("*.mp4"))), 7)
 
     def test_robots_and_rewrites_are_present(self):
         self.assertIn("Disallow: /", self.read("robots.txt"))
