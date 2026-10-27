@@ -1,12 +1,11 @@
 {
   "site": "https://wadim0041.github.io",
-  "builtAt": "2026-10-25T20:10:01+00:00",
-  "commit": "f81269b9874689424b5c2a0e391340ad1fc2a045",
+  "builtAt": "2026-10-27T04:56:03+00:00",
+  "commit": "5f667d7657ad52c16f2f132baa4fc25cc42d9a12",
   "chapters": 11,
   "pages": [
     "/",
     "/chapters",
-    "/about",
     "/read/1",
     "/read/2",
     "/read/3",
