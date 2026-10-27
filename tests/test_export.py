@@ -70,7 +70,14 @@ class StaticExportTests(unittest.TestCase):
         for src in images:
             self.assertTrue((self.out / src.lstrip("/")).is_file(), src)
         chapter_one = self.read("read/2/index.html")
-        for filename in ("kamchatka-birches.png", "blockpost-shadow.png", "lighter.png"):
+        for filename in (
+            "chapter-01-cover-v002-pulkovo.png",
+            "pulkovo-team-briefing-v001.png",
+            "pulkovo-kamchatka-map-v001.png",
+            "kamchatka-birches.png",
+            "kamchatka-closed-door-shadow-v002.png",
+            "lighter.png",
+        ):
             self.assertIn(f'/static/chapter-01/{filename}', chapter_one)
             self.assertTrue((self.out / "static/chapter-01" / filename).is_file(), filename)
 

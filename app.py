@@ -329,8 +329,11 @@ def render_body(body: str) -> Markup:
             if src:
                 image_alt = {
                     "chapter-01-cover-v002-pulkovo.png": "Вадим с кофе в аэропорту Пулково перед вылетом на Камчатку",
+                    "pulkovo-team-briefing-v001.png": "Команда Вадима в Пулково перед вылетом на Камчатку",
+                    "pulkovo-kamchatka-map-v001.png": "Голографическая карта Камчатки с отмеченной точкой поисков",
                     "kamchatka-birches.png": "Ночная Камчатка: мокрое болото, туман и кривые берёзы",
                     "blockpost-shadow.png": "Тень Вадима на закрытой двери заброшенного блокпоста",
+                    "kamchatka-closed-door-shadow-v002.png": "Вадим и его одинокая тень на закрытой двери камчатского блокпоста",
                     "lighter.png": "Оплавленная старая зажигалка в руках Вадима",
                 }.get(Path(src).name, "Иллюстрация к главе")
                 rendered.append(f'<figure class="c-img"><img src="{html.escape(src, quote=True)}" alt="{html.escape(image_alt, quote=True)}" loading="lazy"></figure>')
