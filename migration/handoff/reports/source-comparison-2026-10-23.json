@@ -1,0 +1,281 @@
+{
+  "reference_commit": "7fb20865b82bb86e239d074433a5f34eadf361da",
+  "checked": 39,
+  "matched": 39,
+  "checks": [
+    {
+      "kind": "chapter",
+      "source": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
+      "expected_sha256": "aa079478d60183f4e5f65f8081f36612e0ce7816983ac10c9a62f46508605968",
+      "actual_sha256": "aa079478d60183f4e5f65f8081f36612e0ce7816983ac10c9a62f46508605968",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "roman_deploy_all.zip::bodies/glava1.txt",
+      "expected_sha256": "350e726f4f99079272c62eb05df1dd9beba2ec3d09f1cb5fc05192eae38ec9e2",
+      "actual_sha256": "350e726f4f99079272c62eb05df1dd9beba2ec3d09f1cb5fc05192eae38ec9e2",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "roman_publish.zip::bodies/glava2.txt",
+      "expected_sha256": "225b2df3a0b26d8ccbebb03bfc650491269373b4209e75eb5fbfb684f295b044",
+      "actual_sha256": "225b2df3a0b26d8ccbebb03bfc650491269373b4209e75eb5fbfb684f295b044",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "roman_deploy_all.zip::bodies/glava3.txt",
+      "expected_sha256": "59c8e3f50393683cbcdc87b7f8321fd6e6ff35d6ce204f3a0306a1101b04c4d2",
+      "actual_sha256": "59c8e3f50393683cbcdc87b7f8321fd6e6ff35d6ce204f3a0306a1101b04c4d2",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "roman_deploy_all.zip::bodies/glava4.txt",
+      "expected_sha256": "4d464af71a766f221cc7d878e7d47d8ca80c15fa5b397b922ee7896d0d569187",
+      "actual_sha256": "4d464af71a766f221cc7d878e7d47d8ca80c15fa5b397b922ee7896d0d569187",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "roman_deploy_all.zip::bodies/glava5.txt",
+      "expected_sha256": "116419bcff5b5a0895360d0046c9030fd1a539d423c5defa064e7c98a3f45a5d",
+      "actual_sha256": "116419bcff5b5a0895360d0046c9030fd1a539d423c5defa064e7c98a3f45a5d",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "pravki_1_6_7.zip::bodies/glava6.txt",
+      "expected_sha256": "f0860dcd1c1c3c429256b9ddc8e450aa7a54c41e2bc9c065bb5bb326134a83d5",
+      "actual_sha256": "f0860dcd1c1c3c429256b9ddc8e450aa7a54c41e2bc9c065bb5bb326134a83d5",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "glava8_publish.zip::bodies/glava7.txt",
+      "expected_sha256": "3f5fe4da946d8739ec4ccf4cc42b9ae8a9b86baba56e79663c1a006416abe786",
+      "actual_sha256": "3f5fe4da946d8739ec4ccf4cc42b9ae8a9b86baba56e79663c1a006416abe786",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "glava8_publish.zip::bodies/glava8.txt",
+      "expected_sha256": "324a146cbc40bf5851b96aecb0b7184905d4a7288841d2501adec28cb69c5980",
+      "actual_sha256": "324a146cbc40bf5851b96aecb0b7184905d4a7288841d2501adec28cb69c5980",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "glavy_9_10.zip::bodies/glava9.txt",
+      "expected_sha256": "6c6da756f7d3ca9bfc8e0f6d7dcdf15c7df9076ee7cd6de2d81bb7362b186482",
+      "actual_sha256": "6c6da756f7d3ca9bfc8e0f6d7dcdf15c7df9076ee7cd6de2d81bb7362b186482",
+      "matches": true
+    },
+    {
+      "kind": "chapter",
+      "source": "glavy_9_10.zip::bodies/glava10.txt",
+      "expected_sha256": "f02b624936fa395ff9b28a1ae7053ec64d3b7f3079f5476955857bc82b463719",
+      "actual_sha256": "f02b624936fa395ff9b28a1ae7053ec64d3b7f3079f5476955857bc82b463719",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/pulkovo.jpg",
+      "expected_sha256": "9eb64b482fde085f486aa5f24a1afc67399dce84e56a805d3501257bdb9869c5",
+      "actual_sha256": "9eb64b482fde085f486aa5f24a1afc67399dce84e56a805d3501257bdb9869c5",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_publish.zip::img/glava2.jpg",
+      "expected_sha256": "711e02a3d78591eb697a377a673c02be71b9b4238c38f9d1395089cd72e90f0c",
+      "actual_sha256": "711e02a3d78591eb697a377a673c02be71b9b4238c38f9d1395089cd72e90f0c",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/glava4_1.jpg",
+      "expected_sha256": "ed56f268ffbe3536444ba01663e6340ab57ea8e0b3ab8dfe03bea0cad75f91ce",
+      "actual_sha256": "ed56f268ffbe3536444ba01663e6340ab57ea8e0b3ab8dfe03bea0cad75f91ce",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/glava4_2.jpg",
+      "expected_sha256": "bbe1558a3f310f2ca7ec9e399a2eddc0b40fa9215ab95f8277236a8d8aca02b6",
+      "actual_sha256": "bbe1558a3f310f2ca7ec9e399a2eddc0b40fa9215ab95f8277236a8d8aca02b6",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/glava4_3.jpg",
+      "expected_sha256": "150da1c4a00bbbeaa28bd4511e845d8486a718c77d56cc8e3aacb9dde49f3f6c",
+      "actual_sha256": "150da1c4a00bbbeaa28bd4511e845d8486a718c77d56cc8e3aacb9dde49f3f6c",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/glava5_1.jpg",
+      "expected_sha256": "da2c2bd8011c482b555839103a07bd84047edf39278b374bb29769db7a9ac963",
+      "actual_sha256": "da2c2bd8011c482b555839103a07bd84047edf39278b374bb29769db7a9ac963",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/glava5_2.jpg",
+      "expected_sha256": "955cb11b2ceeedaa8f2255c07e878df69c821120884187e8b10850b170adf0a1",
+      "actual_sha256": "955cb11b2ceeedaa8f2255c07e878df69c821120884187e8b10850b170adf0a1",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy_all.zip::img/glava5_3.jpg",
+      "expected_sha256": "7f0e16c34618886589550a90172401e413ba4a09a492a6c6885d2302348440fe",
+      "actual_sha256": "7f0e16c34618886589550a90172401e413ba4a09a492a6c6885d2302348440fe",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava6_1.jpg",
+      "expected_sha256": "923152f7b20674fc371af39684a48cf8549042f1cd8055f70edd7b5d259d176c",
+      "actual_sha256": "923152f7b20674fc371af39684a48cf8549042f1cd8055f70edd7b5d259d176c",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava6_3.jpg",
+      "expected_sha256": "c55132ed5dd1335153124f21bce0554173e7290b42a024051b30d340a9e2ec1a",
+      "actual_sha256": "c55132ed5dd1335153124f21bce0554173e7290b42a024051b30d340a9e2ec1a",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava6_2.jpg",
+      "expected_sha256": "5d51217405aa2e8f4dbaba636f0833733a3963196e0b038359ced7db6bfb8a8e",
+      "actual_sha256": "5d51217405aa2e8f4dbaba636f0833733a3963196e0b038359ced7db6bfb8a8e",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava6_4.jpg",
+      "expected_sha256": "ce071088dc8a0f2325da343580a130508ed25f6c6e0bf461d118668c6abccc08",
+      "actual_sha256": "ce071088dc8a0f2325da343580a130508ed25f6c6e0bf461d118668c6abccc08",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava7_1.jpg",
+      "expected_sha256": "e3e9691cb4e4eb8e90d08712c2349b59124afe5ac2823dd69d5698b48967d92f",
+      "actual_sha256": "e3e9691cb4e4eb8e90d08712c2349b59124afe5ac2823dd69d5698b48967d92f",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava7_2.jpg",
+      "expected_sha256": "a14e5ad17fe77416c24348762494d7a3895b67d0d1a942ef8b9dfce32c0c0b40",
+      "actual_sha256": "a14e5ad17fe77416c24348762494d7a3895b67d0d1a942ef8b9dfce32c0c0b40",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava7_3.jpg",
+      "expected_sha256": "01259614ca01a729e8f598d0feb0b5a26e003c2980690218bd50b29d8a52aee7",
+      "actual_sha256": "01259614ca01a729e8f598d0feb0b5a26e003c2980690218bd50b29d8a52aee7",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "roman_deploy67.zip::img/glava7_4.jpg",
+      "expected_sha256": "369e75a18e39e3ea5a19f0a424c6ba34e073a0b51a599d9aa82d4c85f12ee5c9",
+      "actual_sha256": "369e75a18e39e3ea5a19f0a424c6ba34e073a0b51a599d9aa82d4c85f12ee5c9",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glava8_publish.zip::img/glava8_1.jpg",
+      "expected_sha256": "fca5822319085d19c4c8182ff0cbd765a4d5d60c14974c71a0cfd8a1b9b61ce4",
+      "actual_sha256": "fca5822319085d19c4c8182ff0cbd765a4d5d60c14974c71a0cfd8a1b9b61ce4",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glava8_publish.zip::img/glava8_2.jpg",
+      "expected_sha256": "6e8bf4a34decb98388934edd5dd70c52ad0f4498202f4be4e1eb48ae042ebfe0",
+      "actual_sha256": "6e8bf4a34decb98388934edd5dd70c52ad0f4498202f4be4e1eb48ae042ebfe0",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glava8_publish.zip::img/glava8_3.jpg",
+      "expected_sha256": "6ae6d4e76ece4a86094adcab6274dece1a2026484c4f5b996b0bfb71142138b7",
+      "actual_sha256": "6ae6d4e76ece4a86094adcab6274dece1a2026484c4f5b996b0bfb71142138b7",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glava8_publish.zip::img/glava8_4.jpg",
+      "expected_sha256": "7d24e0a2190a7752c7c0ad10eecbe0c651f443cc91bf7300516c00508c5bee36",
+      "actual_sha256": "7d24e0a2190a7752c7c0ad10eecbe0c651f443cc91bf7300516c00508c5bee36",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava9_1.jpg",
+      "expected_sha256": "73067c0dd5b614c4634486439eeef8f9fab17ef29fd9a00430bb7e29f2477d66",
+      "actual_sha256": "73067c0dd5b614c4634486439eeef8f9fab17ef29fd9a00430bb7e29f2477d66",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava9_2.jpg",
+      "expected_sha256": "b3d7829ad66182ec1aa1e59dcd95852b6c911064d68489211839f5988a585a4a",
+      "actual_sha256": "b3d7829ad66182ec1aa1e59dcd95852b6c911064d68489211839f5988a585a4a",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava9_3.jpg",
+      "expected_sha256": "fe32c1017e8f7d7480dbf03fa72bc5f9033f52b32b26c205b17ffc385561d6a4",
+      "actual_sha256": "fe32c1017e8f7d7480dbf03fa72bc5f9033f52b32b26c205b17ffc385561d6a4",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava9_4.jpg",
+      "expected_sha256": "8ff82d37510b870f508910d5d700a0e19f8a46762d7a18d5dd041749632b4eea",
+      "actual_sha256": "8ff82d37510b870f508910d5d700a0e19f8a46762d7a18d5dd041749632b4eea",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava10_1.jpg",
+      "expected_sha256": "723eb980388972f2f21d83f0a821fc164c2905cef713f2038458056938d8d8bc",
+      "actual_sha256": "723eb980388972f2f21d83f0a821fc164c2905cef713f2038458056938d8d8bc",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava10_2.jpg",
+      "expected_sha256": "48a0ff65721166ba82ee4538891a07da2ddfbcd0db468a29016caa1121eb8713",
+      "actual_sha256": "48a0ff65721166ba82ee4538891a07da2ddfbcd0db468a29016caa1121eb8713",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava10_3.jpg",
+      "expected_sha256": "56f90756b290a9fd4fd38d0082d3fd35a6d6ff273bf8d3697128f534fd167a1a",
+      "actual_sha256": "56f90756b290a9fd4fd38d0082d3fd35a6d6ff273bf8d3697128f534fd167a1a",
+      "matches": true
+    },
+    {
+      "kind": "image",
+      "source": "glavy_9_10.zip::img/glava10_4.jpg",
+      "expected_sha256": "4e2a5e265235e8b87de4ddebe002c5b4bb3b788f55c85d99a29df06def594c7a",
+      "actual_sha256": "4e2a5e265235e8b87de4ddebe002c5b4bb3b788f55c85d99a29df06def594c7a",
+      "matches": true
+    }
+  ],
+  "limitations": "Сопоставлены локальные источники с CONTENT-PROVENANCE.json; это не проверка действующего сервера."
+}
