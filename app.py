@@ -327,7 +327,13 @@ def render_body(body: str) -> Markup:
         if image:
             src = _image_url(image.group(1))
             if src:
-                rendered.append(f'<figure class="c-img"><img src="{html.escape(src, quote=True)}" alt="" loading="lazy"></figure>')
+                image_alt = {
+                    "chapter-01-cover-v002-pulkovo.png": "Вадим с кофе в аэропорту Пулково перед вылетом на Камчатку",
+                    "kamchatka-birches.png": "Ночная Камчатка: мокрое болото, туман и кривые берёзы",
+                    "blockpost-shadow.png": "Тень Вадима на закрытой двери заброшенного блокпоста",
+                    "lighter.png": "Оплавленная старая зажигалка в руках Вадима",
+                }.get(Path(src).name, "Иллюстрация к главе")
+                rendered.append(f'<figure class="c-img"><img src="{html.escape(src, quote=True)}" alt="{html.escape(image_alt, quote=True)}" loading="lazy"></figure>')
             continue
         video = re.fullmatch(r"\[video\](.+?)\[/video\]", text, re.S)
         if video:

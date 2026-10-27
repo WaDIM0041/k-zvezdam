@@ -20,7 +20,7 @@
       "title": "Синий огонь",
       "kind": "Глава 1",
       "bodySource": "content/chapter-01.txt + static/chapter-01/",
-      "bodySha256": "5a2605b6c9d428f443ee19c926caf355d1b9ae5fd743d40397ea2482e9af5f7d",
+      "bodySha256": "7f69a6c2bca56618c4de14feb8fd31e04c1c54f1953b0d2015f475a592560b4a",
       "titleSource": "Глава1_НОВАЯ_черновик.md::heading",
       "publishedInPreview": true,
       "revision": "Мультимедийная редакция по текущей публикации: видеоматериалы и иллюстрации привязаны к сценам."
