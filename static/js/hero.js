@@ -87,7 +87,8 @@
     return new THREE.CanvasTexture(cv);
   }
   var galaxyMap=galaxyTexture();
-  [[-75,28,-140,37,.35],[65,-25,-180,48,-.5],[20,55,-230,32,.7]].forEach(function(g){
+  [[-75,28,-140,37,.35],[65,-25,-180,48,-.5],[20,55,-230,32,.7]].forEach(function(g,index){
+    if(canvas.id==='space' && index===1)return;
     var galaxy=new THREE.Sprite(new THREE.SpriteMaterial({map:galaxyMap,transparent:true,opacity:.65,depthWrite:false,blending:THREE.AdditiveBlending,rotation:g[4]}));
     galaxy.position.set(g[0],g[1],g[2]);galaxy.scale.set(g[3],g[3],1);scene.add(galaxy);
   });

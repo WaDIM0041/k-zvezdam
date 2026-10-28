@@ -36,7 +36,20 @@
   <div class="read-body" id="readBody">
     {{ body }}
   </div>
+</article>
 
+{% if ch['audio_url'] %}
+<div class="audiobar" id="audiobar">
+  <div class="ab-in">
+    <div class="ab-title"><span class="ab-ic">♪</span> Аудиоверсия · {{ ch['title'] }}</div>
+    <audio id="chapaudio" src="{{ ch['audio_url'] }}" controls preload="none"></audio>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block closing_content %}
+<div class="reader-end">
   <div class="read-actions">
     {% if not static_export %}
     <button type="button" class="act-like" id="likeBtn" data-cid="{{ ch['id'] }}">
@@ -57,16 +70,7 @@
     {% else %}<span class="pg next dis"><span class="l">Дальше →</span><span class="t">Продолжение следует</span></span>{% endif %}
   </div>
   <div class="back-toc"><a href="{{ url_for('chapters') }}">↑ Ко всем главам</a></div>
-</article>
-
-{% if ch['audio_url'] %}
-<div class="audiobar" id="audiobar">
-  <div class="ab-in">
-    <div class="ab-title"><span class="ab-ic">♪</span> Аудиоверсия · {{ ch['title'] }}</div>
-    <audio id="chapaudio" src="{{ ch['audio_url'] }}" controls preload="none"></audio>
-  </div>
 </div>
-{% endif %}
 {% endblock %}
 
 {% block scripts %}
