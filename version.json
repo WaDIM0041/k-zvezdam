@@ -1,11 +1,12 @@
 {
-  "site": "https://kzvezdam.annakam.ru",
-  "builtAt": "2026-10-28T14:16:48+00:00",
-  "commit": "ca373101d672a7177d49290e56692bf0a60eea58",
+  "site": "https://wadim0041.github.io/k-zvezdam",
+  "builtAt": "2026-10-28T14:36:14+00:00",
+  "commit": "236ccc34293a0d125bf30db0d4842ddbffe36ed1",
   "chapters": 11,
   "pages": [
     "/",
     "/chapters",
+    "/about",
     "/read/1",
     "/read/2",
     "/read/3",
