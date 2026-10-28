@@ -43,14 +43,16 @@ class StaticExportTests(unittest.TestCase):
         self.assertNotIn("127.0.0.1", home)
         self.assertEqual(home.count('href="/read/'), 12)  # 11 глав + кнопка «Начать чтение»
 
-    def test_prologue_starts_with_video_player(self):
+    def test_prologue_starts_with_opening_illustration_then_video(self):
         page = self.read("read/1/index.html")
         body_start = page.index('id="readBody">')
+        self.assertLess(page.index('id="scene-chapter-cover"'), page.index('id="scene-opening"'))
         self.assertLess(page.index("<video"), page.index("<p>", body_start))
         self.assertIn('id="scene-opening"', page)
         self.assertEqual(page.count('<video '), 4)
         self.assertEqual(page.count('preload="none"'), 4)
-        self.assertEqual(page.count('class="scene-media'), 10)
+        self.assertEqual(page.count('class="scene-media'), 11)
+        self.assertIn('id="scene-chapter-cover"', page)
         self.assertIn('id="scene-balcony"', page)
         self.assertIn('id="scene-shadows"', page)
         self.assertEqual(page.count('<section id="ambient-'), 3)
