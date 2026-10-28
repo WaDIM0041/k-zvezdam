@@ -132,4 +132,18 @@ if(a && 'mediaSession' in navigator){
   if(bd) bd.onclick=closeToc;
 })();
 </script>
+<script nonce="{{ csp_nonce }}">
+(function(){
+  var blocks=document.querySelectorAll('.scene-ambient');
+  if(!blocks.length)return;
+  function show(el){el.classList.add('is-visible');}
+  if(!('IntersectionObserver' in window)){blocks.forEach(show);return;}
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){show(entry.target);observer.unobserve(entry.target);}
+    });
+  },{threshold:.18});
+  blocks.forEach(function(block){observer.observe(block);});
+})();
+</script>
 {% endblock %}
