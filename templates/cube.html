@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Куб — {{ BOOK_TITLE }}{% endblock %}
+{% block content %}
+<section class="section page-top">
+  <div class="wrap" style="max-width:840px">
+    <div class="eyebrow">Вселенная романа</div>
+    <h1>Куб</h1>
+    <div class="project-about-copy">
+      <p>В мире «Через время к звёздам» Куб хранит свои тайны. Что он собой представляет и какую роль играет в этой истории?</p>
+      <p>Здесь постепенно появятся материалы о Кубе и вселенной романа.</p>
+      <a class="project-about-button" href="{{ url_for('index') }}">Вернуться на главную</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

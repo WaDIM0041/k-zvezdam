@@ -441,6 +441,10 @@ def index():
 def about_project():
     return render_template("about_project.html")
 
+@app.route("/cube")
+def cube():
+    return render_template("cube.html")
+
 
 @app.route("/chapters")
 def chapters():

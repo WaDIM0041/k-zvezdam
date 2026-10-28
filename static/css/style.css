@@ -61,10 +61,26 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 .btn-g:hover{border-color:var(--cyan);color:var(--cyan)}
 
 /* HERO */
+.site-intro[hidden]{display:none}
+.site-intro{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:#04060d;color:#c9e6ff;letter-spacing:.14em;text-align:center;transition:opacity .35s}
+.site-intro.is-finished{opacity:0;pointer-events:none}
+.site-intro-star{font-size:2.5rem;color:#b5e8ff;text-shadow:0 0 26px #70caff;animation:introPulse 1.2s ease-in-out infinite alternate}
+.site-intro button{border:1px solid rgba(160,210,255,.3);border-radius:999px;background:transparent;color:#c9e6ff;padding:8px 15px;cursor:pointer}
+@keyframes introPulse{from{opacity:.45;transform:scale(.8)}to{opacity:1;transform:scale(1.1)}}
+.hero-music{max-width:430px;margin:16px 0 18px}
+.hero-music-label{display:block;color:#a7c6e9;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.hero-music iframe{display:block;width:100%;height:140px;border:0;border-radius:12px;background:transparent;opacity:.72;transition:opacity .25s}
+.hero-music iframe:hover,.hero-music iframe:focus{opacity:1}
+.hero-music>a{display:inline-block;margin-top:5px;font-size:.75rem;color:#a7c6e9}
 .has-hero nav{background:transparent}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#04060d}
 #space{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-black-cube{position:absolute;z-index:1;left:66%;top:53%;width:clamp(135px,19vw,230px);height:auto;transform:translate(-50%,-50%);pointer-events:none;filter:drop-shadow(0 10px 20px rgba(0,0,0,.6))}
+.hero-black-cube{position:absolute;z-index:4;left:66%;top:53%;width:clamp(135px,19vw,230px);transform:translate(-50%,-50%);filter:drop-shadow(0 10px 20px rgba(0,0,0,.6));cursor:pointer}
+.hero-black-cube img{display:block;width:100%;height:auto}
+.hero-black-cube:focus-visible{outline:2px solid #fff;outline-offset:6px;border-radius:8px}
+.hero-black-cube::after{content:'';position:absolute;inset:-150%;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(255,255,255,1) 0%,rgba(159,220,255,.9) 7%,rgba(91,154,255,.4) 25%,transparent 65%)}
+.hero-black-cube.opening::after{animation:cubePortalFlash .65s ease-in forwards}
+@keyframes cubePortalFlash{0%{opacity:0;transform:scale(.15)}40%{opacity:1;transform:scale(.75)}100%{opacity:1;transform:scale(1.6)}}
 @media(max-width:680px){.hero-black-cube{left:77%;top:29%;width:clamp(100px,28vw,160px);opacity:.85}}
 .hero-veil{position:absolute;inset:0;background:
   radial-gradient(120% 90% at 70% 30%,rgba(4,6,13,0) 30%,rgba(4,6,13,.55) 100%),

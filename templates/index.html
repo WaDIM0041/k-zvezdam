@@ -2,15 +2,32 @@
 {% block bodyclass %}has-hero{% endblock %}
 
 {% block content %}
+<div class="site-intro" id="siteIntro" hidden role="status" aria-live="polite"><span class="site-intro-star" aria-hidden="true">✦</span><span>Открываем путь к звёздам</span><button type="button" id="skipIntro">Открыть сайт</button></div>
+<script nonce="{{ csp_nonce }}">
+(function(){
+  var intro=document.getElementById('siteIntro');
+  if(!intro || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  intro.hidden=false;
+  function finish(){intro.classList.add('is-finished');window.setTimeout(function(){intro.hidden=true;},350);}
+  document.getElementById('skipIntro').addEventListener('click',finish,{once:true});
+  if(document.readyState==='complete')finish();else window.addEventListener('load',finish,{once:true});
+  window.setTimeout(finish,2200);
+})();
+</script>
 <header class="hero" id="hero">
   <canvas id="space" class="space-scene" aria-hidden="true"></canvas>
-  <img class="hero-black-cube" src="{{ url_for('static', filename='prologue/Чёрный Куб из финала — v001.webp') }}" alt="" aria-hidden="true">
+  <a class="hero-black-cube" id="cubePortal" href="{{ url_for('cube') }}" aria-label="Открыть тайную страницу Куба"><img src="{{ url_for('static', filename='prologue/Чёрный Куб из финала — v001.webp') }}" alt=""></a>
   <div class="hero-veil"></div>
   <div class="hero-in wrap">
     <div class="hero-content" id="heroContent">
       <h1 class="glitch" data-text="Через время к звёздам">Через время<br>к звёздам</h1>
       <p class="epigraph">«Я — твоё завтра».</p>
       <p class="tag">{{ BOOK_TAGLINE }}</p>
+      <div class="hero-music">
+        <span class="hero-music-label">Музыка вселенной</span>
+        <iframe title="Awakening the Monolith — музыкальный плеер Suno" src="https://suno.com/embed/e136cde6-69ba-4100-ae94-633eaf20cf5c" loading="lazy" allow="encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://suno.com/s/gdQcE2eU7rcV4Cm9" target="_blank" rel="noopener">Открыть трек в Suno</a>
+      </div>
       <div class="btns">
         {% if chapters %}
         <a class="btn btn-p" href="{{ url_for('read', cid=chapters[0]['id']) }}">Начать чтение</a>
@@ -64,6 +81,18 @@
 
 {% block scripts %}
 <script nonce="{{ csp_nonce }}">
+// Вспышка перед переходом; ссылка работает и без JavaScript.
+(function(){
+  var portal=document.getElementById('cubePortal');
+  if(!portal)return;
+  portal.addEventListener('click',function(e){
+    if(e.button!==0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    e.preventDefault();
+    if(portal.classList.contains('opening'))return;
+    portal.classList.add('opening');
+    window.setTimeout(function(){window.location.href=portal.href;},650);
+  });
+})();
 // scroll reveal
 (function(){
   var section=document.querySelector('.annot');
