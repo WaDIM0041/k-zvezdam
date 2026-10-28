@@ -389,6 +389,13 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 @media(max-width:680px){.scene-ambient{margin-left:-14px;margin-right:-14px;padding:23px 18px 25px}.scene-ambient-cube{min-height:560px}}
 @media(prefers-reduced-motion:reduce){.scene-ambient .scene-ambient-art::before,.scene-ambient .scene-ambient-art::after{animation:none!important}.scene-ambient-shadows.is-visible .scene-ambient-art::before{opacity:.28;transform:translate3d(0,0,0) scale(.86)}}
 
+/* Синий всплеск зажигалки в главе 1 остаётся локальным эффектом своей сцены. */
+.scene-ambient-lighter{background:radial-gradient(ellipse 420px 250px at 52% 38%,rgba(28,105,176,.1),transparent 74%),linear-gradient(100deg,rgba(4,7,12,.96),rgba(8,15,25,.76),rgba(3,6,11,.97))}
+.scene-ambient-lighter .scene-ambient-art::before{inset:-12%;background:radial-gradient(circle at 50% 40%,rgba(104,205,255,.42) 0,rgba(37,124,202,.15) 14%,transparent 43%);opacity:0;filter:blur(4px);mix-blend-mode:screen}
+.scene-ambient-lighter.glow-visible .scene-ambient-art::before{animation:lighterBlueFlash 4.8s ease-out both}
+.scene-ambient-lighter p{text-shadow:0 1px 8px #000,0 0 18px rgba(47,142,218,.16)}
+@keyframes lighterBlueFlash{0%,15%{opacity:0}28%{opacity:.95}43%{opacity:.52}62%,100%{opacity:0}}
+
 .hero-content.flash-active::before{animation:titleFlash 23s linear both}
 .hero-content.flash-active::after{animation:titleAfterglow 23s linear both}
 @media(prefers-reduced-motion:reduce){.hero-content.flash-active::before,.hero-content.flash-active::after{animation:none}}

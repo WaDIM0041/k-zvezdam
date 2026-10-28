@@ -20,10 +20,11 @@
       "position": 1,
       "title": "Синий огонь",
       "kind": "Глава 1",
-      "bodySource": "roman_deploy_all.zip::bodies/glava1.txt",
-      "bodySha256": "350e726f4f99079272c62eb05df1dd9beba2ec3d09f1cb5fc05192eae38ec9e2",
+      "bodySource": "content/chapter-01.txt + static/chapter-01/",
+      "bodySha256": "9ef951682fc84d0729c358fa0e0c6e539709ed6526479d054d0230e7db3d5b87",
       "titleSource": "Глава1_НОВАЯ_черновик.md::heading",
-      "publishedInPreview": true
+      "publishedInPreview": true,
+      "revision": "Мультимедийная редакция по текущей публикации: видеоматериалы и иллюстрации привязаны к сценам."
     },
     {
       "position": 2,
