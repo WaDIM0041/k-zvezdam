@@ -136,7 +136,10 @@ if(a && 'mediaSession' in navigator){
 (function(){
   var blocks=document.querySelectorAll('.scene-ambient');
   if(!blocks.length)return;
-  function show(el){el.classList.add('is-visible');}
+  function show(el){
+    el.classList.add('is-visible');
+    if(el.classList.contains('scene-ambient-lighter'))el.classList.add('glow-visible');
+  }
   if(!('IntersectionObserver' in window)){blocks.forEach(show);return;}
   var observer=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
