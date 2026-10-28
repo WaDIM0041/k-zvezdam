@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/k-zvezdam/static/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Russo+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=home-1bd06ac">
+<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=music-transparent-1">
 </head>
 <body class="has-hero">
 <nav id="nav">
@@ -38,15 +38,32 @@
 
 
 
+<div class="site-intro" id="siteIntro" hidden role="status" aria-live="polite"><span class="site-intro-star" aria-hidden="true">✦</span><span>Открываем путь к звёздам</span><button type="button" id="skipIntro">Открыть сайт</button></div>
+<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID">
+(function(){
+  var intro=document.getElementById('siteIntro');
+  if(!intro || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  intro.hidden=false;
+  function finish(){intro.classList.add('is-finished');window.setTimeout(function(){intro.hidden=true;},350);}
+  document.getElementById('skipIntro').addEventListener('click',finish,{once:true});
+  if(document.readyState==='complete')finish();else window.addEventListener('load',finish,{once:true});
+  window.setTimeout(finish,2200);
+})();
+</script>
 <header class="hero" id="hero">
   <canvas id="space" class="space-scene" aria-hidden="true"></canvas>
-  <img class="hero-black-cube" src="/k-zvezdam/static/prologue/%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9%20%D0%9A%D1%83%D0%B1%20%D0%B8%D0%B7%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0%20%E2%80%94%20v001.webp" alt="" aria-hidden="true">
+  <a class="hero-black-cube" id="cubePortal" href="/k-zvezdam/cube" aria-label="Открыть тайную страницу Куба"><img src="/k-zvezdam/static/prologue/%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9%20%D0%9A%D1%83%D0%B1%20%D0%B8%D0%B7%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0%20%E2%80%94%20v001.webp" alt=""></a>
   <div class="hero-veil"></div>
   <div class="hero-in wrap">
     <div class="hero-content" id="heroContent">
       <h1 class="glitch" data-text="Через время к звёздам">Через время<br>к звёздам</h1>
       <p class="epigraph">«Я — твоё завтра».</p>
       <p class="tag">Они прошли сквозь ад параллельных миров, чтобы вернуться домой. Но у Времени были другие планы.</p>
+      <div class="hero-music">
+        <span class="hero-music-label">Музыка вселенной</span>
+        <iframe title="Awakening the Monolith — музыкальный плеер Suno" src="https://suno.com/embed/e136cde6-69ba-4100-ae94-633eaf20cf5c" loading="lazy" allow="encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://suno.com/s/gdQcE2eU7rcV4Cm9" target="_blank" rel="noopener">Открыть трек в Suno</a>
+      </div>
       <div class="btns">
         
         <a class="btn btn-p" href="/k-zvezdam/read/1">Начать чтение</a>
@@ -172,7 +189,7 @@
   </div>
 </footer>
 </div>
-<script nonce="AQe9uQ1Alo0FDbB0OHo7E6Vu">
+<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID">
 (function(){
   var n=document.getElementById('nav'),
       t=document.getElementById('toTop'),
@@ -192,11 +209,23 @@
   if(t) t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 })();
 </script>
-<script nonce="AQe9uQ1Alo0FDbB0OHo7E6Vu" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script nonce="AQe9uQ1Alo0FDbB0OHo7E6Vu" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
-<script nonce="AQe9uQ1Alo0FDbB0OHo7E6Vu" src="/k-zvezdam/static/js/flyby.js"></script>
+<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
+<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID" src="/k-zvezdam/static/js/flyby.js"></script>
 
-<script nonce="AQe9uQ1Alo0FDbB0OHo7E6Vu">
+<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID">
+// Вспышка перед переходом; ссылка работает и без JavaScript.
+(function(){
+  var portal=document.getElementById('cubePortal');
+  if(!portal)return;
+  portal.addEventListener('click',function(e){
+    if(e.button!==0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    e.preventDefault();
+    if(portal.classList.contains('opening'))return;
+    portal.classList.add('opening');
+    window.setTimeout(function(){window.location.href=portal.href;},650);
+  });
+})();
 // scroll reveal
 (function(){
   var section=document.querySelector('.annot');

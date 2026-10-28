@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Куб — Через время к звёздам</title>
+<meta name="description" content="Они прошли сквозь ад параллельных миров, чтобы вернуться домой. Но у Времени были другие планы.">
+
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="canonical" href="https://wadim0041.github.io/cube">
+<meta property="og:title" content="Через время к звёздам">
+<meta property="og:description" content="Они прошли сквозь ад параллельных миров, чтобы вернуться домой. Но у Времени были другие планы.">
+<meta property="og:type" content="book">
+<link rel="icon" href="/k-zvezdam/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/k-zvezdam/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/k-zvezdam/static/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/k-zvezdam/static/apple-touch-icon.png">
+<link rel="shortcut icon" href="/k-zvezdam/static/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Russo+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=music-transparent-1">
+</head>
+<body class="">
+<nav id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/k-zvezdam/"><span class="brand-cube" aria-hidden="true"><span class="cube-form"><i></i><i></i><i></i><i></i><i></i><i></i><span class="cube-core"></span></span></span><span>Через время <b>к звёздам</b></span></a>
+    <div class="nav-links">
+      <a href="/k-zvezdam/">Главная</a>
+      <a href="/k-zvezdam/chapters">Оглавление</a>
+      <a class="vk-btn" href="https://vk.com/anna_kamchatka" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M13.1 17.6c-5.5 0-9-3.8-9.1-10.1h2.8c.1 4.6 2.2 6.6 3.9 7V7.5h2.6v4c1.6-.2 3.4-2 4-4h2.6c-.5 2.4-2.3 4.2-3.5 5 1.2.6 3.2 2.2 4 5.1h-2.9c-.6-1.9-2.2-3.4-4.2-3.6v3.6h-1.2z"/></svg> ВКонтакте</a>
+      
+    </div>
+  </div>
+</nav>
+
+
+  
+
+
+
+<section class="section page-top">
+  <div class="wrap" style="max-width:840px">
+    <div class="eyebrow">Вселенная романа</div>
+    <h1>Куб</h1>
+    <div class="project-about-copy">
+      <p>В мире «Через время к звёздам» Куб хранит свои тайны. Что он собой представляет и какую роль играет в этой истории?</p>
+      <p>Здесь постепенно появятся материалы о Кубе и вселенной романа.</p>
+      <a class="project-about-button" href="/k-zvezdam/">Вернуться на главную</a>
+    </div>
+  </div>
+</section>
+
+
+<div id="rprog"></div>
+<button id="toTop" aria-label="Наверх" title="Наверх">↑</button>
+
+<div class="closing-space">
+  <canvas class="space-scene" aria-hidden="true"></canvas>
+  
+  
+<footer id="footer">
+  <div class="footer-flashes" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="project-about">
+      <a class="project-about-button" href="/k-zvezdam/about"><span class="project-star" aria-hidden="true">✦</span> О проекте</a>
+    </div>
+    «Через время к звёздам» · <a class="glitch footer-author" data-text="ANNA Kamchatka" href="https://annakam.ru/">ANNA Kamchatka</a> · 2026
+  </div>
+</footer>
+</div>
+<script nonce="X7BIHYDnrAiIVfdIB10bQSVd">
+(function(){
+  var n=document.getElementById('nav'),
+      t=document.getElementById('toTop'),
+      p=document.getElementById('rprog'),
+      reading=document.body.classList.contains('reading');
+  function onScroll(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    if(n) n.classList.toggle('scrolled',y>40);
+    if(t) t.classList.toggle('show',y>420);
+    if(p && reading){
+      var h=document.documentElement.scrollHeight-window.innerHeight;
+      p.style.width=(h>0?Math.min(100,y/h*100):0)+'%';
+    }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  if(t) t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+<script nonce="X7BIHYDnrAiIVfdIB10bQSVd" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="X7BIHYDnrAiIVfdIB10bQSVd" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
+<script nonce="X7BIHYDnrAiIVfdIB10bQSVd" src="/k-zvezdam/static/js/flyby.js"></script>
+
+</body>
+</html>
