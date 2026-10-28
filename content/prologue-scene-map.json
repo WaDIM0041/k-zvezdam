@@ -1,7 +1,7 @@
 {
-  "edition": "accepted-revision-2026-10-28-gemini-gateway",
+  "edition": "accepted-revision-2026-10-28-gpt-fragments",
   "acceptedDraftSha256": "6ac7530c96b6ee23f0b20c6c0b0349a00b849ac3785cb162d3a9328aed4ab207",
-  "bodySha256": "740a8b0f9499e61f23bbfa63680fac5155fd943e26838fbdccd565110cae864e",
+  "bodySha256": "7df8b3f01ed58be172ebb3c2fc33c3a3d2458f7162c10655c975e2dae7dff847",
   "scenes": [
     {
       "key": "chapter-cover",
@@ -77,6 +77,26 @@
       "ambient": "cube",
       "start": "after scene-cube",
       "end": "after scene-ending"
+    },
+    {
+      "key": "cryo",
+      "placement": "after",
+      "anchor": "Отражение его руки шевельнулось мгновением позже."
+    },
+    {
+      "key": "passage",
+      "placement": "after",
+      "anchor": "— Только следующий проём, — ответил Первый."
+    },
+    {
+      "key": "terminal-touch",
+      "placement": "after",
+      "anchor": "— Да."
+    },
+    {
+      "key": "shadow-walk",
+      "placement": "after",
+      "anchor": "Края силуэтов дрогнули. Все трое стояли неподвижно."
     }
   ],
   "retainedVideoKeys": [
