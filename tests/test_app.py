@@ -152,15 +152,16 @@ class SiteTests(unittest.TestCase):
         from urllib.parse import unquote
         root = Path(site.__file__).resolve().parent
         media = json.loads((root / 'content/prologue-media.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(media), 11)
+        self.assertEqual(len(media), 12)
         for item in media.values():
             for field in ('src', 'poster'):
                 if field in item:
                     self.assertTrue((root / unquote(item[field]).lstrip('/')).is_file())
         page = self.client.get('/read/1').get_data(as_text=True)
         self.assertEqual(page.count('<video '), 4)
-        self.assertEqual(page.count('class="scene-media'), 11)
+        self.assertEqual(page.count('class="scene-media'), 12)
         self.assertIn('id="scene-chapter-cover"', page)
+        self.assertIn('id="scene-gateway"', page)
         self.assertIn('id="scene-balcony"', page)
         self.assertIn('id="scene-shadows"', page)
         self.assertEqual(page.count('<section id="ambient-'), 3)

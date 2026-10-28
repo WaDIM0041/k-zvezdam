@@ -1,7 +1,7 @@
 {
-  "edition": "accepted-revision-2026-10-28-gemini",
+  "edition": "accepted-revision-2026-10-28-gemini-gateway",
   "acceptedDraftSha256": "6ac7530c96b6ee23f0b20c6c0b0349a00b849ac3785cb162d3a9328aed4ab207",
-  "bodySha256": "a3adb2650fecc32e98d20e1aa1ceac0eb2f9fdc4145817c16da985b77910b59f",
+  "bodySha256": "740a8b0f9499e61f23bbfa63680fac5155fd943e26838fbdccd565110cae864e",
   "scenes": [
     {
       "key": "chapter-cover",
@@ -17,6 +17,11 @@
       "key": "awakening",
       "placement": "after",
       "anchor": "— Проверил. Просто всё равно будто пыль во рту."
+    },
+    {
+      "key": "gateway",
+      "placement": "after",
+      "anchor": "Первый поднял фонарь выше. Темнота не дала ответа."
     },
     {
       "key": "balcony",
