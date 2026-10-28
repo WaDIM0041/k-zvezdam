@@ -1,0 +1,18 @@
+const fs = require('fs');
+const path = require('path');
+const source = 'C:/Users/User/.codex/attachments/b5ebbd75-1a25-482a-8abb-3f5fbb3cd84f/Вставленный текст.txt';
+const root = path.resolve(__dirname, '..');
+let raw = fs.readFileSync(source, 'utf8');
+raw = raw.replace(/<div>\s*<video[^>]*?src="([^"]+)"[^>]*>.*?<\/video>\s*<\/div>/gs, '\n[video]$1[/video]\n');
+raw = raw.replace(/<figure>\s*<img[^>]*?src="([^"]+)"[^>]*>\s*<\/figure>/gs, '\n[img]$1[/img]\n');
+raw = raw.replace(/<section[^>]*aria-label="Бесформенная тень[^>]*>/g, '\n[ambient]shadows[/ambient]\n');
+raw = raw.replace(/<section[^>]*aria-label="Синий огонь[^>]*>/g, '\n[ambient]lighter[/ambient]\n');
+raw = raw.replace(/<\/section>/g, '\n[ambient-end][/ambient-end]\n');
+raw = raw.replace(/<\/?p>/g, '\n').replace(/<\/?b>/g, '');
+raw = raw.replace(/<[^>]+>/g, '').replace(/\r/g, '');
+raw = raw.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+const body = raw.split(/\n\s*\n/).map(x => x.replace(/[ \t]+/g, ' ').trim()).filter(Boolean).join('\n\n') + '\n';
+fs.writeFileSync(path.join(root, 'content', 'chapter-01.txt'), body, 'utf8');
+fs.mkdirSync(path.join(root, 'chapter-work', '01'), { recursive: true });
+fs.writeFileSync(path.join(root, 'chapter-work', '01', 'local-v1-source.html'), fs.readFileSync(source), 'utf8');
+console.log(`Imported ${body.length} characters`);
