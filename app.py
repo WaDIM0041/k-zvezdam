@@ -274,12 +274,28 @@ def _video_embed(raw_url: str) -> str:
                     'title="Rutube video" loading="lazy" allowfullscreen></iframe></div>')
     if parsed.path.lower().endswith((".mp4", ".webm", ".ogg")):
         safe_url = html.escape(value, quote=True)
-        return (f'<div class="embed"><video src="{safe_url}" controls playsinline preload="metadata" '
+        poster = _chapter_video_poster(parsed.path)
+        poster_attr = f' poster="{html.escape(poster, quote=True)}"' if poster else ""
+        return (f'<div class="embed"><video src="{safe_url}"{poster_attr} controls playsinline preload="none" '
                 f'aria-label="Видео к главе">Ваш браузер не поддерживает видео. '
                 f'<a href="{safe_url}">Открыть видео</a></video></div>'
                 f'<p class="video-fallback"><a href="{safe_url}" target="_blank" '
                 'rel="noopener noreferrer">Открыть видео отдельно ↗</a></p>')
     return f'<p><a href="{html.escape(value, quote=True)}" target="_blank" rel="noopener noreferrer">Видео ↗</a></p>'
+
+
+_CHAPTER_VIDEO_POSTERS = {
+    "/static/chapter-01/pulkovo-airport-opening-v001-mobile.mp4": "/static/chapter-01/pulkovo-airport-opening-v001-mobile-poster.jpg",
+    "/static/chapter-01/airport-memory-mobile.mp4": "/static/chapter-01/airport-memory-mobile-poster.jpg",
+    "/static/chapter-01/flight-window-mobile.mp4": "/static/chapter-01/flight-window-mobile-poster.jpg",
+    "/static/chapter-01/gravimobile-night-drive-mobile.mp4": "/static/chapter-01/gravimobile-night-drive-mobile-poster.jpg",
+    "/static/chapter-01/gravimobile-approach-mobile.mp4": "/static/chapter-01/gravimobile-approach-mobile-poster.jpg",
+}
+
+
+def _chapter_video_poster(path: str) -> str:
+    """Returns an approved still for a locally hosted chapter clip, if one exists."""
+    return _CHAPTER_VIDEO_POSTERS.get(path, "")
 
 
 def _inline(value: str) -> str:

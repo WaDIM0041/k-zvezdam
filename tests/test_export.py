@@ -81,6 +81,18 @@ class StaticExportTests(unittest.TestCase):
             self.assertTrue((self.out / "static/chapter-01" / filename).is_file(), filename)
         self.assertNotIn('/static/chapter-01/chapter-01-cover-v002-pulkovo.png', chapter_one)
         self.assertNotIn('/static/chapter-01/pulkovo-team-briefing-v001.png', chapter_one)
+        mobile_videos = (
+            "pulkovo-airport-opening-v001",
+            "airport-memory",
+            "flight-window",
+            "gravimobile-night-drive",
+            "gravimobile-approach",
+        )
+        self.assertEqual(chapter_one.count('preload="none"'), len(mobile_videos))
+        for stem in mobile_videos:
+            self.assertIn(f'/static/chapter-01/{stem}-mobile.mp4', chapter_one)
+            self.assertIn(f'/static/chapter-01/{stem}-mobile-poster.jpg', chapter_one)
+            self.assertNotIn(f'/static/chapter-01/{stem}.mp4', chapter_one)
 
     def test_static_counts_and_no_backend_counters(self):
         chapters = self.read("chapters/index.html")
@@ -94,7 +106,15 @@ class StaticExportTests(unittest.TestCase):
         self.assertTrue(version["noindex"])
         self.assertTrue((self.out / "static/video/prologue.mp4").is_file())
         self.assertGreater(len(list((self.out / "static/chapter-images").glob("*.jpg"))), 0)
-        self.assertEqual(len(list((self.out / "static/chapter-01").glob("*.mp4"))), 7)
+        self.assertEqual(len(list((self.out / "static/chapter-01").glob("*.mp4"))), 12)
+        for filename in (
+            "pulkovo-airport-opening-v001-mobile.mp4",
+            "airport-memory-mobile.mp4",
+            "flight-window-mobile.mp4",
+            "gravimobile-night-drive-mobile.mp4",
+            "gravimobile-approach-mobile.mp4",
+        ):
+            self.assertTrue((self.out / "static/chapter-01" / filename).is_file(), filename)
 
     def test_robots_and_rewrites_are_present(self):
         self.assertIn("Disallow: /", self.read("robots.txt"))

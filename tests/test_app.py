@@ -139,7 +139,7 @@ class SiteTests(unittest.TestCase):
                 'До ролика\n\n[video]/static/video/prologue.mp4[/video]\n\nПосле ролика',
             ):
                 markup = str(site.render_body(body))
-                self.assertIn('controls playsinline preload="metadata"', markup)
+                self.assertIn('controls playsinline preload="none"', markup)
                 self.assertIn('src="/static/video/prologue.mp4"', markup)
                 self.assertNotIn('autoplay', markup)
                 if 'До ролика' in body:
