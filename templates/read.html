@@ -34,7 +34,15 @@
   </div>
   <div class="orn"></div>
   <div class="read-body" id="readBody">
-    {{ body }}
+    {% if ch['kind'] == 'Пролог' and '</figure>' in body %}
+      {% set opening = body.split('</figure>', 1) %}
+      {{ (opening[0] ~ '</figure>')|safe }}
+      <div style="margin:24px 0 32px">
+        <iframe title="Песня «Глава 1» — Suno" src="https://suno.com/embed/99bf8381-24b7-44a6-84f8-a080795e4fb0" width="100%" height="160" style="border:0;border-radius:12px" loading="lazy" allow="encrypted-media"></iframe>
+        <p><a href="https://suno.com/s/l0yLS5gxuk8ZMCbj" target="_blank" rel="noopener noreferrer">Открыть трек в Suno ↗</a></p>
+      </div>
+      {{ opening[1]|safe }}
+    {% else %}{{ body }}{% endif %}
   </div>
 
   <div class="read-actions">
