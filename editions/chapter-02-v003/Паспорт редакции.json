@@ -1,0 +1,84 @@
+{
+  "edition": "chapter-02-v003",
+  "date": "2026-10-29",
+  "text": {
+    "url": "https://kzvezdam.annakam.ru/read/3",
+    "title": "Глава 2 — Призрак в кадре",
+    "retrievedAt": "2026-10-29T14:54:40.710033+00:00",
+    "firstAnchor": "Кристиан спрыгнул на землю последним — и тут же пожалел об этом. Ботинок с чавканьем ушёл в грязь по щиколотку. Он брезгливо встряхнул ногой, оглядел раскисшую пустошь, мёртвый бетон блокпоста, туман, в котором тонул свет фар, — и вынес вердикт:",
+    "lastAnchor": "Вадим не ответил. В кармане, под ладонью, тёплый металл лежал тихо и ровно — и от этого спокойствия почему-то было страшнее всего.",
+    "sourceSha256": "062442532264422a60aca62961b048a7c77928236e010844398112262a87eb85",
+    "sourceUnchangedSince26": true,
+    "editionSha256": "196e2fce884fd608aa054a8f603fc11468071e5010115226e355b0ed8f28803c",
+    "editionStatus": "Текст ранее подготовленной редакции v002, выбранной для текущей замены изображений; проза не изменена."
+  },
+  "textChanged": false,
+  "registryRevision": 14,
+  "openingAnalysis": "Глава о том, как обычное фотографирование превращается в сомнение в реальности человека. Джуна последовательно находит три аномалии, сохраняет свидетельство; Вадим ощущает тихое тепло скрытой находки. Открывающий спокойный план скрывает разгадку и даёт исходную обычную сцену, с которой позднее сравнивается записанный снимок.",
+  "images": [
+    {
+      "id": "OPENING",
+      "file": "00 — Перед закрытой дверью — естественный свет v003.png",
+      "prompt": "Create a new opening photograph for chapter 2 of a psychological science-fiction novel. Use the supplied image only as a continuity reference for the visible dark jacket/back of the man and the already shown closed bunker entrance, not its artificial rendering style. A genuinely believable candid outdoor photograph on a damp foggy evening: a solitary ordinary opaque man with short dark hair seen from behind, in a worn dark practical jacket, standing near a closed unhandled metal bunker door; a narrow horizontally rectangular sealed welded dark window on the RIGHT of that door; weathered rough damp concrete and low overgrown flat roof. Frame relatively tightly around the man, door and window; crop off unseen architecture. The vehicle is entirely outside the frame; its headlight casts soft diffuse light from behind-left, making a physically ordinary shadow away from the light. Grey wet mist hides the sky; no visible stars. Muted desaturated natural colors, credible dim exposure, moderate contrast, gently soft details outside focus, subtle photographic grain and slight lens imperfections. A quiet unposed human moment with believable weight, damp loose clothing, uneven muddy ground, no glamorous rim light, no glossy wet-look 3D surfaces, no HDR, no oversharpening, no futuristic costume ornament, no orange-teal blockbuster grading. The emotional point of the WHOLE chapter is a deceptively ordinary scene that later becomes doubtful photographic evidence; this opening must NOT reveal the anomalies yet. No transparency, no double man, no glowing eyes or lights in the window, no visible lighter, no camera UI, no text. Preserve closed door and window position. Landscape 16:9. This is an opening illustration, not a new canonical facade or portrait.",
+      "role": "Отдельная открывающая иллюстрация: обычная сцена до обнаружения аномалии",
+      "refs": [
+        "AS-S02-WORK-M01-001"
+      ],
+      "registryRevision": 14,
+      "sha256": "83d332a566a3ede29c52896fc4609e3679b9bae9868de55f0aea216f482bb52c",
+      "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон"
+    },
+    {
+      "id": "M01",
+      "file": "01 — Джуна делает черновой снимок — естественный кадр v003.png",
+      "prompt": "Create a completely natural candid photograph, landscape 16:9, not an illustration or CGI. Reference 1 is the NEW lighting, location and opaque man continuity. Reference 2 supplies ONLY the photographer woman's tied-back dark hair, unadorned olive practical jacket, black camera and rear/three-quarter viewing angle. Frame from very close behind her left shoulder at human eye level: she already holds the existing black camera to her right eye, finger relaxed over shutter; her shoulder and camera occupy the softly out-of-focus left third; focus falls across her hands to the ordinary man several steps away before the CLOSED bunker door. Keep his short dark hair and worn dark jacket from ref1, face hidden. Narrow rectangular sealed dark window on the RIGHT of the door, no lights in it. No vehicle in view, its diffuse headlight glow comes from outside left; no new props or figures. Damp grey fog, muddy ground, mild flat evening light, worn real fabrics and skin with normal pores, relaxed uneven stance, slight natural camera tilt, subtle grain, realistic unpolished medium contrast, imperfect unposed moment. No starry sky, no gleaming edges, no plastic skin, no oversharpened leaves, no hero stance, no artificial cinematic volumetric spotlight. The camera has credible black proportions but its model and rear interface are not shown close enough to introduce an unknown design. The man is fully opaque, shadow physically normal, no blue lights, no ghost, no open door. The main narrative action of the future 10-second video is one shutter press then she lowers camera; this START image must show her BEFORE that movement, with the camera already at the eye. Do not copy the old ref2's glossy render style.",
+      "role": "Замена прежнего M01: Джуна снимает обычного Вадима",
+      "refs": [
+        "AS-S02-WORK-M01-001",
+        "OPENING-v003"
+      ],
+      "registryRevision": 14,
+      "sha256": "bd82ba59c00b063307b8b97a3b57cd4952b332539719fc741c502a84aa98042d",
+      "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон"
+    },
+    {
+      "id": "M02",
+      "file": "02 — Аномалия на фотографии — естественный кадр v003.png",
+      "prompt": "Edit the supplied NEW opening photograph into the single anomalous photograph which Juna discovers in chapter 2. It must still look like a believable unpolished camera photograph, with exactly the same man, framing, pose, clothes, closed bunker door, welded rectangular window to the right, ground and fog. Keep all geometry and subdued photographic texture. Change ONLY the following three story clues, already present from the first frame: (1) the man's body and dark jacket in chest/shoulders become subtly but unmistakably translucent, allowing the exact damp concrete behind his chest and shoulder to be seen through him; his outline is still recognizable, his clothes remain draped and not shredded, no ghost clothing, no additional figure, no glow around him, no exposed bones. This is a photographic anomaly, not a live apparition. (2) His ONE grounded dark shadow stretches diagonally toward the headlight illumination outside the LEFT edge, against normal lighting physics, with root attached at his shoes; no separate humanoid or duplicate man. (3) two tiny steady muted blue dots are discernible inside the dark welded rectangular WINDOW to the RIGHT of the door, no blue points on the door itself. The blue dots are small photographic points, never a monster face, never beams, no huge neon bloom. No camera body, display, hands, user interface, writing, stars, open door, new furniture, people or vehicle. Preserve the quiet grey damp scene and normal natural perspective; do not introduce an illustration finish or exaggerated drama. Output the entire recorded landscape photograph, 16:9. The story's impossible features are intentional; everything else must be physically mundane.",
+      "role": "Замена прежнего M02: только записанный снимок, три аномалии",
+      "refs": [
+        "OPENING-v003",
+        "AS-S02-WORK-M02-001 — текстовая схема аномалий"
+      ],
+      "registryRevision": 14,
+      "sha256": "4e631e36380fb9f1fe956a64349e3b4403e1d47f9ad9166f9b91b7002faba141",
+      "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон"
+    },
+    {
+      "id": "M03",
+      "file": "03 — Ладонь на нагрудном кармане — естественный кадр v003.png",
+      "prompt": "A natural unposed photographic close-up from chapter2, horizontal landscape 16:9. Use reference only for the man's plain worn dark-grey practical jacket material and quiet grey damp evening lighting. Crop closely to his upper chest, NO face or head. His anatomically ordinary bare RIGHT hand rests gently FLAT against his LEFT breast pocket near the heart, five normal relaxed fingers, fingertips over dark fabric. The closed pocket contains a small lighter but the lighter is completely hidden by the fabric: do NOT show or invent its shape, do NOT open the pocket, no bulge larger than a small pocket object. Restrained human tension conveyed through a small pressure of the palm and damp real jacket fibres, not clenched muscles or a heroic pose. Modest diffuse soft light from left, cool grey shadows, unpolished skin texture, tiny rain specks, naturally shallow depth of field. Background fully out of focus, just vague dark damp outdoors, no discernible new architecture or people. Real documentary still shot on an ordinary 50mm lens, understated exposure, muted natural colors, gentle grain; NO cinematic amber rim light, no glossy 3D render, no sharpened illustration details, no jewelry, no watch, no glove, no logos, no decorative futuristic equipment. No blue glow, no visible lighter or flame, no supernatural effects. This image accompanies the final paragraph: warm metal quiet under his hand, cause unexplained. It is the START frame for a subtle future video, hand already on pocket, no reaching inside.",
+      "role": "Новая финальная деталь: зажигалка скрыта, рука уже на кармане",
+      "refs": [
+        "OPENING-v003",
+        "Финальный абзац главы"
+      ],
+      "registryRevision": 14,
+      "sha256": "e57601d0a0cc01eb56d3c4078cad7dc3ad152ac5d569e63b1d18241951221316",
+      "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон"
+    }
+  ],
+  "imageGeneration": "Встроенный image_gen, по одному вызову на каждое из четырёх изображений; результат каждого лично просмотрен.",
+  "song": {
+    "url": "https://suno.com/s/DOt67mRuPOFJ95jA",
+    "id": "fea3864a-9e82-4ec3-a94f-16c18cf54a1b",
+    "placement": "В начале после открывающей картинки, по прямой команде Создателя",
+    "status": "Выбрана ссылка Создателем; полное прослушивание в этом проходе не выполнялось"
+  },
+  "reviewStatus": "Новая полная литературная приёмка не запрашивалась. Проза не изменена; смысл изображений проверен по всей выбранной главе.",
+  "liveRecheck": {
+    "date": "2026-10-29T15:10:07.824473+00:00",
+    "sourceSha256": "062442532264422a60aca62961b048a7c77928236e010844398112262a87eb85",
+    "unchanged": true
+  }
+}

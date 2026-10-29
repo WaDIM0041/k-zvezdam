@@ -252,6 +252,19 @@ def main(argv: list[str] | None = None) -> int:
         written.append("/404.html")
 
         shutil.copytree(ROOT / "static", out / "static")
+
+        # The chapter-2 edition is a self-contained reader with its checked media.
+        chapter_two = ROOT / "editions" / "chapter-02-v003"
+        if (chapter_two / "index.html").is_file():
+            shutil.copytree(chapter_two, out / "read" / "3", dirs_exist_ok=True)
+            chapter_version = {
+                "edition": "chapter-02-v003",
+                "commit": os.environ.get("GITHUB_SHA", ""),
+                "source": "editions/chapter-02-v003",
+                "builtAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            }
+            write(out / "read" / "3" / "version.json",
+                  json.dumps(chapter_version, ensure_ascii=False, indent=2) + "\n")
         write(out / ".htaccess", HTACCESS)
         write(out / MARKER, "static export of the Flask reader\n")
         write(out / ".nojekyll", "")
