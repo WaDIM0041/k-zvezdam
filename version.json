@@ -1,7 +1,7 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-10-29T13:21:23+00:00",
-  "commit": "7045313",
+  "builtAt": "2026-10-29T15:11:57+00:00",
+  "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "chapters": 11,
   "pages": [
     "/",
@@ -22,5 +22,15 @@
     "/promo",
     "/404.html"
   ],
-  "noindex": true
+  "noindex": true,
+  "previousCommit": "7045313",
+  "lastChange": {
+    "scope": "/read/3/ only; other published files preserved",
+    "edition": "chapter-02-v003",
+    "sourceBranch": "chapter-02-natural-images-v003",
+    "sourceCommit": "c6f76ba2d025584a98c295377aec410336e3337c"
+  },
+  "pageCommits": {
+    "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c"
+  }
 }

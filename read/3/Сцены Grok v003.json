@@ -1,0 +1,56 @@
+[
+  {
+    "id": "M01",
+    "file": "01 — Джуна делает черновой снимок — естественный кадр v003.png",
+    "prompt": "Create a completely natural candid photograph, landscape 16:9, not an illustration or CGI. Reference 1 is the NEW lighting, location and opaque man continuity. Reference 2 supplies ONLY the photographer woman's tied-back dark hair, unadorned olive practical jacket, black camera and rear/three-quarter viewing angle. Frame from very close behind her left shoulder at human eye level: she already holds the existing black camera to her right eye, finger relaxed over shutter; her shoulder and camera occupy the softly out-of-focus left third; focus falls across her hands to the ordinary man several steps away before the CLOSED bunker door. Keep his short dark hair and worn dark jacket from ref1, face hidden. Narrow rectangular sealed dark window on the RIGHT of the door, no lights in it. No vehicle in view, its diffuse headlight glow comes from outside left; no new props or figures. Damp grey fog, muddy ground, mild flat evening light, worn real fabrics and skin with normal pores, relaxed uneven stance, slight natural camera tilt, subtle grain, realistic unpolished medium contrast, imperfect unposed moment. No starry sky, no gleaming edges, no plastic skin, no oversharpened leaves, no hero stance, no artificial cinematic volumetric spotlight. The camera has credible black proportions but its model and rear interface are not shown close enough to introduce an unknown design. The man is fully opaque, shadow physically normal, no blue lights, no ghost, no open door. The main narrative action of the future 10-second video is one shutter press then she lowers camera; this START image must show her BEFORE that movement, with the camera already at the eye. Do not copy the old ref2's glossy render style.",
+    "role": "Замена прежнего M01: Джуна снимает обычного Вадима",
+    "refs": [
+      "AS-S02-WORK-M01-001",
+      "OPENING-v003"
+    ],
+    "registryRevision": 14,
+    "sha256": "bd82ba59c00b063307b8b97a3b57cd4952b332539719fc741c502a84aa98042d",
+    "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон",
+    "title": "Черновой кадр",
+    "seconds": 10,
+    "anchor": "Черновой кадр.",
+    "alt": "Джуна со спины держит камеру у глаза; обычный Вадим стоит у закрытой двери, окно справа тёмное.",
+    "videoPrompt": "Оживи приложенный референс одним непрерывным планом ровно 10 секунд, 16:9. Первый кадр точно повторяет изображение: Джуна со спины уже держит камеру у глаза, Вадим стоит перед закрытым бункером, фары освещают место слева.\n\n0–3 с: Джуна едва заметно уточняет композицию, Вадим неподвижен. 3–4 с: один раз нажимает спуск. 4–8 с: плавно опускает камеру к груди и переводит взгляд на дисплей. 8–10 с: замирает, изучая снимок; содержимое дисплея остаётся неразличимым.\n\nСъёмочная камера неподвижна за её плечом. Сохрани внешность, одежду, транспорт, свет и геометрию референса; не раскрывай новые ракурсы лиц. Допустимо слабое движение тумана.\n\nЗвук: тихий ветер, один щелчок затвора, шорох одежды. Без речи и музыки. Вадим остаётся непрозрачным, окно тёмным, дверь закрытой. Без новых людей, глаз, призраков, дополнительного спуска, титров и монтажных склеек."
+  },
+  {
+    "id": "M02",
+    "file": "02 — Аномалия на фотографии — естественный кадр v003.png",
+    "prompt": "Edit the supplied NEW opening photograph into the single anomalous photograph which Juna discovers in chapter 2. It must still look like a believable unpolished camera photograph, with exactly the same man, framing, pose, clothes, closed bunker door, welded rectangular window to the right, ground and fog. Keep all geometry and subdued photographic texture. Change ONLY the following three story clues, already present from the first frame: (1) the man's body and dark jacket in chest/shoulders become subtly but unmistakably translucent, allowing the exact damp concrete behind his chest and shoulder to be seen through him; his outline is still recognizable, his clothes remain draped and not shredded, no ghost clothing, no additional figure, no glow around him, no exposed bones. This is a photographic anomaly, not a live apparition. (2) His ONE grounded dark shadow stretches diagonally toward the headlight illumination outside the LEFT edge, against normal lighting physics, with root attached at his shoes; no separate humanoid or duplicate man. (3) two tiny steady muted blue dots are discernible inside the dark welded rectangular WINDOW to the RIGHT of the door, no blue points on the door itself. The blue dots are small photographic points, never a monster face, never beams, no huge neon bloom. No camera body, display, hands, user interface, writing, stars, open door, new furniture, people or vehicle. Preserve the quiet grey damp scene and normal natural perspective; do not introduce an illustration finish or exaggerated drama. Output the entire recorded landscape photograph, 16:9. The story's impossible features are intentional; everything else must be physically mundane.",
+    "role": "Замена прежнего M02: только записанный снимок, три аномалии",
+    "refs": [
+      "OPENING-v003",
+      "AS-S02-WORK-M02-001 — текстовая схема аномалий"
+    ],
+    "registryRevision": 14,
+    "sha256": "4e631e36380fb9f1fe956a64349e3b4403e1d47f9ad9166f9b91b7002faba141",
+    "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон",
+    "title": "Фотография",
+    "seconds": 10,
+    "anchor": "В неё.",
+    "alt": "Записанная фотография: бетон виден сквозь Вадима, тень направлена к свету слева; два слабых синих огонька в окне справа.",
+    "videoPrompt": "Создай ролик ровно 10 секунд, 16:9, из приложенной статичной фотографии. Первый кадр точно повторяет референс.\n\n0–2 с: неподвижная фотография целиком. 2–8 с: плавное цифровое увеличение примерно до 1,15 раза к прозрачной фигуре Вадима и заваренному окну справа; фигура, обратная тень и оба синих огонька остаются в кадре. 8–10 с: удержание увеличенного снимка.\n\nМеняется только масштаб всей фотографии: человек, его тень, огоньки, туман, растения, звёзды, автомобиль и свет абсолютно неподвижны. Аномалия уже присутствует с первого кадра. Не проявляй её постепенно, не добавляй движения, дыхания, моргания, параллакса или новых деталей.\n\nЭто изучение фотографии: без рук, дисплея, интерфейса, новых лиц, открытия двери и превращения снимка в живую сцену. Только цифровое кадрирование, без склеек. Полная тишина, без речи, эффектов и музыки."
+  },
+  {
+    "id": "M03",
+    "file": "03 — Ладонь на нагрудном кармане — естественный кадр v003.png",
+    "prompt": "A natural unposed photographic close-up from chapter2, horizontal landscape 16:9. Use reference only for the man's plain worn dark-grey practical jacket material and quiet grey damp evening lighting. Crop closely to his upper chest, NO face or head. His anatomically ordinary bare RIGHT hand rests gently FLAT against his LEFT breast pocket near the heart, five normal relaxed fingers, fingertips over dark fabric. The closed pocket contains a small lighter but the lighter is completely hidden by the fabric: do NOT show or invent its shape, do NOT open the pocket, no bulge larger than a small pocket object. Restrained human tension conveyed through a small pressure of the palm and damp real jacket fibres, not clenched muscles or a heroic pose. Modest diffuse soft light from left, cool grey shadows, unpolished skin texture, tiny rain specks, naturally shallow depth of field. Background fully out of focus, just vague dark damp outdoors, no discernible new architecture or people. Real documentary still shot on an ordinary 50mm lens, understated exposure, muted natural colors, gentle grain; NO cinematic amber rim light, no glossy 3D render, no sharpened illustration details, no jewelry, no watch, no glove, no logos, no decorative futuristic equipment. No blue glow, no visible lighter or flame, no supernatural effects. This image accompanies the final paragraph: warm metal quiet under his hand, cause unexplained. It is the START frame for a subtle future video, hand already on pocket, no reaching inside.",
+    "role": "Новая финальная деталь: зажигалка скрыта, рука уже на кармане",
+    "refs": [
+      "OPENING-v003",
+      "Финальный абзац главы"
+    ],
+    "registryRevision": 14,
+    "sha256": "e57601d0a0cc01eb56d3c4078cad7dc3ad152ac5d569e63b1d18241951221316",
+    "status": "Новый рабочий вариант по поручению Создателя; не общий визуальный эталон",
+    "title": "Тёплый металл",
+    "seconds": 6,
+    "anchor": "Вадим не ответил. В кармане, под ладонью, тёплый металл лежал тихо и ровно — и от этого спокойствия почему-то было страшнее всего.",
+    "alt": "Ладонь Вадима лежит поверх закрытого нагрудного кармана тёмной влажной куртки; зажигалка скрыта.",
+    "videoPrompt": "Оживи приложенный стартовый кадр одним непрерывным неподвижным крупным планом ровно 6 секунд, 16:9. Первый кадр точно совпадает с референсом: правая ладонь уже лежит на левом нагрудном кармане тёмной влажной куртки.\n\n0–2 с: почти неподвижное удержание. 2–4 с: один едва заметный вдох слегка поднимает ткань под ладонью; пальцы остаются на месте. 4–6 с: неподвижная пауза. Рука не лезет в карман и не достаёт предмет.\n\nСохрани пять пальцев, их положение, ткань, мокрые фактуры и мягкий свет. Камера без движения и зума. Не показывай лицо, зажигалку, огонь или свечение; не добавляй новые предметы, надписи и людей. Никаких сверхъестественных движений: тревога только в неподвижности. Звук: тихий шорох ткани и далёкий ветер, без музыки и речи."
+  }
+]
