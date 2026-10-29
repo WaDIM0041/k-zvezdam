@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/k-zvezdam/static/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Russo+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=music-playlist-1">
+<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=playlist-seven-1">
 </head>
 <body class="has-hero">
 <nav id="nav">
@@ -39,7 +39,7 @@
 
 
 <div class="site-intro" id="siteIntro" hidden role="status" aria-live="polite"><span class="site-intro-star" aria-hidden="true">✦</span><span>Открываем путь к звёздам</span><button type="button" id="skipIntro">Открыть сайт</button></div>
-<script nonce="JtHqtuxWobmdNTRNjBRw_B_p">
+<script nonce="FmNwJVwYCE0UgL692vzyGQTM">
 (function(){
   var intro=document.getElementById('siteIntro');
   if(!intro || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -59,6 +59,14 @@
       <h1 class="glitch" data-text="Через время к звёздам">Через время<br>к звёздам</h1>
       <p class="epigraph">«Я — твоё завтра».</p>
       <p class="tag">Они прошли сквозь ад параллельных миров, чтобы вернуться домой. Но у Времени были другие планы.</p>
+      <div class="btns">
+        
+        <a class="btn btn-p cube-read-button" id="cubeReadButton" href="/k-zvezdam/read/1">Начать чтение</a>
+        
+        <a class="btn btn-c" id="continueBtn" href="#" hidden>Продолжить чтение</a>
+        <a class="btn btn-g" href="/k-zvezdam/chapters">Оглавление</a>
+      </div>
+    </div>
       <div class="hero-music">
         <span class="hero-music-label">Музыка вселенной</span>
         <div class="music-player-frame">
@@ -73,6 +81,10 @@
                 <button type="button" data-track="2">Deep Parallel Waves — версия 2</button>
                 <button type="button" data-track="3">Signal Across Realms — версия 1</button>
                 <button type="button" data-track="4">Signal Across Realms — версия 2</button>
+                <button type="button" data-track="5">The Signal Under the Stone — версия 1</button>
+                <button type="button" data-track="6">The Signal Under the Stone — версия 2</button>
+                <button type="button" data-track="7">Outpost in the Fog — версия 1</button>
+                <button type="button" data-track="8">Outpost in the Fog — версия 2</button>
               </div>
             </details>
             <button type="button" id="musicNext" aria-label="Следующая композиция" title="Следующая композиция">⏭</button>
@@ -80,14 +92,6 @@
         </div>
         <a id="musicLink" href="https://suno.com/s/gdQcE2eU7rcV4Cm9" target="_blank" rel="noopener">Открыть трек в Suno</a>
       </div>
-      <div class="btns">
-        
-        <a class="btn btn-p cube-read-button" id="cubeReadButton" href="/k-zvezdam/read/1">Начать чтение</a>
-        
-        <a class="btn btn-c" id="continueBtn" href="#" hidden>Продолжить чтение</a>
-        <a class="btn btn-g" href="/k-zvezdam/chapters">Оглавление</a>
-      </div>
-    </div>
   </div>
   <div class="scroll-hint">листайте вниз</div>
 </header>
@@ -205,7 +209,7 @@
   </div>
 </footer>
 </div>
-<script nonce="JtHqtuxWobmdNTRNjBRw_B_p">
+<script nonce="FmNwJVwYCE0UgL692vzyGQTM">
 (function(){
   var n=document.getElementById('nav'),
       t=document.getElementById('toTop'),
@@ -225,11 +229,11 @@
   if(t) t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 })();
 </script>
-<script nonce="JtHqtuxWobmdNTRNjBRw_B_p" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script nonce="JtHqtuxWobmdNTRNjBRw_B_p" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
-<script nonce="JtHqtuxWobmdNTRNjBRw_B_p" src="/k-zvezdam/static/js/flyby.js"></script>
+<script nonce="FmNwJVwYCE0UgL692vzyGQTM" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="FmNwJVwYCE0UgL692vzyGQTM" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
+<script nonce="FmNwJVwYCE0UgL692vzyGQTM" src="/k-zvezdam/static/js/flyby.js"></script>
 
-<script nonce="JtHqtuxWobmdNTRNjBRw_B_p">
+<script nonce="FmNwJVwYCE0UgL692vzyGQTM">
 (function(){
   var player=document.getElementById('musicPlayer'), link=document.getElementById('musicLink');
   var previous=document.getElementById('musicPrevious'), next=document.getElementById('musicNext');
@@ -239,7 +243,11 @@
     {id:'7bf9ce17-a2ed-4fec-8661-3ab9d8b1805c',link:'https://suno.com/s/qD202aT5LCaO2CHx'},
     {id:'9417d781-34f4-41dd-86c1-c87d193db1f8',link:'https://suno.com/s/pyrSqlqpXheEndw0'},
     {id:'62e40784-4939-4c04-808d-296b2cbac920',link:'https://suno.com/s/N4DfvdHOlGsBWz0h'},
-    {id:'e1271a54-b50c-4fbb-a369-218824832016',link:'https://suno.com/s/MoQP3AdAVdjrcRSt'}
+    {id:'e1271a54-b50c-4fbb-a369-218824832016',link:'https://suno.com/s/MoQP3AdAVdjrcRSt'},
+    {id:'225ba83c-3c00-4ffe-a0a1-41a99ca90c24',link:'https://suno.com/s/uwf7e5T523PxCMm4'},
+    {id:'722e0a78-eb57-4af5-9ae2-c77eea73cb82',link:'https://suno.com/s/jQazmyAeEHjo4dk9'},
+    {id:'ebed2455-0349-47bf-b239-d4f100b40747',link:'https://suno.com/s/lNgMmZqaIRvNEbJX'},
+    {id:'a2a933f6-e2e6-4df3-a284-20c7b538c9d9',link:'https://suno.com/s/flomTITp57i20f4z'}
   ], current=0;
   var playlist=document.getElementById('musicPlaylist');
   function showTrack(index){

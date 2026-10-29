@@ -76,7 +76,7 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 .site-intro-star{font-size:2.5rem;color:#b5e8ff;text-shadow:0 0 26px #70caff;animation:introPulse 1.2s ease-in-out infinite alternate}
 .site-intro button{border:1px solid rgba(160,210,255,.3);border-radius:999px;background:transparent;color:#c9e6ff;padding:8px 15px;cursor:pointer}
 @keyframes introPulse{from{opacity:.45;transform:scale(.8)}to{opacity:1;transform:scale(1.1)}}
-.hero-music{max-width:430px;margin:16px 0 18px}
+.hero-music{position:relative;max-width:430px;margin:120px 0 14px;padding-top:20px;border-top:1px solid rgba(158,205,236,.16)}
 .hero-music-label{display:block;color:#a7c6e9;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
 .music-player-frame{position:relative}
 .music-navigation{position:absolute;top:6px;right:8px;display:flex;gap:5px}
@@ -87,11 +87,11 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 .music-playlist summary{display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(158,205,236,.3);border-radius:6px;background:rgba(4,8,16,.85);color:#eff8ff;cursor:pointer;list-style:none}
 .music-playlist summary::-webkit-details-marker{display:none}
 .music-playlist summary:focus-visible{outline:2px solid #b7e5ff;outline-offset:2px}
-.music-playlist-list{position:absolute;z-index:8;right:0;top:34px;width:min(300px,80vw);padding:6px;background:#07101e;border:1px solid rgba(158,205,236,.3);border-radius:9px;box-shadow:0 12px 30px #000b}
+.music-playlist-list{position:absolute;z-index:8;right:0;top:34px;width:min(300px,80vw);max-height:min(320px,55vh);overflow-y:auto;padding:6px;background:#07101e;border:1px solid rgba(158,205,236,.3);border-radius:9px;box-shadow:0 12px 30px #000b}
 .music-navigation .music-playlist-list button{display:block;width:100%;height:auto;padding:9px 11px;text-align:left;border:0;background:transparent;font-size:.8rem}
 .music-navigation .music-playlist-list button:hover,.music-navigation .music-playlist-list button[aria-current]{background:rgba(116,185,255,.16);color:#fff}
-.hero-music iframe{display:block;width:100%;height:140px;border:0;border-radius:12px;background:transparent;opacity:.72;transition:opacity .25s}
-.hero-music iframe:hover,.hero-music iframe:focus{opacity:1}
+.hero-music iframe{display:block;width:100%;height:140px;border:0;border-radius:12px;background:transparent;opacity:.5;transition:opacity .25s}
+.hero-music iframe:hover,.hero-music iframe:focus{opacity:.7}
 .hero-music>a{display:inline-block;margin-top:5px;font-size:.75rem;color:#a7c6e9}
 .has-hero nav{background:transparent}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#04060d}
