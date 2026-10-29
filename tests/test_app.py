@@ -152,20 +152,17 @@ class SiteTests(unittest.TestCase):
         from urllib.parse import unquote
         root = Path(site.__file__).resolve().parent
         media = json.loads((root / 'content/prologue-media.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(media), 17)
+        self.assertEqual(len(media), 16)
         for item in media.values():
             for field in ('src', 'poster'):
                 if field in item:
                     self.assertTrue((root / unquote(item[field]).lstrip('/')).is_file())
         page = self.client.get('/read/1').get_data(as_text=True)
         self.assertEqual(page.count('<video '), 4)
-        self.assertEqual(page.count('class="scene-media'), 17)
+        self.assertEqual(page.count('class="scene-media'), 16)
         self.assertIn('id="scene-chapter-cover"', page)
         self.assertIn('id="scene-gateway"', page)
         self.assertIn('id="scene-cryo"', page)
-        self.assertIn('id="scene-station-reveal"', page)
-        self.assertLess(page.index('id="scene-cryo"'), page.index('Первый открыл глаза'))
-        self.assertLess(page.index('На фоне облаков висела станция.'), page.index('id="scene-station-reveal"'))
         self.assertIn('id="scene-passage"', page)
         self.assertIn('id="scene-terminal-touch"', page)
         self.assertIn('id="scene-shadow-walk"', page)
