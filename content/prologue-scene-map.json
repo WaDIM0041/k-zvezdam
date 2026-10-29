@@ -1,7 +1,7 @@
 {
   "edition": "accepted-revision-2026-10-28-gpt-fragments",
   "acceptedDraftSha256": "6ac7530c96b6ee23f0b20c6c0b0349a00b849ac3785cb162d3a9328aed4ab207",
-  "bodySha256": "7df8b3f01ed58be172ebb3c2fc33c3a3d2458f7162c10655c975e2dae7dff847",
+  "bodySha256": "25dfb678856b8be7c58069992cd33bf1573bd74f830321c629b1cf1e436af5bf",
   "scenes": [
     {
       "key": "chapter-cover",
@@ -81,7 +81,7 @@
     {
       "key": "cryo",
       "placement": "after",
-      "anchor": "Отражение его руки шевельнулось мгновением позже."
+      "anchor": "В отсеке пробуждения щёлкнули замки."
     },
     {
       "key": "passage",
@@ -97,6 +97,11 @@
       "key": "shadow-walk",
       "placement": "after",
       "anchor": "Края силуэтов дрогнули. Все трое стояли неподвижно."
+    },
+    {
+      "key": "station-reveal",
+      "placement": "after",
+      "anchor": "На фоне облаков висела станция."
     }
   ],
   "retainedVideoKeys": [
@@ -113,7 +118,8 @@
   "newImageKeys": [
     "chapter-cover",
     "balcony",
-    "shadows"
+    "shadows",
+    "station-reveal"
   ],
   "addedVisualAssets": [
     {
