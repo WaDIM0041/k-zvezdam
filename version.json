@@ -1,12 +1,13 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-10-28T16:20:00+00:00",
-  "commit": "f2854629cfc9da4dcd7365e96c17e149a14b2423",
+  "builtAt": "2026-10-29T13:18:42+00:00",
+  "commit": "d26208b",
   "chapters": 11,
   "pages": [
     "/",
     "/chapters",
     "/about",
+    "/cube",
     "/read/1",
     "/read/2",
     "/read/3",
