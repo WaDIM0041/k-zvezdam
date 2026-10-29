@@ -1,5 +1,7 @@
 [scene]chapter-cover[/scene]
 
+[scene]chapter-song[/scene]
+
 [scene]opening[/scene]
 
 Глубокий космос. Край Млечного Пути.

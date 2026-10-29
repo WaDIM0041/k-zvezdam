@@ -1,12 +1,17 @@
 {
   "edition": "accepted-revision-2026-10-28-gpt-fragments",
   "acceptedDraftSha256": "6ac7530c96b6ee23f0b20c6c0b0349a00b849ac3785cb162d3a9328aed4ab207",
-  "bodySha256": "25dfb678856b8be7c58069992cd33bf1573bd74f830321c629b1cf1e436af5bf",
+  "bodySha256": "ddae41241dde79d715a1711421da995a8de82c822081c7ba318fba537321f4ac",
   "scenes": [
     {
       "key": "chapter-cover",
       "placement": "before",
       "anchor": "Глубокий космос. Край Млечного Пути."
+    },
+    {
+      "key": "chapter-song",
+      "placement": "after",
+      "anchor": "[scene]chapter-cover[/scene]"
     },
     {
       "key": "opening",
@@ -146,5 +151,8 @@
     "lastAnchor": "Резкая темнота.",
     "publishedProseSha256": "1760b68323a1dd3ef64fb9eb9a92f7713ca24d11deb0864ea2b0f615ac3e3b92",
     "updatedProseSha256": "e69df0c47ab727781ae510cd84bf2f050dfbe2f69ebf67d4e4427d23d5628b5a"
-  }
+  },
+  "newEmbedKeys": [
+    "chapter-song"
+  ]
 }

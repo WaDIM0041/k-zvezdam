@@ -381,12 +381,26 @@ def _scene_media(key: str) -> str:
     item = json.loads(manifest.read_text(encoding="utf-8")).get(key)
     if not item:
         return ""
+    label = html.escape(item.get("title", ""), quote=True)
+    caption = f'<figcaption>{label}</figcaption>' if label else ""
+    if item.get("type") == "suno":
+        track_id = item.get("trackId", "")
+        if not re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", track_id):
+            return ""
+        share_url = _valid_web_url(item.get("link", ""), allow_root=False)
+        if not share_url or urlsplit(share_url).hostname not in {"suno.com", "www.suno.com"} or not urlsplit(share_url).path.startswith("/s/"):
+            return ""
+        src = f"https://suno.com/embed/{track_id}"
+        return (f'<figure class="scene-media scene-audio" id="scene-{key}">'
+                f'<iframe class="suno-embed" src="{src}" title="Suno: {label}" '
+                'loading="lazy" allow="encrypted-media" '
+                'referrerpolicy="strict-origin-when-cross-origin"></iframe>'
+                f'{caption}<a class="suno-link" href="{html.escape(share_url, quote=True)}" '
+                'target="_blank" rel="noopener noreferrer">Открыть трек в Suno ↗</a></figure>')
     src = _valid_web_url(item.get("src", ""))
     if not src:
         return ""
     src = html.escape(src, quote=True)
-    label = html.escape(item.get("title", ""), quote=True)
-    caption = f'<figcaption>{label}</figcaption>' if label else ""
     if item.get("type") == "video":
         poster = _valid_web_url(item.get("poster", ""))
         poster_attr = f' poster="{html.escape(poster, quote=True)}"' if poster else ""
@@ -722,7 +736,7 @@ def security_headers(response):
         f"style-src \'self\' \'nonce-{nonce}\' https://fonts.googleapis.com; "
         "style-src-attr \'unsafe-inline\'; img-src \'self\' https: data:; "
         "font-src \'self\' https://fonts.gstatic.com; connect-src \'self\'; "
-        "media-src \'self\' https:; frame-src https://www.youtube-nocookie.com https://youtube.com https://vk.com https://rutube.ru; form-action \'self\'"
+        "media-src \'self\' https:; frame-src https://www.youtube-nocookie.com https://youtube.com https://vk.com https://rutube.ru https://suno.com; form-action \'self\'"
     )
     if current_app.config.get("PREVIEW_NOINDEX", True):
         response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
