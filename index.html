@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/k-zvezdam/static/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Russo+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=music-transparent-1">
+<link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=music-playlist-1">
 </head>
 <body class="has-hero">
 <nav id="nav">
@@ -39,7 +39,7 @@
 
 
 <div class="site-intro" id="siteIntro" hidden role="status" aria-live="polite"><span class="site-intro-star" aria-hidden="true">✦</span><span>Открываем путь к звёздам</span><button type="button" id="skipIntro">Открыть сайт</button></div>
-<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID">
+<script nonce="JtHqtuxWobmdNTRNjBRw_B_p">
 (function(){
   var intro=document.getElementById('siteIntro');
   if(!intro || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -61,12 +61,28 @@
       <p class="tag">Они прошли сквозь ад параллельных миров, чтобы вернуться домой. Но у Времени были другие планы.</p>
       <div class="hero-music">
         <span class="hero-music-label">Музыка вселенной</span>
-        <iframe title="Awakening the Monolith — музыкальный плеер Suno" src="https://suno.com/embed/e136cde6-69ba-4100-ae94-633eaf20cf5c" loading="lazy" allow="encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        <a href="https://suno.com/s/gdQcE2eU7rcV4Cm9" target="_blank" rel="noopener">Открыть трек в Suno</a>
+        <div class="music-player-frame">
+          <iframe id="musicPlayer" title="Музыкальный плеер Suno" src="https://suno.com/embed/e136cde6-69ba-4100-ae94-633eaf20cf5c" loading="lazy" allow="encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="music-navigation" role="group" aria-label="Переключение композиций">
+            <button type="button" id="musicPrevious" aria-label="Предыдущая композиция" title="Предыдущая композиция">⏮</button>
+            <details class="music-playlist" id="musicPlaylist">
+              <summary aria-label="Открыть плейлист" title="Плейлист">☷</summary>
+              <div class="music-playlist-list" aria-label="Композиции">
+                <button type="button" data-track="0" aria-current="true">Awakening the Monolith</button>
+                <button type="button" data-track="1">Deep Parallel Waves — версия 1</button>
+                <button type="button" data-track="2">Deep Parallel Waves — версия 2</button>
+                <button type="button" data-track="3">Signal Across Realms — версия 1</button>
+                <button type="button" data-track="4">Signal Across Realms — версия 2</button>
+              </div>
+            </details>
+            <button type="button" id="musicNext" aria-label="Следующая композиция" title="Следующая композиция">⏭</button>
+          </div>
+        </div>
+        <a id="musicLink" href="https://suno.com/s/gdQcE2eU7rcV4Cm9" target="_blank" rel="noopener">Открыть трек в Suno</a>
       </div>
       <div class="btns">
         
-        <a class="btn btn-p" href="/k-zvezdam/read/1">Начать чтение</a>
+        <a class="btn btn-p cube-read-button" id="cubeReadButton" href="/k-zvezdam/read/1">Начать чтение</a>
         
         <a class="btn btn-c" id="continueBtn" href="#" hidden>Продолжить чтение</a>
         <a class="btn btn-g" href="/k-zvezdam/chapters">Оглавление</a>
@@ -189,7 +205,7 @@
   </div>
 </footer>
 </div>
-<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID">
+<script nonce="JtHqtuxWobmdNTRNjBRw_B_p">
 (function(){
   var n=document.getElementById('nav'),
       t=document.getElementById('toTop'),
@@ -209,11 +225,38 @@
   if(t) t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 })();
 </script>
-<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
-<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID" src="/k-zvezdam/static/js/flyby.js"></script>
+<script nonce="JtHqtuxWobmdNTRNjBRw_B_p" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="JtHqtuxWobmdNTRNjBRw_B_p" src="/k-zvezdam/static/js/hero.js?v=hero-cube-3"></script>
+<script nonce="JtHqtuxWobmdNTRNjBRw_B_p" src="/k-zvezdam/static/js/flyby.js"></script>
 
-<script nonce="3KJ0IGJIKdlRVGJxfIgKuEID">
+<script nonce="JtHqtuxWobmdNTRNjBRw_B_p">
+(function(){
+  var player=document.getElementById('musicPlayer'), link=document.getElementById('musicLink');
+  var previous=document.getElementById('musicPrevious'), next=document.getElementById('musicNext');
+  if(!player || !link || !previous || !next)return;
+  var tracks=[
+    {id:'e136cde6-69ba-4100-ae94-633eaf20cf5c',link:'https://suno.com/s/gdQcE2eU7rcV4Cm9'},
+    {id:'7bf9ce17-a2ed-4fec-8661-3ab9d8b1805c',link:'https://suno.com/s/qD202aT5LCaO2CHx'},
+    {id:'9417d781-34f4-41dd-86c1-c87d193db1f8',link:'https://suno.com/s/pyrSqlqpXheEndw0'},
+    {id:'62e40784-4939-4c04-808d-296b2cbac920',link:'https://suno.com/s/N4DfvdHOlGsBWz0h'},
+    {id:'e1271a54-b50c-4fbb-a369-218824832016',link:'https://suno.com/s/MoQP3AdAVdjrcRSt'}
+  ], current=0;
+  var playlist=document.getElementById('musicPlaylist');
+  function showTrack(index){
+    current=index;
+    player.src='https://suno.com/embed/'+tracks[current].id;
+    link.href=tracks[current].link;
+    if(playlist) playlist.querySelectorAll('[data-track]').forEach(function(item){
+      if(Number(item.dataset.track)===current)item.setAttribute('aria-current','true');
+      else item.removeAttribute('aria-current');
+    });
+  }
+  previous.addEventListener('click',function(){showTrack((current-1+tracks.length)%tracks.length);});
+  next.addEventListener('click',function(){showTrack((current+1)%tracks.length);});
+  if(playlist) playlist.querySelectorAll('[data-track]').forEach(function(item){
+    item.addEventListener('click',function(){showTrack(Number(item.dataset.track));playlist.open=false;});
+  });
+})();
 // Вспышка перед переходом; ссылка работает и без JavaScript.
 (function(){
   var portal=document.getElementById('cubePortal');
@@ -224,6 +267,17 @@
     if(portal.classList.contains('opening'))return;
     portal.classList.add('opening');
     window.setTimeout(function(){window.location.href=portal.href;},650);
+  });
+})();
+(function(){
+  var button=document.getElementById('cubeReadButton');
+  if(!button)return;
+  button.addEventListener('click',function(e){
+    if(e.button!==0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    e.preventDefault();
+    if(button.classList.contains('opening'))return;
+    button.classList.add('opening');
+    window.setTimeout(function(){window.location.href=button.href;},650);
   });
 })();
 // scroll reveal

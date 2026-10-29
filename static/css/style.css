@@ -55,8 +55,17 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
 .btn{padding:14px 28px;border-radius:44px;font-weight:600;font-size:.94rem;transition:.28s;cursor:pointer;
   display:inline-flex;align-items:center;gap:8px;border:1px solid transparent}
+.hero .btns .btn{border-radius:8px}
 .btn-p{background:linear-gradient(120deg,var(--cyan),var(--violet));color:#050914;box-shadow:var(--glow)}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 0 54px rgba(116,185,255,.45)}
+.cube-read-button{position:relative;isolation:isolate;color:#e9f5ff;background:linear-gradient(145deg,#1b2937 0%,#05080d 38%,#101820 75%,#03060a 100%);border:1px solid rgba(164,205,229,.32);border-radius:8px;box-shadow:inset 0 1px rgba(222,246,255,.12),0 0 30px 5px rgba(91,164,216,.14)}
+@property --cube-edge-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
+.cube-read-button::before{content:'';position:absolute;inset:-2px;z-index:-1;border-radius:9px;padding:2px;background:conic-gradient(from var(--cube-edge-angle),transparent 0%,rgba(133,211,255,.06) 25%,rgba(181,233,255,.68) 50%,rgba(133,211,255,.06) 75%,transparent 100%);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:cubeEdgeLight 11s linear infinite;pointer-events:none}
+.cube-read-button::after{content:'';position:absolute;inset:-130%;pointer-events:none;opacity:0;background:radial-gradient(circle,#fff 0%,rgba(170,226,255,.92) 8%,rgba(91,154,255,.4) 30%,transparent 65%)}
+.cube-read-button.opening::after{animation:cubePortalFlash .65s ease-in forwards}
+.cube-read-button:hover{box-shadow:inset 0 1px rgba(222,246,255,.18),0 0 38px 6px rgba(114,193,255,.22)}
+@keyframes cubeEdgeLight{to{--cube-edge-angle:360deg}}
+@media(prefers-reduced-motion:reduce){.cube-read-button::before{animation:none}}
 .btn-g{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.02)}
 .btn-g:hover{border-color:var(--cyan);color:var(--cyan)}
 
@@ -69,6 +78,18 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 @keyframes introPulse{from{opacity:.45;transform:scale(.8)}to{opacity:1;transform:scale(1.1)}}
 .hero-music{max-width:430px;margin:16px 0 18px}
 .hero-music-label{display:block;color:#a7c6e9;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.music-player-frame{position:relative}
+.music-navigation{position:absolute;top:6px;right:8px;display:flex;gap:5px}
+.music-navigation button{display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(158,205,236,.3);border-radius:6px;background:rgba(4,8,16,.85);color:#eff8ff;font:inherit;font-size:.85rem;cursor:pointer}
+.music-navigation button:hover{border-color:#a9dcff;color:#fff}
+.music-navigation button:focus-visible{outline:2px solid #b7e5ff;outline-offset:2px}
+.music-playlist{position:relative}
+.music-playlist summary{display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(158,205,236,.3);border-radius:6px;background:rgba(4,8,16,.85);color:#eff8ff;cursor:pointer;list-style:none}
+.music-playlist summary::-webkit-details-marker{display:none}
+.music-playlist summary:focus-visible{outline:2px solid #b7e5ff;outline-offset:2px}
+.music-playlist-list{position:absolute;z-index:8;right:0;top:34px;width:min(300px,80vw);padding:6px;background:#07101e;border:1px solid rgba(158,205,236,.3);border-radius:9px;box-shadow:0 12px 30px #000b}
+.music-navigation .music-playlist-list button{display:block;width:100%;height:auto;padding:9px 11px;text-align:left;border:0;background:transparent;font-size:.8rem}
+.music-navigation .music-playlist-list button:hover,.music-navigation .music-playlist-list button[aria-current]{background:rgba(116,185,255,.16);color:#fff}
 .hero-music iframe{display:block;width:100%;height:140px;border:0;border-radius:12px;background:transparent;opacity:.72;transition:opacity .25s}
 .hero-music iframe:hover,.hero-music iframe:focus{opacity:1}
 .hero-music>a{display:inline-block;margin-top:5px;font-size:.75rem;color:#a7c6e9}
