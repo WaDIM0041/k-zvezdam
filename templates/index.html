@@ -23,6 +23,16 @@
       <h1 class="glitch" data-text="Через время к звёздам">Через время<br>к звёздам</h1>
       <p class="epigraph">«Я — твоё завтра».</p>
       <p class="tag">{{ BOOK_TAGLINE }}</p>
+
+    </div>
+
+  </div>
+  <div class="scroll-hint">листайте вниз</div>
+</header>
+
+<section class="hero-tools" id="hero-tools" aria-label="Кнопки чтения и музыка">
+  <div class="wrap hero-tools-in">
+    <div class="hero-tools-actions">
       <div class="btns">
         {% if chapters %}
         <a class="btn btn-p cube-read-button" id="cubeReadButton" href="{{ url_for('read', cid=chapters[0]['id']) }}">Погрузиться в параллельный мир вселенной</a>
@@ -57,8 +67,7 @@
         <a id="musicLink" href="https://suno.com/s/gdQcE2eU7rcV4Cm9" target="_blank" rel="noopener">Открыть трек в Suno</a>
       </div>
   </div>
-  <div class="scroll-hint">листайте вниз</div>
-</header>
+</section>
 
 <section class="section annot">
   <div class="annot-ship" aria-hidden="true"></div>
