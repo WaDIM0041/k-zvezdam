@@ -1,7 +1,7 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-10-29T15:11:57+00:00",
-  "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
+  "builtAt": "2026-10-30T10:26:55+00:00",
+  "commit": "28e2c13",
   "chapters": 11,
   "pages": [
     "/",
@@ -23,14 +23,15 @@
     "/404.html"
   ],
   "noindex": true,
-  "previousCommit": "7045313",
+  "previousCommit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "lastChange": {
-    "scope": "/read/3/ only; other published files preserved",
-    "edition": "chapter-02-v003",
-    "sourceBranch": "chapter-02-natural-images-v003",
-    "sourceCommit": "c6f76ba2d025584a98c295377aec410336e3337c"
+    "scope": "/read/1/ Suno player; other published pages preserved",
+    "edition": "prologue-suno-v001",
+    "sourceBranch": "prologue-horror-preview",
+    "sourceCommit": "28e2c13"
   },
   "pageCommits": {
-    "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c"
+    "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
+    "/read/1/": "28e2c13"
   }
 }
