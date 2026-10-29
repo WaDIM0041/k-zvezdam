@@ -34,7 +34,7 @@
   </div>
   <div class="orn"></div>
   <div class="read-body" id="readBody">
-    {% if ch['kind'] == 'Пролог' and '</figure>' in body %}
+    {% if ch['kind'] == 'Глава 1' and '</figure>' in body %}
       {% set opening = body.split('</figure>', 1) %}
       {{ (opening[0] ~ '</figure>')|safe }}
       <div style="margin:24px 0 32px">
