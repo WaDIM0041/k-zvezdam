@@ -394,16 +394,14 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .scene-media a{display:block}
 .scene-media a:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
 .scene-media figcaption{font-size:.76rem;line-height:1.6;color:#a3adba;margin-top:12px;text-align:left;letter-spacing:.015em}
-.scene-audio{margin-top:30px;margin-bottom:36px}
-.scene-audio .suno-embed{display:block;width:100%;height:166px;border:0;border-radius:14px;background:transparent;opacity:.68;transition:opacity .2s ease}
-.scene-audio .suno-embed:hover,.scene-audio .suno-embed:focus{opacity:.88}
+.scene-audio{margin-top:22px;margin-bottom:36px;padding:10px;background:#000;border:1px solid #20252b;border-radius:14px}
+.scene-audio .suno-embed{display:block;width:100%;height:166px;border:0;border-radius:10px;background:#000;filter:grayscale(1) brightness(.72)}
 .scene-audio .suno-link{display:inline-block;margin-top:10px;color:#b8c5d5;font-size:.9rem;text-decoration:none}
 .scene-audio .suno-link:hover,.scene-audio .suno-link:focus-visible{color:#55b8ff;text-decoration:underline}
 .scene-media:has(video){margin-top:36px}
 @media(min-width:1000px){.scene-media{width:calc(100% + 160px);margin-left:-80px;margin-right:-80px}}
 .scene-ambient .scene-media{width:100%;margin-left:0;margin-right:0}
 @media(max-width:600px){.scene-media{margin-top:30px;margin-bottom:32px}.scene-media figcaption{font-size:.73rem}}
-@media(prefers-reduced-motion:reduce){.scene-audio .suno-embed{transition:none}}
 
 /* Локальные хоррор-эффекты пролога: появляются только в своей сцене. */
 .scene-ambient{position:relative;isolation:isolate;overflow:hidden;margin:38px -28px 42px;padding:28px 28px 30px;border-top:1px solid rgba(119,152,190,.14);border-bottom:1px solid rgba(119,152,190,.1);background:linear-gradient(100deg,rgba(6,9,15,.82),rgba(13,19,27,.36),rgba(5,7,12,.86));scroll-margin-top:90px}

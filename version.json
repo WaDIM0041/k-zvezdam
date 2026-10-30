@@ -1,7 +1,7 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-10-30T10:26:55+00:00",
-  "commit": "28e2c13",
+  "builtAt": "2026-10-30T10:44:36+00:00",
+  "commit": "c7f48c2",
   "chapters": 11,
   "pages": [
     "/",
@@ -23,15 +23,15 @@
     "/404.html"
   ],
   "noindex": true,
-  "previousCommit": "c6f76ba2d025584a98c295377aec410336e3337c",
+  "previousCommit": "28e2c13",
   "lastChange": {
-    "scope": "/read/1/ Suno player; other published pages preserved",
-    "edition": "prologue-suno-v001",
+    "scope": "/read/1/ player moved to chapter beginning and black styling; other published pages preserved",
+    "edition": "prologue-suno-black-v002",
     "sourceBranch": "prologue-horror-preview",
-    "sourceCommit": "28e2c13"
+    "sourceCommit": "c7f48c2"
   },
   "pageCommits": {
     "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
-    "/read/1/": "28e2c13"
+    "/read/1/": "c7f48c2"
   }
 }
