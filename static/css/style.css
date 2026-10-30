@@ -480,3 +480,6 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .project-actions>.project-about-copy:nth-of-type(3) .project-about-button{animation-delay:3.4s}
 @keyframes projectStepGlow{0%,12%,100%{box-shadow:0 0 22px #65baff26;border-color:rgba(131,207,255,.14)}4%{box-shadow:0 0 28px #99dbff99,0 0 55px #65baff44;border-color:rgba(208,238,255,.55)}8%{box-shadow:0 0 30px #65baff44;border-color:rgba(131,207,255,.25)}}
 @media(prefers-reduced-motion:reduce){.project-actions>.project-about-copy .project-about-button{animation:none}}
+
+/* Keep Suno controls unobstructed and legible on narrow screens. */
+@media(max-width:680px){.hero-music iframe,.hero-music iframe:hover,.hero-music iframe:focus{opacity:1}.music-navigation{position:relative;top:auto;right:auto;justify-content:flex-end;margin-top:8px}}
