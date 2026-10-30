@@ -8,7 +8,7 @@
       "title": "Вскрытие прошлого",
       "kind": "Пролог",
       "bodySource": "content/prologue.txt",
-      "bodySha256": "ddae41241dde79d715a1711421da995a8de82c822081c7ba318fba537321f4ac",
+      "bodySha256": "324b47ad686194b840f54f51b14cb7e9c2bdb061e3dedec3fc0ecb1f3ee94a6b",
       "titleSource": "roman_promo_update.zip::webapp/chapters_seed.json#position=0",
       "publishedInPreview": true,
       "previousBodySha256": "d97cf1a145740bad061c3a7bb451ca7b72e7fbbb4a2c7f17033971e4282c9bb0",

@@ -1,6 +1,6 @@
-[scene]chapter-cover[/scene]
-
 [scene]chapter-song[/scene]
+
+[scene]chapter-cover[/scene]
 
 [scene]opening[/scene]
 
