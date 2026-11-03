@@ -91,7 +91,7 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 .music-navigation .music-playlist-list button{display:block;width:100%;height:auto;padding:9px 11px;text-align:left;border:0;background:transparent;font-size:.8rem}
 .music-navigation .music-playlist-list button:hover,.music-navigation .music-playlist-list button[aria-current]{background:rgba(116,185,255,.16);color:#fff}
 .hero-music iframe{display:block;width:100%;height:140px;border:0;border-radius:12px;background:transparent;opacity:.4;transition:opacity .25s}
-.hero-music iframe:hover,.hero-music iframe:focus{opacity:.7}
+.hero-music iframe:hover,.hero-music iframe:focus{opacity:.65}
 .hero-music>a{display:inline-block;margin-top:5px;font-size:.75rem;color:#a7c6e9}
 .hero-tools{position:relative;z-index:1;padding:34px 0 42px;overflow:visible;border-top:1px solid rgba(140,170,220,.14);border-bottom:1px solid rgba(140,170,220,.14);background:linear-gradient(180deg,#070b15,#05070f)}
 .hero-tools::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 50%,rgba(116,185,255,.1),transparent 42%),radial-gradient(ellipse at 82% 45%,rgba(157,134,255,.12),transparent 46%)}
@@ -486,3 +486,27 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .project-actions>.project-about-copy:nth-of-type(3) .project-about-button{animation-delay:3.4s}
 @keyframes projectStepGlow{0%,12%,100%{box-shadow:0 0 22px #65baff26;border-color:rgba(131,207,255,.14)}4%{box-shadow:0 0 28px #99dbff99,0 0 55px #65baff44;border-color:rgba(208,238,255,.55)}8%{box-shadow:0 0 30px #65baff44;border-color:rgba(131,207,255,.25)}}
 @media(prefers-reduced-motion:reduce){.project-actions>.project-about-copy .project-about-button{animation:none}}
+
+/* --- подвал: поделиться / добавить в закладки --- */
+.footer-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:0 0 18px}
+.footer-act{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border:1px solid rgba(131,207,255,.22);border-radius:999px;background:rgba(116,185,255,.06);color:#d7e7f8;font:inherit;font-size:.85rem;font-weight:600;line-height:1.2;cursor:pointer;transition:border-color .25s,background .25s,color .25s}
+.footer-act:hover{border-color:rgba(131,207,255,.55);background:rgba(116,185,255,.12);color:#eaf7ff}
+.footer-act:focus-visible{outline:2px solid #d0eeff;outline-offset:3px}
+.footer-act.is-on{border-color:rgba(131,207,255,.6);background:rgba(116,185,255,.16);color:#eaf7ff}
+.footer-act[hidden]{display:none}
+.footer-act-star{font-size:1rem;line-height:1}
+.footer-act-count{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:rgba(131,207,255,.18);color:#d7e7f8;font-size:.72rem;font-weight:700}
+.kz-bm{position:fixed;right:16px;bottom:80px;z-index:80;width:min(360px,calc(100vw - 32px));max-height:min(60vh,420px);display:flex;flex-direction:column;background:#0a1020;border:1px solid rgba(131,207,255,.28);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.55);color:var(--txt);overflow:hidden}
+.kz-bm[hidden]{display:none}
+.kz-bm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);font-size:.92rem}
+.kz-bm-close{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:1.2rem;line-height:1;cursor:pointer}
+.kz-bm-close:hover{background:rgba(255,255,255,.07);color:var(--txt)}
+.kz-bm-list{list-style:none;margin:0;padding:8px;overflow:auto;display:flex;flex-direction:column;gap:2px}
+.kz-bm-item{display:flex;align-items:center;gap:4px}
+.kz-bm-item>a{flex:1;display:block;padding:10px 12px;border-radius:10px;color:#d7e7f8;font-size:.9rem;line-height:1.35}
+.kz-bm-item>a:hover{background:rgba(116,185,255,.1);color:#fff}
+.kz-bm-item>a.is-current{color:var(--cyan2);font-weight:600}
+.kz-bm-remove{flex:none;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:var(--dim);font:inherit;font-size:1.05rem;line-height:1;cursor:pointer}
+.kz-bm-remove:hover{background:rgba(255,120,120,.12);color:#ffb3b3}
+.kz-bm-empty{padding:16px;color:var(--muted);font-size:.86rem;line-height:1.55}
+@media(max-width:680px){.footer-actions{gap:8px}.footer-act{padding:9px 16px;font-size:.8rem}.kz-bm{left:10px;right:10px;bottom:76px;width:auto}}

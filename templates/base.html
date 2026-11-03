@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Russo+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='hero-tools-20261029') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='footer-20261030') }}">
 </head>
 <body class="{% block bodyclass %}{% endblock %}">
 <nav id="nav">
@@ -59,9 +59,19 @@
     <div class="project-about">
       <a class="project-about-button" href="{{ url_for('about_project') }}"><span class="project-star" aria-hidden="true">✦</span> О проекте</a>
     </div>
+    <div class="footer-actions">
+      <button type="button" class="footer-act" id="footerShare" title="Поделиться этой страницей">↗ Поделиться</button>
+      <button type="button" class="footer-act" id="footerBookmark" aria-pressed="false" title="Сохранить страницу в закладки сайта"><span class="footer-act-star" aria-hidden="true">☆</span><span class="footer-act-text">Добавить в закладки</span></button>
+      <button type="button" class="footer-act" id="footerBookmarks" title="Список сохранённых страниц" hidden>Мои закладки<span class="footer-act-count">0</span></button>
+    </div>
     «{{ BOOK_TITLE }}» · <a class="glitch footer-author" data-text="{{ BOOK_AUTHOR }}" href="https://annakam.ru/">{{ BOOK_AUTHOR }}</a> · {{ year }}
   </div>
 </footer>
+<div class="kz-bm" id="kzBmPanel" hidden>
+  <div class="kz-bm-head"><strong>Мои закладки</strong><button type="button" class="kz-bm-close" id="kzBmClose" aria-label="Закрыть">×</button></div>
+  <ul class="kz-bm-list" id="kzBmList"></ul>
+</div>
+<script nonce="{{ csp_nonce }}" src="{{ url_for('static', filename='js/footer-actions.js', v='footer-1') }}" defer></script>
 </div>
 <script nonce="{{ csp_nonce }}">
 (function(){
