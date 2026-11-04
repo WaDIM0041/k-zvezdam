@@ -80,7 +80,7 @@
 
   if (!canvas || !pause || !skip || !status || !time) return;
   pause.addEventListener('click', function () { if (scene) scene.pause(pause.getAttribute('aria-pressed') !== 'true'); });
-  skip.addEventListener('click', function () { if (scene) { scene.skip(); finishScene(); } });
+  skip.addEventListener('click', function () { if (scene) scene.skip(); });
   window.addEventListener('pagehide', function () { if (scene) scene.dispose(); scene = null; });
   motion.addEventListener('change', function () { if (scene && motion.matches) { scene.static(); finishScene(); } });
   start();
