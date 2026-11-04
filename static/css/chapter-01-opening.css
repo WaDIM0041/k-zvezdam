@@ -1,0 +1,3 @@
+.chapter-intro[data-chapter-id="2"] .chapter-intro__poster{background-position:center;animation:chapterIntroDrift 24s ease-in-out infinite alternate}
+.chapter-intro[data-chapter-id="2"].intro-paused .chapter-intro__poster{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.chapter-intro[data-chapter-id="2"] .chapter-intro__poster{animation:none}}
