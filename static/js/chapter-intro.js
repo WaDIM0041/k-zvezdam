@@ -44,9 +44,9 @@
   function changed(state) {
     intro.classList.toggle('is-webgl', state.ready);
     intro.classList.toggle('is-loading', state.mode === 'loading');
-    intro.style.setProperty('--intro-title', smooth(6.8, 8.2, state.time));
-    intro.style.setProperty('--intro-line1', smooth(8, 9.3, state.time));
-    intro.style.setProperty('--intro-line2', smooth(9, 10.4, state.time));
+    intro.style.setProperty('--intro-title', smooth(1.2, 2.4, state.time));
+    intro.style.setProperty('--intro-line1', smooth(2.2, 3.4, state.time));
+    intro.style.setProperty('--intro-line2', smooth(3.2, 4.4, state.time));
     intro.style.setProperty('--intro-progress', clamp(state.time / duration));
     time.textContent = '00 : ' + String(Math.floor(state.time)).padStart(2, '0');
     pause.disabled = state.held || finished;

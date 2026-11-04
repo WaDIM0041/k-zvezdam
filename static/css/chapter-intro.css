@@ -1,4 +1,4 @@
-.chapter-intro{--intro-title:1;--intro-line1:1;--intro-line2:1;--intro-progress:0;position:relative;width:100%;margin:0;padding:0;background:#05090d;color:#f4f0e8;overflow:hidden;isolation:isolate}
+.chapter-intro{--intro-title:1;--intro-line1:1;--intro-line2:1;--intro-progress:0;position:relative;left:50%;width:100vw;max-width:100vw;margin:0 0 0 -50vw;padding:0;background:#05090d;color:#f4f0e8;overflow:hidden;isolation:isolate}
 .chapter-intro *,.chapter-intro *::before,.chapter-intro *::after{box-sizing:border-box}
 .chapter-intro__stage{height:100svh;min-height:560px;max-height:1000px;position:relative;overflow:hidden;background:#05090d}
 .chapter-intro__still,.chapter-intro__canvas,.chapter-intro__shade,.chapter-intro__poster{position:absolute;inset:0;width:100%;height:100%;display:block}
@@ -9,7 +9,7 @@
 .chapter-intro.is-loading .chapter-intro__still{filter:brightness(.025)}
 .chapter-intro__poster{background-image:linear-gradient(0deg,#04080cf5,transparent 68%),linear-gradient(90deg,#04080cc0,transparent 65%),linear-gradient(180deg,#03070c90,transparent 25%),var(--chapter-intro-cover,radial-gradient(ellipse at 74% 34%,#223142 0,transparent 38%),radial-gradient(ellipse at 28% 72%,#18202b 0,transparent 42%),linear-gradient(135deg,#080d14,#111b27 52%,#030609));background-size:cover;background-position:center;animation:chapterIntroDrift 24s ease-in-out infinite alternate}
 .chapter-intro__shade{pointer-events:none;background:linear-gradient(0deg,#04080cf5,transparent 55%),linear-gradient(90deg,#04080cc0,transparent 65%),linear-gradient(180deg,#03070c90,transparent 25%)}
-.chapter-intro__top{position:absolute;z-index:2;top:max(24px,env(safe-area-inset-top));left:4vw;right:4vw;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.chapter-intro__top{position:absolute;z-index:2;top:max(84px,calc(env(safe-area-inset-top) + 74px));left:4vw;right:4vw;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .chapter-intro__controls{display:flex;gap:9px}
 .chapter-intro button,.chapter-intro__back{font:13px/1.3 Manrope,Arial,sans-serif;color:#f4f0e8;cursor:pointer;min-height:44px;border:1px solid #c9d4df60;border-radius:3px;background:#080e17b8;padding:11px 17px;text-decoration:none}
 .chapter-intro button:hover,.chapter-intro__back:hover{background:#26313c}
@@ -28,7 +28,7 @@
 .chapter-intro__status{position:absolute;z-index:2;bottom:24px;left:6vw;right:6vw;margin:0;font:12px/1.4 Manrope,Arial,sans-serif;color:#b6c0cb;min-height:17px}
 .chapter-intro__progress{position:absolute;z-index:2;bottom:0;left:0;right:0;height:2px;background:#ffffff10}
 .chapter-intro__progress i{display:block;width:calc(var(--intro-progress)*100%);height:100%;background:#e8bc92}
-.reader{padding-top:64px}
+.reader{padding-top:64px;scroll-margin-top:84px}
 @keyframes chapterIntroDrift{from{transform:scale(1)}to{transform:scale(1.08)}}
-@media(max-width:650px){.chapter-intro__stage{min-height:620px}.chapter-intro__top{left:18px;right:18px;top:max(18px,env(safe-area-inset-top));gap:8px}.chapter-intro__controls{gap:6px}.chapter-intro button,.chapter-intro__back{padding:10px 11px;font-size:12px}.chapter-intro__copy{left:24px;right:24px;bottom:175px}.chapter-intro h1{font-size:58px;max-width:380px}.chapter-intro__summary{font-size:19px;max-width:340px}.chapter-intro__label{font-size:10px;letter-spacing:.23em}.chapter-intro__actions{left:24px;right:24px;bottom:72px;gap:9px}.chapter-intro__read{gap:15px;padding:14px 16px}.chapter-intro__time{font-size:10px;letter-spacing:0;max-width:48%;line-height:1.4}.chapter-intro__status{left:24px;right:24px;bottom:24px;font-size:11px}}
+@media(max-width:650px){.chapter-intro__stage{min-height:620px}.chapter-intro__top{left:18px;right:18px;top:max(82px,calc(env(safe-area-inset-top) + 72px));gap:8px}.chapter-intro__controls{gap:6px}.chapter-intro button,.chapter-intro__back{padding:10px 11px;font-size:12px}.chapter-intro__copy{left:24px;right:24px;bottom:175px}.chapter-intro h1{font-size:58px;max-width:380px}.chapter-intro__summary{font-size:19px;max-width:340px}.chapter-intro__label{font-size:10px;letter-spacing:.23em}.chapter-intro__actions{left:24px;right:24px;bottom:72px;gap:9px}.chapter-intro__read{gap:15px;padding:14px 16px}.chapter-intro__time{font-size:10px;letter-spacing:0;max-width:48%;line-height:1.4}.chapter-intro__status{left:24px;right:24px;bottom:24px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.chapter-intro__canvas,.chapter-intro__still{transition:none}.chapter-intro__poster{animation:none}.chapter-intro h1{transform:none}}
