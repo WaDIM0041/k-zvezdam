@@ -6,7 +6,7 @@
   window.KZChapterScenes=window.KZChapterScenes||{};
   window.KZChapterScenes.prologue=function(canvas,host,config,changed){
     var T=window.THREE,renderer,scene,camera,station,planet,atmosphere,stars,resizeObserver;
-    var geometries=[],materials=[],textures=[],raf=0,timer=0,last=0,lastDraw=0,time=0,frames=0;
+    var geometries=[],materials=[],textures=[],raf=0,timer=0,last=0,lastDraw=0,time=0,ambient=0,frames=0;
     var disposed=false,ready=false,paused=false,held=false,mode='loading',duration=config.duration||14;
     var pointer={x:0,y:0},camX=0,camY=0,small=false;
     function update(){changed({time:time,mode:mode,paused:paused,ready:ready,held:held});}
@@ -23,10 +23,10 @@
       if(!ready||disposed)return;
       var k=smooth(0,duration,time),r=smooth(1.8,7,time),env=smooth(0,2,time);
       station.material.uniforms.reveal.value=r;station.position.z=-1.7*(1-r);
-      stars.material.opacity=env*.85;planet.material.opacity=env;atmosphere.material.uniforms.reveal.value=env;
+      stars.material.opacity=env*(.72+.13*Math.sin(ambient*.7));stars.rotation.z=ambient*.0015;planet.rotation.y=.4+ambient*.004;planet.material.opacity=env;atmosphere.material.uniforms.reveal.value=env;
       var amplitude=small?.11:.48;
-      camX+=((-.26+.52*k+pointer.x*amplitude)-camX)*.08;
-      camY+=((pointer.y*(small?.05:.16))-camY)*.08;
+      camX+=((-.26+.52*k+pointer.x*amplitude+Math.sin(ambient*.23)*.06)-camX)*.08;
+      camY+=((pointer.y*(small?.05:.16)+Math.sin(ambient*.17)*.025)-camY)*.08;
       camera.position.set(camX,camY,16-.5*k);camera.lookAt(0,0,0);renderer.render(scene,camera);frames++;
     }
     function resize(){
@@ -40,12 +40,12 @@
       planet.position.set(small?-15:0,small?-104:-100,-140);atmosphere.position.copy(planet.position);draw();
     }
     function tick(now){
-      raf=0;if(disposed||paused||document.hidden||!ready||held){last=0;return;}
-      if(last)time=Math.min(duration,time+Math.min((now-last)/1000,.1));last=now;
-      if(now-lastDraw>=1000/30||time>=duration){draw();update();lastDraw=now;}
-      if(time>=duration){held=true;mode='held';update();}else raf=requestAnimationFrame(tick);
+      raf=0;if(disposed||paused||document.hidden||!ready){last=0;return;}
+      if(last){var dt=Math.min((now-last)/1000,.1);time=Math.min(duration,time+dt);ambient+=dt;}last=now;
+      if(now-lastDraw>=1000/30){draw();update();lastDraw=now;}
+      raf=requestAnimationFrame(tick);
     }
-    function start(){if(!raf&&!disposed&&ready&&!paused&&!held&&!document.hidden)raf=requestAnimationFrame(tick);}
+    function start(){if(!raf&&!disposed&&ready&&!paused&&!document.hidden)raf=requestAnimationFrame(tick);}
     function visibility(){document.hidden?stop():start();}
     function lost(e){e.preventDefault();if(!disposed&&mode!=='static')fallback();}
     function settle(){raf=0;if(!ready||disposed||paused||document.hidden||!held)return;draw();var target=.26+pointer.x*(small?.11:.48);if(Math.abs(target-camX)>.002||Math.abs(pointer.y*(small?.05:.16)-camY)>.002)raf=requestAnimationFrame(settle);}
@@ -76,6 +76,6 @@
         station=new T.Mesh(geo(new T.PlaneGeometry(1,1)),mat(new T.ShaderMaterial({uniforms:{original:{value:loaded[0]},mask:{value:loaded[1]},reveal:{value:0}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'uniform sampler2D original;uniform sampler2D mask;uniform float reveal;varying vec2 vUv;void main(){float a=smoothstep(.06,.94,texture2D(mask,vUv).a);float recess=step(.399,vUv.x)*(1.-step(.452,vUv.x))*step(.465,vUv.y)*(1.-step(.557,vUv.y));a=max(a,recess);if(a<.01)discard;gl_FragColor=vec4(texture2D(original,vUv).rgb,a*reveal);}',transparent:true,depthWrite:true,side:T.FrontSide})));scene.add(station);ready=true;mode=held?'held':'layered';resize();update();start();resizeObserver=new ResizeObserver(resize);resizeObserver.observe(host);
       }).catch(fallback);
     }catch(e){fallback();}
-    return{pause:function(value){paused=value;paused?stop():start();update();},skip:function(){held=true;time=duration;mode=ready?'held':mode;stop();draw();update();},static:fallback,dispose:function(){if(disposed)return;disposed=true;canvas.removeEventListener('webglcontextlost',lost);document.removeEventListener('visibilitychange',visibility);host.removeEventListener('pointermove',move);host.removeEventListener('pointerleave',leave);release();},diagnostics:function(){return{mode:mode,time:time,paused:paused,frames:frames,rafActive:!!raf,ready:ready,disposed:disposed,layers:ready?['stars-3D','planet-sphere-3D','atmosphere-3D','station-alpha-2.5D']:[],memory:renderer?renderer.info.memory:null};}};
+    return{pause:function(value){paused=value;paused?stop():start();update();},skip:function(){time=duration;draw();update();start();},static:fallback,dispose:function(){if(disposed)return;disposed=true;canvas.removeEventListener('webglcontextlost',lost);document.removeEventListener('visibilitychange',visibility);host.removeEventListener('pointermove',move);host.removeEventListener('pointerleave',leave);release();},diagnostics:function(){return{mode:mode,time:time,paused:paused,frames:frames,rafActive:!!raf,ready:ready,disposed:disposed,layers:ready?['stars-3D','planet-sphere-3D','atmosphere-3D','station-alpha-2.5D']:[],memory:renderer?renderer.info.memory:null};}};
   };
 })();
