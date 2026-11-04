@@ -33,5 +33,12 @@
   "pageCommits": {
     "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
     "/read/1/": "c7f48c2"
+  },
+  "chapterIntro": {
+    "edition": "prologue-layered-v003",
+    "basePagesCommit": "a18d164c23a11a4c017b1b33c3978bfa845a263a",
+    "scope": "intro on home and contents; published chapters preserved",
+    "engineSha256": "c8ed12f11a52017c0258347b90f16fa65b9b7815da0749b33a66db961ddbf1ec",
+    "referenceSha256": "dc9f29bec5062f1e5724a835d2e2507293fa0ebfef5976fc0678232156730008"
   }
 }

@@ -133,7 +133,7 @@
   var clock = new THREE.Clock();
   function tick() {
     var dt = Math.min(clock.getDelta(),.05), t = clock.elapsedTime;
-    if(!visible || document.hidden){requestAnimationFrame(tick);return;}
+    if(!visible || document.hidden || document.body.classList.contains('chapter-intro-open')){requestAnimationFrame(tick);return;}
     starsFar.rotation.y += dt * 0.006; starsFar.rotation.x += dt * 0.002;
     starsNear.rotation.y += dt * 0.012;
     nebs.forEach(function (n, i) { n.material.opacity = 0.4 + 0.18 * Math.sin(t * 0.4 + i); });
