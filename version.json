@@ -1,7 +1,7 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-10-30T10:44:36+00:00",
-  "commit": "c7f48c2",
+  "builtAt": "2026-11-04T18:30:00+03:00",
+  "commit": "ec42b4e",
   "chapters": 11,
   "pages": [
     "/",
@@ -23,12 +23,12 @@
     "/404.html"
   ],
   "noindex": true,
-  "previousCommit": "28e2c13",
+  "previousCommit": "8ce547cb121e3f6ff35fe93fb3618f975a262e3e",
   "lastChange": {
-    "scope": "/read/1/ player moved to chapter beginning and black styling; other published pages preserved",
-    "edition": "prologue-suno-black-v002",
-    "sourceBranch": "prologue-horror-preview",
-    "sourceCommit": "c7f48c2"
+    "scope": "Главы теперь открываются со встроенной заставкой в начале страницы чтения; старые ссылки ведут сразу к заставке главы.",
+    "edition": "chapter-opening-inline-v001",
+    "sourceBranch": "gh-pages",
+    "sourceCommit": "ec42b4ea2dc357cbb13acb1b758cb7fba75cecf0"
   },
   "pageCommits": {
     "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
@@ -40,5 +40,23 @@
     "scope": "intro on home and contents; published chapters preserved",
     "engineSha256": "c8ed12f11a52017c0258347b90f16fa65b9b7815da0749b33a66db961ddbf1ec",
     "referenceSha256": "dc9f29bec5062f1e5724a835d2e2507293fa0ebfef5976fc0678232156730008"
+  },
+  "inlineChapterOpening": {
+    "pages": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "existingCustomOpeningPreserved": [
+      3
+    ],
+    "legacyIntroLinks": "redirect-to-reading-page"
   }
 }
