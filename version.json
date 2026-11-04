@@ -1,7 +1,7 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-11-04T15:09:00+00:00",
-  "commit": "803af1b",
+  "builtAt": "2026-11-04T15:16:27+00:00",
+  "commit": "d7a9971",
   "chapters": 11,
   "pages": [
     "/",
@@ -28,7 +28,7 @@
     "scope": "Главы теперь открываются со встроенной заставкой в начале страницы чтения; старые ссылки ведут сразу к заставке главы.",
     "edition": "chapter-opening-inline-v001",
     "sourceBranch": "gh-pages",
-    "sourceCommit": "803af1b5a66502f190a9a16bafd8fe944e8cd5b4"
+    "sourceCommit": "d7a9971cfe69fd49704a9e9efbd0b665963370cd"
   },
   "pageCommits": {
     "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
@@ -58,6 +58,7 @@
       3
     ],
     "legacyIntroLinks": "redirect-to-reading-page",
-    "assetCommit": "803af1b5a66502f190a9a16bafd8fe944e8cd5b4"
+    "assetCommit": "803af1b5a66502f190a9a16bafd8fe944e8cd5b4",
+    "cacheKey": "inline-chapter-2"
   }
 }
