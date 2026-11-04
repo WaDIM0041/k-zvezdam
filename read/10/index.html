@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=prologue-edition-20261025">
+<link rel="stylesheet" href="/k-zvezdam/static/css/chapter-intro.css?v=inline-chapter-1">
 </head>
 <body class="reading">
 <nav id="nav">
@@ -105,8 +106,29 @@
 </aside>
 
 <article class="reader">
-  <div class="eyebrow">Глава 9</div>
-  <h1>В поисках Вадима</h1>
+  <section class="chapter-intro" id="chapterOpening" aria-labelledby="chapterIntroTitle" data-chapter-id="10" data-scene="poster" data-duration="14">
+  <div class="chapter-intro__stage">
+    <div class="chapter-intro__poster" aria-hidden="true" data-cover="/k-zvezdam/static/chapter-images/glava9_1.jpg"></div>
+    <div class="chapter-intro__shade" aria-hidden="true"></div>
+    <header class="chapter-intro__top">
+      <a class="chapter-intro__back" href="/k-zvezdam/chapters">← К главам</a>
+
+    </header>
+    <div class="chapter-intro__copy">
+      <p class="chapter-intro__label">Глава 9 / Через время к звёздам</p>
+      <h1 id="chapterIntroTitle">В поисках Вадима</h1>
+
+    </div>
+    <div class="chapter-intro__actions">
+      <a class="chapter-intro__read" href="#chapterText">К тексту главы <span aria-hidden="true">↓</span></a>
+      <span class="chapter-intro__time">Прокрутите вниз, чтобы читать</span>
+    </div>
+
+  </div>
+</section>
+
+<article class="reader" id="chapterText">
+  <div class="read-meta">
   <div class="read-meta">
     <span>≈ 9 мин</span>
     
@@ -319,5 +341,6 @@
 })();
 </script>
 
+<script src="/k-zvezdam/static/js/chapter-intro.js?v=inline-chapter-1"></script>
 </body>
 </html>

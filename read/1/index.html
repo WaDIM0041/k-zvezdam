@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Russo+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=mobile-player-20261030">
+<link rel="stylesheet" href="/k-zvezdam/static/css/chapter-intro.css?v=inline-chapter-1">
 </head>
 <body class="reading">
 <nav id="nav">
@@ -105,8 +106,33 @@
 </aside>
 
 <article class="reader">
-  <div class="eyebrow">Пролог</div>
-  <h1>Вскрытие прошлого</h1>
+  <section class="chapter-intro chapter-intro--prologue" id="chapterOpening" aria-labelledby="chapterIntroTitle" data-chapter-id="1" data-scene="prologue" data-duration="14">
+  <div class="chapter-intro__stage">
+    <img class="chapter-intro__still" src="/k-zvezdam/static/chapter-intros/prologue/helios-reference-v001.jpg" alt="" decoding="async" fetchpriority="high">
+    <img class="chapter-intro__mask" src="/k-zvezdam/static/chapter-intros/prologue/helios-cutout-v003.png" alt="" hidden>
+    <img class="chapter-intro__gas" src="/k-zvezdam/static/chapter-intros/prologue/gas-clouds-v003.png" alt="" hidden>
+    <canvas class="chapter-intro__canvas" aria-hidden="true"></canvas>
+    <div class="chapter-intro__shade" aria-hidden="true"></div>
+    <header class="chapter-intro__top">
+      <a class="chapter-intro__back" href="/k-zvezdam/chapters">← К главам</a>
+      <div class="chapter-intro__controls"><button type="button" data-intro-action="pause" aria-pressed="false">Пауза</button><button type="button" data-intro-action="skip">Пропустить</button></div>
+    </header>
+    <div class="chapter-intro__copy">
+      <p class="chapter-intro__label">Пролог / Гелиос-0</p>
+      <h1 id="chapterIntroTitle">Вскрытие прошлого</h1>
+      <div class="chapter-intro__summary"><p>347 лет криосна позади.</p><p>Впереди — станция, на которой не горит ни одного огня.</p></div>
+    </div>
+    <div class="chapter-intro__actions">
+      <a class="chapter-intro__read" href="#chapterText">К тексту главы <span aria-hidden="true">↓</span></a>
+      <span class="chapter-intro__time">00 : 00</span>
+    </div>
+    <p class="chapter-intro__status" role="status" aria-live="polite"></p>
+    <div class="chapter-intro__progress" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<article class="reader" id="chapterText">
+  <div class="read-meta">
   <div class="read-meta">
     <span>≈ 20 мин</span>
     
@@ -635,5 +661,7 @@
 })();
 </script>
 
+<script src="/k-zvezdam/static/js/chapter-intro-layered.js?v=inline-chapter-1"></script>
+<script src="/k-zvezdam/static/js/chapter-intro.js?v=inline-chapter-1"></script>
 </body>
 </html>

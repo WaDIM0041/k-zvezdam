@@ -71,7 +71,7 @@
     <div class="hero-tools-actions">
       <div class="btns">
         
-        <a class="btn btn-p cube-read-button" id="cubeReadButton" data-chapter-intro="1" href="/k-zvezdam/read/1">Погрузиться в параллельный мир вселенной</a>
+        <a class="btn btn-p cube-read-button" id="cubeReadButton" href="/k-zvezdam/read/1">Погрузиться в параллельный мир вселенной</a>
         
         <a class="btn btn-c" id="continueBtn" href="#" hidden>Продолжить чтение</a>
         <a class="btn btn-g" href="/k-zvezdam/chapters">Оглавление</a>
@@ -121,7 +121,7 @@
     
     <div class="clist reveal">
       
-      <a class="crow" data-chapter-intro="1" href="/k-zvezdam/read/1">
+      <a class="crow" href="/k-zvezdam/read/1">
         <span class="num">Пролог</span>
         <span class="t">Вскрытие прошлого</span>
         <span class="ar">→</span>
@@ -329,33 +329,6 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 })();
 </script>
 
-<dialog class="chapter-intro" id="chapterIntro" aria-labelledby="chapterIntroTitle" data-chapter-id="1" data-scene="prologue" data-duration="14">
-  <div class="chapter-intro__stage">
-    <img class="chapter-intro__still" src="/k-zvezdam/static/chapter-intros/prologue/helios-reference-v001.jpg" alt="Разрушенная станция Гелиос-0 над оранжево-белым лимбом газового гиганта, среди звёзд и обломков." decoding="async" loading="lazy">
-    <img class="chapter-intro__mask" src="/k-zvezdam/static/chapter-intros/prologue/helios-cutout-v003.png" alt="" hidden loading="lazy">
-    <img class="chapter-intro__gas" src="/k-zvezdam/static/chapter-intros/prologue/gas-clouds-v003.png" alt="" hidden loading="lazy">
-    <canvas class="chapter-intro__canvas" aria-hidden="true"></canvas>
-    <div class="chapter-intro__shade" aria-hidden="true"></div>
-    <header class="chapter-intro__top">
-      <button type="button" class="chapter-intro__back" data-intro-action="close" autofocus>← К главам</button>
-      <div class="chapter-intro__controls"><button type="button" data-intro-action="pause" aria-pressed="false">Пауза</button><button type="button" data-intro-action="skip">Пропустить</button></div>
-    </header>
-    <div class="chapter-intro__copy">
-      <p class="chapter-intro__label">Пролог / Гелиос-0</p>
-      <h2 id="chapterIntroTitle">Вскрытие прошлого</h2>
-      <div class="chapter-intro__summary"><p>347 лет криосна позади.</p><p>Впереди — станция, на которой не горит ни одного огня.</p></div>
-    </div>
-    <div class="chapter-intro__actions">
-      <a class="chapter-intro__read" href="/k-zvezdam/read/1">Читать Пролог <span aria-hidden="true">→</span></a>
-      <button type="button" data-intro-action="replay">Повторить</button>
-      <span class="chapter-intro__time" aria-hidden="true">00 : 00</span>
-    </div>
-    <p class="chapter-intro__status" role="status" aria-live="polite"></p>
-    <div class="chapter-intro__progress" aria-hidden="true"><i></i></div>
-  </div>
-</dialog>
-<link rel="stylesheet" href="/k-zvezdam/static/css/chapter-intro.css?v=prologue-3">
-<script src="/k-zvezdam/static/js/chapter-intro-layered.js?v=prologue-3"></script>
-<script src="/k-zvezdam/static/js/chapter-intro.js?v=prologue-3"></script>
+<script src="/k-zvezdam/static/js/chapter-intro.js?v=inline-chapter-1"></script>
 </body>
 </html>
