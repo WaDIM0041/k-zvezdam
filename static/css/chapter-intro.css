@@ -32,3 +32,10 @@
 @keyframes chapterIntroDrift{from{transform:scale(1)}to{transform:scale(1.08)}}
 @media(max-width:650px){.chapter-intro__stage{min-height:620px}.chapter-intro__top{left:18px;right:18px;top:max(82px,calc(env(safe-area-inset-top) + 72px));gap:8px}.chapter-intro__controls{gap:6px}.chapter-intro button,.chapter-intro__back{padding:10px 11px;font-size:12px}.chapter-intro__copy{left:24px;right:24px;bottom:175px}.chapter-intro h1{font-size:58px;max-width:380px}.chapter-intro__summary{font-size:19px;max-width:340px}.chapter-intro__label{font-size:10px;letter-spacing:.23em}.chapter-intro__actions{left:24px;right:24px;bottom:72px;gap:9px}.chapter-intro__read{gap:15px;padding:14px 16px}.chapter-intro__time{font-size:10px;letter-spacing:0;max-width:48%;line-height:1.4}.chapter-intro__status{left:24px;right:24px;bottom:24px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.chapter-intro__canvas,.chapter-intro__still{transition:none}.chapter-intro__poster{animation:none}.chapter-intro h1{transform:none}}
+
+/* Продолжение сцены при прокрутке; элементы управления остаются на первом экране. */
+.chapter-intro__stage{height:150svh;max-height:none}
+.chapter-intro__copy{bottom:calc(50svh + 170px)}
+.chapter-intro__actions{bottom:calc(50svh + 75px)}
+.chapter-intro__status{bottom:calc(50svh + 24px)}
+@media(max-width:650px){.chapter-intro__copy{bottom:calc(50svh + 175px)}.chapter-intro__actions{bottom:calc(50svh + 72px)}}
