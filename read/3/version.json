@@ -1,12 +1,12 @@
 {
-  "edition": "chapter-02-video-intro-01",
+  "edition": "chapter-02-reference-intro-02",
   "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "source": "editions/chapter-02-v003",
-  "builtAt": "2026-10-29T15:11:56+00:00",
+  "builtAt": "2026-10-29T18:11:56+03:00",
   "video": {
+    "sha256": "32e71bdbbfa80efc5b43399fb06c7ebd571fabb0f108d18ccea18647a70ebf8e",
+    "source": "Four chapter 2 illustrations",
     "file": "chapter-02-intro.mp4",
-    "request_id": "0bc8513e-015b-9e53-859f-db358de67e07",
-    "sha256": "55f8529e84e7e1677a5d86c5b819249b1e84d41a5bea71bf184847c792e1c32a",
-    "estimated_usd": 0.2
+    "estimated_usd": 0
   }
 }
