@@ -1,7 +1,29 @@
 {
-  "edition": "chapter-02-shared-reader-layout",
+  "edition": "chapter-02-night-illustrations",
   "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "source": "editions/chapter-02-v003",
   "builtAt": "2026-10-29T18:11:56+03:00",
-  "pageSha256": "795c74e5261ffbc7077cb032cf4761cbd48e51feab2df4df4413d4bef6cd44c0"
+  "pageSha256": "d06bb5732f9209b642907e8af67255ae784d07d970e547d58c28e9da09a7e6be",
+  "illustrations": [
+    {
+      "path": "медиа/night-00.png",
+      "sha256": "b22aea1f7b00ad9e957764b9caad59a8ff6f5b4dcdc4507d5edee5dd9d2156b3",
+      "reference": "медиа/00 — Перед закрытой дверью — естественный свет v003.png"
+    },
+    {
+      "path": "медиа/night-01.png",
+      "sha256": "b9bb7af57eb5b13216ff7a910ea56314878720f141a7584272e089f7d4faac26",
+      "reference": "медиа/01 — Джуна делает черновой снимок — естественный кадр v003.png"
+    },
+    {
+      "path": "медиа/night-02.png",
+      "sha256": "6fb7b73d9e1b1590dc4fc69d3991837e381eeef06945ef4c056d87a00ee105ba",
+      "reference": "медиа/02 — Аномалия на фотографии — естественный кадр v003.png"
+    },
+    {
+      "path": "медиа/night-03.png",
+      "sha256": "ac72febc53514c5d917af15ad815c363e1cdab4cf86afb334e3cff3745f6dca9",
+      "reference": "медиа/03 — Ладонь на нагрудном кармане — естественный кадр v003.png"
+    }
+  ]
 }
