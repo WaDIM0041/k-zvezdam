@@ -1,6 +1,7 @@
 {
-  "edition": "chapter-02-reader-no-intro-video",
+  "edition": "chapter-02-shared-reader-layout",
   "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "source": "editions/chapter-02-v003",
-  "builtAt": "2026-10-29T18:11:56+03:00"
+  "builtAt": "2026-10-29T18:11:56+03:00",
+  "pageSha256": "795c74e5261ffbc7077cb032cf4761cbd48e51feab2df4df4413d4bef6cd44c0"
 }
