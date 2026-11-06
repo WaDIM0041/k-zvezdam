@@ -20,6 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=prologue-edition-20261025">
 <link rel="stylesheet" href="/k-zvezdam/static/css/chapter-intro.css?v=inline-chapter-2">
+<link rel="stylesheet" href="./art/chapter-4.css">
 </head>
 <body class="reading">
 <nav id="nav">
@@ -105,9 +106,11 @@
   </nav>
 </aside>
 
-  <section class="chapter-intro" id="chapterOpening" aria-labelledby="chapterIntroTitle" data-chapter-id="5" data-scene="poster" data-duration="14">
+  <section class="chapter-intro" id="chapterOpening" aria-labelledby="chapterIntroTitle" data-chapter-id="5" data-scene="radio-room" data-duration="14">
   <div class="chapter-intro__stage">
-    <div class="chapter-intro__poster" aria-hidden="true" data-cover="/k-zvezdam/static/chapter-images/glava4_1.jpg"></div>
+    <img class="radio-room-backdrop" src="./art/hero.webp" alt="Каморка с двумя замершими корабельными часами, радиоблоками и геометрическим плакатом" fetchpriority="high">
+    <div class="radio-room-mist" aria-hidden="true"></div>
+    <img class="radio-room-foreground" src="./art/foreground.webp" alt="">
     <div class="chapter-intro__shade" aria-hidden="true"></div>
     <header class="chapter-intro__top">
       <a class="chapter-intro__back" href="/k-zvezdam/chapters">← К главам</a>
@@ -116,11 +119,12 @@
     <div class="chapter-intro__copy">
       <p class="chapter-intro__label">Глава 4 / Через время к звёздам</p>
       <h1 id="chapterIntroTitle">Каморка радиста</h1>
-
+      <p>За бетонной створкой — забытая радиорубка. Стрелки на двух циферблатах замерли в разных положениях.</p>
     </div>
     <div class="chapter-intro__actions">
       <a class="chapter-intro__read" href="#chapterText">К тексту главы <span aria-hidden="true">↓</span></a>
-      <span class="chapter-intro__time">Прокрутите вниз, чтобы читать</span>
+      <button class="radio-room-pause" type="button" aria-pressed="false" hidden>Пауза</button>
+      <a class="radio-room-skip" href="#chapterText">Пропустить</a>
     </div>
 
   </div>
@@ -137,9 +141,8 @@
   </div>
   <div class="orn"></div>
   <div class="read-body" id="readBody">
-    <p>Вадим протиснулся в щель первым, боком, держа фонарь у плеча. Холодный, застоявшийся воздух сомкнулся вокруг.</p>
+<p>Вадим протиснулся в щель первым, боком, держа фонарь у плеча. Холодный, застоявшийся воздух сомкнулся вокруг.</p>
 <p>— Ждите, — бросил он через плечо, в узкую полосу света за спиной. — Я проверю.</p>
-<figure class="c-img"><img src="/k-zvezdam/static/chapter-images/glava4_1.jpg" alt="Иллюстрация к главе" loading="lazy"></figure>
 <p>Он ждал коридор. Шахту. Спуск куда-нибудь в глубину, к тому огромному, ради чего их сюда привёл файл. Луч фонаря прошёл два метра — и упёрся в глухую стену.</p>
 <p>Тупик. Тесная комната, каморка, забытая во времени.</p>
 <p>— Ну что там? — голос Кристиана снаружи звучал глухо, приглушённый бетоном.</p>
@@ -147,13 +150,14 @@
 <p>И всё же он шагнул внутрь. Свет фонаря пополз по стенам — и выхватил детали до жути знакомые, будто из старого советского фильма, который смотрел в детстве и забыл.</p>
 <p>Стены были выкрашены облупившейся, тусклой бирюзовой зеленью. Справа, одни над другими, висели два массивных циферблата корабельных часов в тёмных корпусах; их стрелки замерли навсегда — и почему-то показывали разное время. Ниже громоздились древние радиомодули с чёрными ручками настройки. Посреди каморки стоял широкий деревянный стол, заваленный старыми клавиатурами и блоками управления, под серой шубой вековой пыли.</p>
 <p>Здесь было тихо так, как бывает тихо только там, где очень давно никого не было.</p>
-<figure class="c-img"><img src="/k-zvezdam/static/chapter-images/glava4_2.jpg" alt="Иллюстрация к главе" loading="lazy"></figure>
+<figure class="radio-room-illustration"><img src="./art/clocks.webp" alt="Двое корабельных часов показывают разное время" width="1672" height="941" loading="lazy" decoding="async"></figure>
 <p>— Вадим. — Голос Лианы в наушнике дрогнул; она редко позволяла себе такую интонацию. — Датчики сходят с ума. Геометрия внутри не совпадает с внешним контуром. Внутри больше, чем снаружи. Это невозможно. Выходи. Немедленно.</p>
 <p>— Сейчас, — пробормотал он, уже поворачиваясь к двери.</p>
 <p>И тогда в нагрудном кармане снова стало тепло.</p>
 <p>Не тот еле уловимый укол, что он отмахнул там, на пороге, в грязи. Теперь тепло держалось — ровное, настойчивое, живое. Находка у самого сердца будто проснулась и тянулась куда-то вперёд, в глубину каморки, как стрелка компаса тянется к северу.</p>
 <p>Вадим замер. Рука сама легла на карман.</p>
 <p>Луч фонаря сполз по стене над столом. Она была увешана инструкциями и схемами под пожелтевшим, покоробленным пластиком. В центре висел плакат — и на нём были не буквы. Странные геометрические линии, которые в пятне света будто медленно двигались, перетекали друг в друга, стоило отвести взгляд.</p>
+<figure class="radio-room-illustration"><img src="./art/poster.webp" alt="Геометрический плакат над пыльными клавиатурами в луче фонаря" width="1774" height="887" loading="lazy" decoding="async"></figure>
 <p>Он опустил глаза на пол.</p>
 <p>Его тень лежала у ног — неподвижно. Плотная, чёрная, чужая.</p>
 <p>Вадим медленно повернул голову влево.</p>
@@ -166,7 +170,6 @@
 <p>Но было и другое — то, что вело его всю жизнь. Инстинкт пилота, который в тумане, в помехах, в мёртвой тишине эфира вдруг видит цель и идёт на неё, потому что иначе не умеет.</p>
 <p>Тепло у сердца стало сильнее.</p>
 <p>Вадим шагнул к столу. Перегнулся через пыльные клавиатуры. И потянулся ладонью к центру пожелтевшего плаката — туда, куда бил луч фонаря.</p>
-<figure class="c-img"><img src="/k-zvezdam/static/chapter-images/glava4_3.jpg" alt="Иллюстрация к главе" loading="lazy"></figure>
   </div>
 
 </article>
@@ -303,5 +306,6 @@
 </script>
 
 <script src="/k-zvezdam/static/js/chapter-intro.js?v=inline-chapter-2"></script>
+<script src="./art/chapter-4.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,84 @@
+.chapter-intro[data-scene="radio-room"] .chapter-intro__stage {
+  background: #060c10;
+  overflow: hidden;
+}
+
+.radio-room-backdrop,
+.radio-room-foreground,
+.radio-room-mist {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.radio-room-backdrop,
+.radio-room-foreground {
+  object-fit: cover;
+  object-position: 58% center;
+}
+
+.radio-room-mist {
+  background: radial-gradient(ellipse at 64% 42%, #bbdbe52f, transparent 52%);
+}
+
+.radio-room-pause {
+  padding: .65rem 1rem;
+  border: 1px solid #ffffff90;
+  border-radius: .45rem;
+  background: #080e14ed;
+  color: #fff;
+  cursor: pointer;
+}
+
+.radio-room-illustration {
+  margin: 2rem 0;
+}
+
+.radio-room-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .radio-room-active .radio-room-backdrop {
+    animation: radio-room-distant 18s ease-in-out infinite alternate;
+  }
+
+  .radio-room-active .radio-room-mist {
+    animation: radio-room-drift 12s ease-in-out infinite alternate;
+  }
+
+  .radio-room-active .radio-room-foreground {
+    animation: radio-room-near 18s ease-in-out infinite alternate;
+  }
+
+  .radio-room-active.radio-room-paused :is(.radio-room-backdrop, .radio-room-mist, .radio-room-foreground) {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes radio-room-distant {
+  from { transform: scale(1.04) translateX(-.6%); }
+  to { transform: scale(1.04) translateX(.6%); }
+}
+
+@keyframes radio-room-drift {
+  from { transform: translateX(-11%); opacity: .35; }
+  to { transform: translateX(9%); opacity: .75; }
+}
+
+@keyframes radio-room-near {
+  from { transform: scale(1.09) translateX(-3%); }
+  to { transform: scale(1.09) translateX(3%); }
+}
+
+.radio-room-skip { color: #fff; padding: .5rem; }
+#chapterOpening[data-scene="radio-room"] .chapter-intro__stage { min-height: min(680px, calc(100svh - 70px)); }
+@media (max-width: 550px) {
+  .radio-room-backdrop { object-position: 48% center; }
+  .radio-room-foreground { object-position: left center; }
+}

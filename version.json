@@ -68,5 +68,11 @@
     "htmlSha256": "cae369540acb1d63f061cc7e4248481b3f2fa7ae3230a04629918d0888b347eb",
     "textSha256": "2b21c1c4ec1b21aee4638b5bf207e45fe7f0599f77a82950edefcd902fda8652",
     "basePagesCommit": "7b02ffb232b9cdd488d0145e7b2c046dc77bcad7"
+  },
+  "chapter4Build": {
+    "edition": "radio-room-v001",
+    "basePagesCommit": "02cad5262cc041a132716625686fbcd1c8e2cb83",
+    "htmlSha256": "c5b0ac188a27afb83349154152f947e7ab4671ea6c8659bc6753cf57352dda07",
+    "textSha256": "5918a7e55c14e000da46f7a949ae79cd57c9ce0debf98b4c734a36130d031ff5"
   }
 }
