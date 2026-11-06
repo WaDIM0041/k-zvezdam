@@ -3,7 +3,7 @@
   "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "source": "editions/chapter-02-v003",
   "builtAt": "2026-10-29T18:11:56+03:00",
-  "pageSha256": "d06bb5732f9209b642907e8af67255ae784d07d970e547d58c28e9da09a7e6be",
+  "pageSha256": "8ed82444af5568fd742bf6a133e22a267d89897fc19a5bc76dab5863b762cf45",
   "illustrations": [
     {
       "path": "медиа/night-00.png",
@@ -25,5 +25,6 @@
       "sha256": "ac72febc53514c5d917af15ad815c363e1cdab4cf86afb334e3cff3745f6dca9",
       "reference": "медиа/03 — Ладонь на нагрудном кармане — естественный кадр v003.png"
     }
-  ]
+  ],
+  "layout": "full-width-footer"
 }
