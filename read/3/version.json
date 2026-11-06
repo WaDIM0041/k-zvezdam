@@ -1,12 +1,6 @@
 {
-  "edition": "chapter-02-reference-v2",
+  "edition": "chapter-02-reader-no-intro-video",
   "commit": "c6f76ba2d025584a98c295377aec410336e3337c",
   "source": "editions/chapter-02-v003",
-  "builtAt": "2026-10-29T18:11:56+03:00",
-  "video": {
-    "file": "chapter-02-reference-v2.mp4",
-    "sha256": "c010d5824e0c90159b437cf0f38ce964fc6ff3f79517dfd4b0d4c6048c197f84",
-    "estimated_usd": 0,
-    "source": "Chapter 2 illustrations and opening layers"
-  }
+  "builtAt": "2026-10-29T18:11:56+03:00"
 }
