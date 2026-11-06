@@ -1,6 +1,6 @@
 {
   "site": "https://wadim0041.github.io/k-zvezdam",
-  "builtAt": "2026-11-04T15:16:27+00:00",
+  "builtAt": "2026-11-04T18:16:27+03:00",
   "commit": "d7a9971",
   "chapters": 11,
   "pages": [
@@ -32,7 +32,8 @@
   },
   "pageCommits": {
     "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
-    "/read/1/": "c7f48c2"
+    "/read/1/": "c7f48c2",
+    "/read/4/": "c99b2df4442d766e0e2288d9e66dc39d8bd72055"
   },
   "chapterIntro": {
     "edition": "prologue-layered-v003",
@@ -60,5 +61,12 @@
     "legacyIntroLinks": "redirect-to-reading-page",
     "assetCommit": "803af1b5a66502f190a9a16bafd8fe944e8cd5b4",
     "cacheKey": "inline-chapter-2"
+  },
+  "chapter3Build": {
+    "edition": "static-voice-v001",
+    "pageCommit": "c99b2df4442d766e0e2288d9e66dc39d8bd72055",
+    "htmlSha256": "fd67de01fc54de909810887636bf2a9fa755ad328f49f9f7af3b317bb9eb509e",
+    "textSha256": "2b21c1c4ec1b21aee4638b5bf207e45fe7f0599f77a82950edefcd902fda8652",
+    "basePagesCommit": "7b02ffb232b9cdd488d0145e7b2c046dc77bcad7"
   }
 }
