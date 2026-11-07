@@ -32,7 +32,7 @@
   },
   "pageCommits": {
     "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
-    "/read/1/": "c7f48c2",
+    "/read/1/": "e47d815ed7744cc256b863dc23d8d45805c119be",
     "/read/4/": "c99b2df4442d766e0e2288d9e66dc39d8bd72055"
   },
   "chapterIntro": {
@@ -74,5 +74,9 @@
     "basePagesCommit": "02cad5262cc041a132716625686fbcd1c8e2cb83",
     "htmlSha256": "c5b0ac188a27afb83349154152f947e7ab4671ea6c8659bc6753cf57352dda07",
     "textSha256": "5918a7e55c14e000da46f7a949ae79cd57c9ce0debf98b4c734a36130d031ff5"
+  },
+  "prologueOpening": {
+    "edition": "cryo-sequence-v001",
+    "pageCommit": "e47d815ed7744cc256b863dc23d8d45805c119be"
   }
 }
