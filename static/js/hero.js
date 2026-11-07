@@ -163,3 +163,29 @@
   });
   });
 })();
+
+/* Вспышка сверхновой перед переходом к любой главе. */
+(function () {
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var opening = false;
+  function chapterUrl(link) {
+    try {
+      var url = new URL(link.href, location.href);
+      return /\/read\/\d+\/?$/.test(url.pathname);
+    } catch (e) { return false; }
+  }
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link || !chapterUrl(link) || opening) return;
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === '_blank') return;
+    if (reduced) return;
+    event.preventDefault();
+    opening = true;
+    var flare = document.createElement('div');
+    flare.className = 'chapter-supernova';
+    flare.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(flare);
+    requestAnimationFrame(function () { flare.classList.add('is-opening'); });
+    window.setTimeout(function () { location.assign(link.href); }, 720);
+  }, true);
+})();
