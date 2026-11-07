@@ -358,7 +358,7 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .chapter-preview:hover .chapter-preview__arrow,.chapter-preview:focus-visible .chapter-preview__arrow{color:var(--cyan);transform:translateX(6px)}
 
 @media(max-width:680px){
-  .hero h1{width:min(100%,360px);margin:0 0 14px;font-size:clamp(2.05rem,10.2vw,3.15rem);line-height:1.08;letter-spacing:.005em}
+  .hero.hero h1{width:min(100%,360px);margin:0 0 14px;font-size:clamp(1.55rem,7.2vw,2.05rem);line-height:1.1;letter-spacing:.005em}
   .hero .tag{max-width:31rem;margin-bottom:20px;font-size:clamp(.94rem,4.3vw,1.08rem);line-height:1.55}
   .row2{grid-template-columns:1fr}
   .nav-in{flex-wrap:wrap;padding:10px 16px;gap:8px 14px}
@@ -378,6 +378,14 @@ body.reading.has-audio .toc-toggle{bottom:94px}
   .chapter-preview__title{font-size:1.42rem}
   .chapter-preview__description{font-size:.82rem;line-height:1.4}
   .chapter-preview__number{font-size:.62rem;letter-spacing:.24em}
+}
+
+/* На телефоне и компактном планшете первый экран оставляет место космосу. */
+@media(max-width:980px){
+  .hero-in{transform:translateY(clamp(82px,12vh,128px))}
+  .hero h1{width:min(100%,360px);margin:0 0 14px;font-size:clamp(1.8rem,3.8vw,2.35rem);line-height:1.1;letter-spacing:.005em}
+  .hero .btns{width:100%;justify-content:center;gap:10px}
+  .hero .btns .btn{min-width:132px;justify-content:center;padding:10px 14px;border-radius:999px;font-size:.8rem}
 }
 
 @media(max-width:430px){
