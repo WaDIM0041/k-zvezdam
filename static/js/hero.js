@@ -186,6 +186,6 @@
     flare.setAttribute('aria-hidden', 'true');
     document.body.appendChild(flare);
     requestAnimationFrame(function () { flare.classList.add('is-opening'); });
-    window.setTimeout(function () { location.assign(link.href); }, 720);
+    window.setTimeout(function () { location.assign(link.href); }, 1450);
   }, true);
 })();
