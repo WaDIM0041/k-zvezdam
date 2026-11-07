@@ -493,10 +493,10 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .chapter-supernova::before,.chapter-supernova::after{content:'';position:absolute;left:50%;top:50%;width:min(175vmax,2200px);aspect-ratio:1;transform:translate(-50%,-50%) scale(.04);border-radius:50%;opacity:0}
 .chapter-supernova::before{background:repeating-conic-gradient(from 0deg,rgba(220,246,255,.86) 0deg 1.2deg,transparent 2deg 14deg);filter:blur(1px)}
 .chapter-supernova::after{background:radial-gradient(circle,rgba(255,255,255,.94),rgba(169,222,255,.44) 6%,transparent 34%);filter:blur(10px)}
-.chapter-supernova.is-opening{animation:chapterSupernova .72s cubic-bezier(.22,.74,.2,1) forwards}
-.chapter-supernova.is-opening::before{animation:chapterSupernovaRays .72s ease-out forwards}
-.chapter-supernova.is-opening::after{animation:chapterSupernovaCore .72s ease-out forwards}
-@keyframes chapterSupernova{0%{opacity:0}13%{opacity:.42}35%{opacity:1}100%{opacity:1;background-color:#f7fcff}}
-@keyframes chapterSupernovaRays{0%{opacity:0;transform:translate(-50%,-50%) scale(.04)}34%{opacity:.92}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
-@keyframes chapterSupernovaCore{0%{opacity:0;transform:translate(-50%,-50%) scale(.05)}34%{opacity:1}100%{opacity:.15;transform:translate(-50%,-50%) scale(1.2)}}
+.chapter-supernova.is-opening{animation:chapterSupernova 1.45s cubic-bezier(.22,.74,.2,1) forwards}
+.chapter-supernova.is-opening::before{animation:chapterSupernovaRays 1.45s ease-out forwards}
+.chapter-supernova.is-opening::after{animation:chapterSupernovaCore 1.45s ease-out forwards}
+@keyframes chapterSupernova{0%{opacity:0}12%{opacity:.34}34%,72%{opacity:1}100%{opacity:1;background-color:#f7fcff}}
+@keyframes chapterSupernovaRays{0%{opacity:0;transform:translate(-50%,-50%) scale(.04)}34%,64%{opacity:.92}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@keyframes chapterSupernovaCore{0%{opacity:0;transform:translate(-50%,-50%) scale(.05)}34%,70%{opacity:1}100%{opacity:.15;transform:translate(-50%,-50%) scale(1.2)}}
 @media(prefers-reduced-motion:reduce){.chapter-supernova{display:none}}
