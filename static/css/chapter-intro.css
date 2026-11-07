@@ -39,3 +39,8 @@
 .chapter-intro__actions{bottom:calc(50svh + 75px)}
 .chapter-intro__status{bottom:calc(50svh + 24px)}
 @media(max-width:650px){.chapter-intro__copy{bottom:calc(50svh + 175px)}.chapter-intro__actions{bottom:calc(50svh + 72px)}}
+
+.chapter-intro--prologue .chapter-intro__top,.chapter-intro--prologue .chapter-intro__time{display:none}
+.chapter-intro--prologue .chapter-intro__copy{bottom:calc(20svh + 170px);text-shadow:0 2px 12px #000,0 1px 3px #000}
+.chapter-intro--prologue .chapter-intro__actions{bottom:calc(20svh + 75px)}
+@media(max-width:650px){.chapter-intro--prologue .chapter-intro__copy{bottom:calc(20svh + 175px)}.chapter-intro--prologue .chapter-intro__actions{bottom:calc(20svh + 72px)}}
