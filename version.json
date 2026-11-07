@@ -77,6 +77,7 @@
   },
   "prologueOpening": {
     "edition": "cryo-sequence-v001",
-    "pageCommit": "e47d815ed7744cc256b863dc23d8d45805c119be"
+    "pageCommit": "e47d815ed7744cc256b863dc23d8d45805c119be",
+    "loadingFixCommit": "2d364e46212a9e53789c9a6e893a6b25386b2719"
   }
 }
