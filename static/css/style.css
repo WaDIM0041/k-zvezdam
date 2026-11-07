@@ -358,6 +358,8 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 .chapter-preview:hover .chapter-preview__arrow,.chapter-preview:focus-visible .chapter-preview__arrow{color:var(--cyan);transform:translateX(6px)}
 
 @media(max-width:680px){
+  .hero h1{width:min(100%,360px);margin:0 0 14px;font-size:clamp(2.05rem,10.2vw,3.15rem);line-height:1.08;letter-spacing:.005em}
+  .hero .tag{max-width:31rem;margin-bottom:20px;font-size:clamp(.94rem,4.3vw,1.08rem);line-height:1.55}
   .row2{grid-template-columns:1fr}
   .nav-in{flex-wrap:wrap;padding:10px 16px;gap:8px 14px}
   .brand{font-size:.72rem;letter-spacing:.1em;line-height:1.2;flex:1 1 auto}
