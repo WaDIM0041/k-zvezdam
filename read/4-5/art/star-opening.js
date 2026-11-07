@@ -11,6 +11,7 @@ const duration = 7200;
 const clamp = n => Math.min(1, Math.max(0, n));
 const ease = n => clamp(n) ** 2 * (3 - 2 * clamp(n));
 let frame = 0, time = 0, previous = 0, paused = false;
+let beam, burst, halo, rays;
 
 const wall = document.createElement('canvas');
 wall.width = 470;
@@ -24,38 +25,50 @@ const ash = Array.from({ length: 540 }, (_, i) => {
     depth: Math.random(), size: 1 + Math.random() ** 2 * 10, turn: Math.random() * 9 };
 });
 
-function glow(x, y, radius, color) {
-  const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+function glowSprite(color) {
+  const sprite = document.createElement('canvas');
+  sprite.width = sprite.height = 256;
+  const paint = sprite.getContext('2d');
+  const gradient = paint.createRadialGradient(128, 128, 0, 128, 128, 128);
   gradient.addColorStop(0, color);
   gradient.addColorStop(1, 'transparent');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+  paint.fillStyle = gradient;
+  paint.fillRect(0, 0, 256, 256);
+  return sprite;
+}
+
+function raySprite() {
+  const sprite = document.createElement('canvas');
+  sprite.width = sprite.height = 420;
+  const paint = sprite.getContext('2d');
+  paint.translate(210, 210);
+  const length = 180;
+  const ray = paint.createLinearGradient(0, 0, 0, -length);
+  ray.addColorStop(0, '#f9ffc9');
+  ray.addColorStop(.56, '#d7ee7d');
+  ray.addColorStop(1, 'transparent');
+  paint.fillStyle = ray;
+  paint.shadowBlur = 22;
+  paint.shadowColor = '#cce64e';
+  for (let i = 0; i < 7; i++) {
+    paint.beginPath();
+    paint.moveTo(-8, 4);
+    paint.quadraticCurveTo(-13, -length * .47, 0, -length);
+    paint.quadraticCurveTo(10, -length * .55, 8, 4);
+    paint.fill();
+    paint.rotate(Math.PI * 2 / 7);
+  }
+  return sprite;
 }
 
 function star(power) {
+  if (!power) return;
   ctx.save();
-  ctx.translate(CX, CY);
   ctx.globalCompositeOperation = 'screen';
   ctx.globalAlpha = power * .68;
-  glow(0, 0, 250, '#c6dc61');
-  for (let i = 0; i < 7; i++) {
-    ctx.save();
-    ctx.rotate(i * Math.PI * 2 / 7);
-    const length = 75 + power * 105;
-    const ray = ctx.createLinearGradient(0, 0, 0, -length);
-    ray.addColorStop(0, '#f9ffc9');
-    ray.addColorStop(.56, '#d7ee7d');
-    ray.addColorStop(1, 'transparent');
-    ctx.fillStyle = ray;
-    ctx.shadowBlur = 22;
-    ctx.shadowColor = '#cce64e';
-    ctx.beginPath();
-    ctx.moveTo(-8, 4);
-    ctx.quadraticCurveTo(-13, -length * .47, 0, -length);
-    ctx.quadraticCurveTo(10, -length * .55, 8, 4);
-    ctx.fill();
-    ctx.restore();
-  }
+  ctx.drawImage(halo, CX - 250, CY - 250, 500, 500);
+  const size = 175 + power * 245;
+  ctx.drawImage(rays, CX - size / 2, CY - size / 2, size, size);
   ctx.restore();
 }
 
@@ -63,8 +76,7 @@ function draw(t) {
   const fall = t - 1880;
   const reveal = ease(fall / 620);
   const zoom = 1 + .19 * ease(t / 4200);
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, W, H);
+  ctx.setTransform(canvas.width / W, 0, 0, canvas.height / H, 0, 0);
   ctx.save();
   ctx.translate(CX, CY);
   ctx.scale(zoom, zoom);
@@ -74,7 +86,7 @@ function draw(t) {
     ctx.save();
     ctx.globalCompositeOperation = 'screen';
     ctx.globalAlpha = .37;
-    glow(CX + 440 * (1 - ease(t / 1680)), CY, 255, '#e6efc8');
+    ctx.drawImage(beam, CX + 440 * (1 - ease(t / 1680)) - 255, CY - 255, 510, 510);
     ctx.restore();
   }
   ctx.save();
@@ -85,7 +97,7 @@ function draw(t) {
   if (flash) {
     ctx.save();
     ctx.globalAlpha = flash * .57;
-    glow(CX, CY, 295, '#fffde2');
+    ctx.drawImage(burst, CX - 295, CY - 295, 590, 590);
     ctx.restore();
   }
   if (fall > 0) {
@@ -134,8 +146,14 @@ function start(at = 0) {
 }
 
 function setup() {
+  beam = glowSprite('#e6efc8');
+  burst = glowSprite('#fffde2');
+  halo = glowSprite('#c6dc61');
+  rays = raySprite();
   // Sample the exposed wall beside the poster, avoiding the nearby frames.
-  texture.drawImage(photo, 1120, 295, 112, 298, 0, 0, 470, 640);
+  const sx = photo.naturalWidth / W;
+  const sy = photo.naturalHeight / H;
+  texture.drawImage(photo, 1120 * sx, 295 * sy, 112 * sx, 298 * sy, 0, 0, 470, 640);
   texture.fillStyle = '#454b43aa';
   texture.fillRect(0, 0, 470, 640);
   texture.globalCompositeOperation = 'destination-in';
@@ -148,7 +166,15 @@ function setup() {
     texture.fillStyle = mask;
     texture.fillRect(0, 0, 470, 640);
   }
-  draw(0);
+  const resize = () => {
+    const scale = Math.min(1, Math.max(stage.clientWidth / W, stage.clientHeight / H) *
+      Math.min(devicePixelRatio, 1.5));
+    canvas.width = Math.max(2, Math.round(W * scale / 2) * 2);
+    canvas.height = canvas.width / 2;
+    draw(Math.min(time, duration));
+  };
+  resize();
+  new ResizeObserver(resize).observe(stage);
   replay.hidden = false;
   touch.hidden = false;
   if (!motion.matches) start();
@@ -163,10 +189,11 @@ toggle.addEventListener('click', () => {
 replay.addEventListener('click', () => start());
 touch.addEventListener('click', () => start(1750));
 motion.addEventListener('change', () => {
+  if (!rays) return;
   cancelAnimationFrame(frame);
   frame = 0;
   toggle.hidden = true;
-  if (motion.matches) draw(0);
+  if (motion.matches) { time = 0; draw(0); }
   else start();
 });
 if (ctx && texture) {

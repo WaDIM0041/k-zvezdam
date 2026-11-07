@@ -17,10 +17,10 @@
 <link rel="apple-touch-icon" href="/k-zvezdam/static/apple-touch-icon.png">
 <link rel="shortcut icon" href="/k-zvezdam/static/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="/k-zvezdam/static/css/style.css?v=prologue-edition-20261025">
-<link rel="stylesheet" href="/k-zvezdam/static/css/chapter-intro.css?v=inline-chapter-2">
 <link rel="stylesheet" href="./art/star-opening.css">
+<script src="./art/star-opening.js" defer></script>
 </head>
 <body class="reading">
 <nav id="nav">
@@ -109,7 +109,7 @@
 
 <section class="star-opening" id="chapterOpening" aria-labelledby="starTitle">
   <div class="star-stage">
-    <img src="./art/poster.webp" width="1774" height="887"
+    <img src="./art/poster.webp" width="1400" height="700" fetchpriority="high"
          alt="Геометрический плакат над пультом в заброшенной каморке">
     <canvas width="1774" height="887" aria-hidden="true"></canvas>
   </div>
@@ -253,9 +253,9 @@
   if(t) t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 })();
 </script>
-<script nonce="OkWcvdurJQ98Jx3QE1x29TbL" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script nonce="OkWcvdurJQ98Jx3QE1x29TbL" src="/k-zvezdam/static/js/hero.js"></script>
-<script nonce="OkWcvdurJQ98Jx3QE1x29TbL" src="/k-zvezdam/static/js/flyby.js"></script>
+<script nonce="OkWcvdurJQ98Jx3QE1x29TbL" defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script nonce="OkWcvdurJQ98Jx3QE1x29TbL" defer src="/k-zvezdam/static/js/hero.js"></script>
+<script nonce="OkWcvdurJQ98Jx3QE1x29TbL" defer src="/k-zvezdam/static/js/flyby.js"></script>
 
 
 <script nonce="OkWcvdurJQ98Jx3QE1x29TbL">
@@ -327,7 +327,5 @@
 })();
 </script>
 
-<script src="/k-zvezdam/static/js/chapter-intro.js?v=inline-chapter-2"></script>
-<script src="./art/star-opening.js" defer></script>
 </body>
 </html>
