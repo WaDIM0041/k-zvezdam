@@ -106,6 +106,15 @@
 </aside>
 
   <section class="chapter-intro chapter-intro--prologue" id="chapterOpening" aria-labelledby="chapterIntroTitle" data-chapter-id="1" data-scene="prologue" data-duration="14">
+  <script nonce="Ably9JE7-uuTMLJFl4mq62dw">
+    (function (intro) {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      intro.classList.add('is-loading');
+      window.setTimeout(function () {
+        if (!intro.classList.contains('is-webgl')) intro.classList.remove('is-loading');
+      }, 12000);
+    })(document.currentScript.parentElement);
+  </script>
   <div class="chapter-intro__stage">
     <img class="chapter-intro__still" src="/k-zvezdam/static/chapter-intros/prologue/helios-reference-v001.jpg" alt="" decoding="async" fetchpriority="high">
     <img class="chapter-intro__mask" src="/k-zvezdam/static/chapter-intros/prologue/helios-cutout-v003.png" alt="" hidden>
