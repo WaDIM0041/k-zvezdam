@@ -72,10 +72,18 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 
 /* HERO */
 .site-intro[hidden]{display:none}
-.site-intro{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:#04060d;color:#c9e6ff;letter-spacing:.14em;text-align:center;transition:opacity .35s}
+.site-intro{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#0b1c36 0%,#04060d 55%,#020309 100%);color:#c9e6ff;letter-spacing:.14em;text-align:center;transition:opacity .35s}
 .site-intro.is-finished{opacity:0;pointer-events:none}
+.site-intro-star,.site-intro-copy,.site-intro button{position:relative;z-index:2}
 .site-intro-star{font-size:2.5rem;color:#b5e8ff;text-shadow:0 0 26px #70caff;animation:introPulse 1.2s ease-in-out infinite alternate}
 .site-intro button{border:1px solid rgba(160,210,255,.3);border-radius:999px;background:transparent;color:#c9e6ff;padding:8px 15px;cursor:pointer}
+.site-intro-flight{position:absolute;z-index:1;left:-42vw;top:30%;width:clamp(250px,37vw,570px);filter:brightness(1.24) contrast(1.08) drop-shadow(0 0 18px rgba(106,205,255,.36));transform:rotate(-5deg);animation:introShipFly 2.15s cubic-bezier(.2,.75,.3,1) both;pointer-events:none}
+.site-intro-flight img{display:block;width:100%;height:auto}
+.site-intro-engine{position:absolute;z-index:-1;left:-32%;top:43%;width:46%;height:18%;border-radius:50%;background:linear-gradient(90deg,transparent,rgba(77,176,255,.2) 35%,rgba(175,231,255,.95));filter:blur(14px);animation:introEngine .35s ease-in-out infinite alternate}
+@keyframes introShipFly{0%{opacity:0;transform:translate3d(-14vw,12vh,0) scale(.62) rotate(-5deg)}12%{opacity:1}78%{opacity:.96}100%{opacity:0;transform:translate3d(185vw,-16vh,0) scale(1.08) rotate(-5deg)}}
+@keyframes introEngine{to{opacity:.55;transform:scaleX(.7)}}
+@media(max-width:680px){.site-intro-flight{top:35%;width:clamp(220px,78vw,390px)}}
+@media(prefers-reduced-motion:reduce){.site-intro-flight,.site-intro-engine{display:none}}
 @keyframes introPulse{from{opacity:.45;transform:scale(.8)}to{opacity:1;transform:scale(1.1)}}
 .hero-music{position:absolute;top:calc(100svh + 20px);left:24px;max-width:320px;margin:0;padding-top:14px;border-top:1px solid rgba(158,205,236,.16)}
 .hero-music-label{display:block;color:#a7c6e9;font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;margin-bottom:5px}
