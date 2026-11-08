@@ -55,6 +55,7 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
 .btn{padding:14px 28px;border-radius:44px;font-weight:600;font-size:.94rem;transition:.28s;cursor:pointer;
   display:inline-flex;align-items:center;gap:8px;border:1px solid transparent}
+.hero .btns{width:min(100%,510px);justify-content:center}
 .hero .btns .btn{border-radius:8px}
 .btn-p{background:linear-gradient(120deg,var(--cyan),var(--violet));color:#050914;box-shadow:var(--glow)}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 0 54px rgba(116,185,255,.45)}
@@ -384,7 +385,7 @@ body.reading.has-audio .toc-toggle{bottom:94px}
 @media(max-width:980px){
   .hero-in{transform:translateY(clamp(82px,12vh,128px))}
   .hero h1{width:min(100%,360px);margin:0 0 22px;padding-bottom:12px;font-size:clamp(1.3rem,2.2vw,1.6rem)!important;line-height:1.15;letter-spacing:.005em}
-  .hero .btns{width:100%;justify-content:center;gap:10px}
+  .hero .btns{width:min(100%,360px);justify-content:center;gap:10px}
   .hero .btns .btn{min-width:132px;justify-content:center;padding:10px 14px;border-radius:999px;font-size:.8rem}
 }
 
