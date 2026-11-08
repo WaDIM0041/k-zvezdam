@@ -109,7 +109,7 @@ nav.scrolled{background:rgba(6,9,17,.82);backdrop-filter:blur(14px);border-botto
   linear-gradient(0deg,var(--bg) 2%,rgba(4,6,13,0) 40%);pointer-events:none}
 .hero.hero-fallback{background:radial-gradient(1200px 700px at 70% 20%,rgba(116,185,255,.16),transparent 60%),
   radial-gradient(900px 500px at 10% 90%,rgba(157,134,255,.13),transparent 60%),#05070f}
-.hero-in{position:relative;z-index:3;width:100%}
+.hero-in{position:relative;z-index:3;width:100%;transform:translateY(clamp(210px,26vh,340px))}
 .hero-content{max-width:640px;opacity:0;transform:translateY(20px);animation:heroIn 1.1s .2s cubic-bezier(.2,.7,.2,1) forwards}
 .hero-content{isolation:isolate}
 .hero-content::before,.hero-content::after{content:'';position:absolute;pointer-events:none;z-index:-1;left:var(--flash-x,66%);top:var(--flash-y,48%);width:540px;height:340px;max-width:95vw;transform:translate(-50%,-50%);opacity:0;border-radius:50%}
