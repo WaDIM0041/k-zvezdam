@@ -9,14 +9,13 @@
   }
   var root = new URL('./', document.baseURI);
   var cacheName = 'kzvezdam-book-v1';
-  var registration = navigator.serviceWorker.register(new URL('book-worker.js', root), {scope: root.pathname});
 
   button.addEventListener('click', async function () {
     button.disabled = true;
     status.textContent = 'Подготавливаем книгу…';
     var tempName = cacheName + '-download';
     try {
-      await registration;
+      await navigator.serviceWorker.register(new URL('book-worker.js', root), {scope: root.pathname});
       await navigator.serviceWorker.ready;
       await caches.delete(tempName);
       var cache = await caches.open(tempName);

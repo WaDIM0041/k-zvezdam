@@ -22,6 +22,11 @@
 <style>
 .offline-book{position:relative;z-index:3;text-align:center;margin:clamp(72px,9vw,120px) auto 0;padding:0 20px;color:#a7bdd8;font-size:.85rem}
 .offline-book button{padding:13px 22px;border:1px solid rgba(153,205,255,.35);border-radius:999px;background:rgba(4,10,22,.78);color:#e5f3ff;font:600 .9rem Manrope,sans-serif;cursor:pointer}
+.offline-book summary{display:inline-block;padding:13px 22px;border:1px solid rgba(153,205,255,.35);border-radius:999px;background:rgba(4,10,22,.78);color:#e5f3ff;font:600 .9rem Manrope,sans-serif;cursor:pointer;list-style:none}
+.offline-book summary::-webkit-details-marker{display:none}
+.offline-book summary:focus-visible{outline:2px solid #b7e5ff;outline-offset:3px}
+.offline-book .offline-instructions{margin:18px auto 0;max-width:430px}
+.offline-book .offline-instructions button{margin-top:16px}
 .offline-book button:hover,.offline-book button:focus-visible{border-color:#a7d9ff;box-shadow:0 0 22px rgba(116,185,255,.22)}
 .offline-book button:disabled{opacity:.65;cursor:wait}
 .offline-book p{margin:9px auto 0;max-width:420px;line-height:1.5}
@@ -235,9 +240,15 @@
       
     </div>
     <div class="offline-book" id="offline-book">
-      <button type="button" id="offlineSave">↓ Читать без интернета</button>
-      <p>Сохраните книгу на телефон и читайте в любое время.</p>
-      <p id="offlineStatus" role="status" aria-live="polite"></p>
+      <details>
+        <summary>↓ Читать без интернета</summary>
+        <div class="offline-instructions">
+          <p>Нажмите «Скачать», и главы с иллюстрациями сохранятся в этом браузере на вашем устройстве.</p>
+          <p>Дождитесь сообщения «Книга сохранена». Затем открывайте этот сайт в том же браузере, даже без интернета. Для музыки и видео нужен интернет.</p>
+          <button type="button" id="offlineSave">Скачать</button>
+          <p id="offlineStatus" role="status" aria-live="polite"></p>
+        </div>
+      </details>
     </div>
     
   </div>
@@ -267,7 +278,7 @@
     «Через время к звёздам» · Создатель проекта — <a class="glitch footer-author" data-text="ANNA KAM" href="https://annakam.ru/">ANNA KAM</a> · 2026
   </div>
 </footer>
-<script src="/k-zvezdam/offline-book.js" defer></script>
+<script src="/k-zvezdam/offline-book.js?v=instructions-2" defer></script>
 </div>
 <script nonce="UhVJO1evJxPzYvdG7G-KmPE6">
 (function(){
