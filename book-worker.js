@@ -4,6 +4,11 @@ self.addEventListener('activate', function (event) { event.waitUntil(self.client
 self.addEventListener('fetch', function (event) {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(fetch(event.request).catch(async function () {
+    var path = new URL(event.request.url).pathname;
+    var scope = new URL(self.registration.scope).pathname;
+    if (path.startsWith(scope) && /^read\/(?:4-5|[5-9]|1[0-9]|20)(?:\/|$)/.test(path.slice(scope.length))) {
+      return new Response('Данная Вселенная еще не проявилась — параллельная реальность на подходе', {headers: {'Content-Type': 'text/plain; charset=utf-8'}});
+    }
     var cache = await caches.open(BOOK_CACHE);
     var saved = await cache.match(event.request, {ignoreSearch: true});
     if (!saved && event.request.mode === 'navigate') {

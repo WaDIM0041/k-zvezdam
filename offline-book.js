@@ -20,7 +20,7 @@
       await caches.delete(tempName);
       var cache = await caches.open(tempName);
       var paths = [root.href, new URL('chapters/', root).href];
-      document.querySelectorAll('a.chapter-preview[href]').forEach(function (link) {
+      document.querySelectorAll('a.chapter-preview[href]:not([data-chapter-closed])').forEach(function (link) {
         paths.push(new URL(link.href).href);
       });
       var uniquePages = Array.from(new Set(paths));
