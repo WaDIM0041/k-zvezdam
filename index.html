@@ -33,11 +33,20 @@
 #offlineStatus:empty{display:none}
 </style>
 
+<style>
+.brand-layout{display:inline-flex;align-items:center;gap:15px;min-width:0}
+.brand-layout--right .brand-switch{order:1}
+.brand-switch:focus-visible,.author-cube:focus-visible,.cube-corner:focus-visible{outline:2px solid #b7e5ff;outline-offset:3px;border-radius:4px}
+.hero-black-cube{pointer-events:none;cursor:default}
+.cube-corner{pointer-events:auto;position:absolute;z-index:1;right:8%;bottom:10%;width:min(25%,40px);height:min(23%,34px);cursor:pointer}
+@media(max-width:480px){.brand-layout{gap:9px;flex:1 1 auto}}
+</style>
 </head>
 <body class="has-hero">
 <nav id="nav">
   <div class="nav-in">
-    <a class="brand" href="/k-zvezdam/"><span class="brand-cube" aria-hidden="true"><span class="cube-form"><i></i><i></i><i></i><i></i><i></i><i></i><span class="cube-core"></span></span></span><span>Через время <b>к звёздам</b></span></a>
+    <div class="brand-layout"><a class="brand-cube brand-switch" id="headerCube" href="/k-zvezdam/?cube=right" aria-label="Перезагрузить главную и переместить куб"><span class="cube-form"><i></i><i></i><i></i><i></i><i></i><i></i><span class="cube-core"></span></span></a><a class="brand" href="/k-zvezdam/"><span>Через время <b>к звёздам</b></span></a></div>
+    <script>if(new URLSearchParams(location.search).get("cube")==="right"){const cube=document.getElementById("headerCube");cube.parentElement.classList.add("brand-layout--right");cube.href="/k-zvezdam/?cube=left";}</script>
     <div class="nav-links">
       <a href="/k-zvezdam/">Главная</a>
       <a href="/k-zvezdam/chapters">Оглавление</a>
@@ -65,7 +74,7 @@
 </script>
 <header class="hero" id="hero">
   <canvas id="space" class="space-scene" aria-hidden="true"></canvas>
-  <a class="hero-black-cube" id="cubePortal" href="/k-zvezdam/cube/" aria-label="Открыть тайную страницу Куба"><img src="/k-zvezdam/static/prologue/%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9%20%D0%9A%D1%83%D0%B1%20%D0%B8%D0%B7%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0%20%E2%80%94%20v001.webp" alt=""></a>
+  <div class="hero-black-cube"><img src="/k-zvezdam/static/prologue/%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9%20%D0%9A%D1%83%D0%B1%20%D0%B8%D0%B7%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0%20%E2%80%94%20v001.webp" alt=""><a class="cube-corner" id="cubePortal" href="/k-zvezdam/cube/" aria-label="Открыть тайную страницу Куба"></a></div>
   <div class="hero-veil"></div>
   <div class="hero-in wrap">
     <div class="hero-content" id="heroContent">
@@ -265,7 +274,7 @@
 
 <section class="section author-s">
   <div class="wrap">
-    <div class="reveal author-heading" style="margin-bottom:3.3rem"><span class="brand-cube author-cube" style="position:relative;right:auto;top:auto" aria-hidden="true"><span class="cube-form"><i></i><i></i><i></i><i></i><i></i><i></i><span class="cube-core"></span></span></span></div>
+    <div class="reveal author-heading" style="margin-bottom:3.3rem"><a class="brand-cube author-cube" style="position:relative;right:auto;top:auto" href="https://annakam.ru/" aria-label="Открыть сайт ANNA KAM"><span class="cube-form"><i></i><i></i><i></i><i></i><i></i><i></i><span class="cube-core"></span></span></a></div>
     <p class="lead reveal">Научно-фантастический цикл «Через время к звёздам». Новые главы выходят здесь — возвращайтесь за продолжением.</p>
   </div>
 </section>
@@ -342,11 +351,12 @@
 (function(){
   var portal=document.getElementById('cubePortal');
   if(!portal)return;
+  var cube=portal.closest('.hero-black-cube');
   portal.addEventListener('click',function(e){
     if(e.button!==0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     e.preventDefault();
-    if(portal.classList.contains('opening'))return;
-    portal.classList.add('opening');
+    if(cube.classList.contains('opening'))return;
+    cube.classList.add('opening');
     window.setTimeout(function(){window.location.href=portal.href;},650);
   });
 })();
