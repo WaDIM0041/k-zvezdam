@@ -1,0 +1,47 @@
+.home-audio {
+  width: min(320px, 100%);
+  color: #dce8f5;
+  border: 1px solid rgba(185, 211, 237, .14);
+  border-radius: 22px;
+  background: rgba(4, 8, 16, .12);
+  padding: 8px 10px;
+  box-sizing: border-box;
+  font-size: .75rem;
+}
+.home-audio__bar {display: flex; align-items: center; gap: 10px; min-height: 36px}
+.home-audio__title {flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600}
+.home-audio button {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(185, 211, 237, .24);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .85);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.home-audio button:hover {border-color: rgba(220, 238, 255, .65)}
+.home-audio button:focus-visible, .home-audio input:focus-visible {outline: 2px solid #b7d8f3; outline-offset: 3px}
+.home-audio .home-audio__expand {width: 28px; height: 28px; background: transparent; border-color: transparent}
+.home-audio__expand span {display: block; transition: transform .4s ease}
+.home-audio__expand[aria-expanded="true"] span {transform: rotate(180deg)}
+.home-audio__panel {display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden; transition: grid-template-rows .4s ease, opacity .25s ease, visibility 0s .4s}
+.home-audio__panel.is-open {grid-template-rows: 1fr; opacity: 1; visibility: visible; transition: grid-template-rows .4s ease, opacity .3s ease, visibility 0s}
+.home-audio__inner {min-height: 0; overflow: hidden}
+.home-audio__timeline {display: flex; align-items: center; gap: 9px; margin-top: 12px; font-variant-numeric: tabular-nums; color: #91a6bc}
+.home-audio input[type="range"] {min-width: 0; flex: 1; width: 100%; height: 20px; margin: 0; accent-color: #c5d6e6; cursor: pointer}
+.home-audio__volume {display: flex; align-items: center; gap: 10px; padding: 8px 0 2px}
+.home-audio__volume button {width: auto; height: 28px; padding: 0 10px; border-radius: 14px; color: #bacbdc; background: transparent; font-size: .65rem}
+.home-audio__volume input {max-width: 110px}
+.home-audio__status {margin: 7px 0 0; line-height: 1.5; color: #b1c6da}
+.home-audio__status:empty {display: none}
+.home-audio audio {width: 100%; margin-top: 8px}
+.home-audio [hidden] {display: none}
+@media (prefers-reduced-motion: reduce) {
+  .home-audio__panel, .home-audio__expand span {transition: none}
+}
