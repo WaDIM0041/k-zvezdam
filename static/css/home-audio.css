@@ -1,4 +1,6 @@
 .home-audio {
+  position: relative;
+  isolation: isolate;
   width: min(320px, 100%);
   color: #dce8f5;
   border: 1px solid rgba(185, 211, 237, .14);
@@ -7,6 +9,14 @@
   padding: 8px 10px;
   box-sizing: border-box;
   font-size: .75rem;
+}
+.home-audio__waves {
+  position: absolute;
+  z-index: -1;
+  top: 27px;
+  height: 280px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 .home-audio__bar {display: flex; align-items: center; gap: 10px; min-height: 36px}
 .home-audio__title {flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600}
@@ -43,5 +53,6 @@
 .home-audio audio {width: 100%; margin-top: 8px}
 .home-audio [hidden] {display: none}
 @media (prefers-reduced-motion: reduce) {
+  .home-audio__waves {display: none}
   .home-audio__panel, .home-audio__expand span {transition: none}
 }
