@@ -4,7 +4,7 @@
   var pause=document.getElementById('chapterOnePause');
   var skip=document.getElementById('chapterOneSkip');
   var text=document.getElementById('chapterText');
-  if(!intro||!pause||!skip||!text)return;
+  if(!intro)return;
   var rain=intro.querySelector('.chapter-one-rain');
   if(rain){
     var seed=31;
@@ -24,11 +24,11 @@
     }
   }
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-  if(reduced.matches){pause.disabled=true;pause.textContent='Без анимации';}
-  pause.addEventListener('click',function(){
+  if(pause&&reduced.matches){pause.disabled=true;pause.textContent='Без анимации';}
+  if(pause)pause.addEventListener('click',function(){
     var paused=intro.classList.toggle('intro-paused');
     pause.setAttribute('aria-pressed',String(paused));
     pause.textContent=paused?'Продолжить':'Пауза';
   });
-  skip.addEventListener('click',function(){text.scrollIntoView({behavior:reduced.matches?'auto':'smooth'});});
+  if(skip&&text)skip.addEventListener('click',function(){text.scrollIntoView({behavior:reduced.matches?'auto':'smooth'});});
 })();
