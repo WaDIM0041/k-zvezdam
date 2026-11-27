@@ -203,7 +203,7 @@ body.reading{background:#06080f}
 .read-body p.epigraph em{font-style:italic}
 .read-body strong{color:#fff}
 .c-img{margin:34px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.c-img img{width:100%;display:block}
+.c-img img{width:100%;height:auto;display:block}
 .embed{margin:34px 0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000}
 .embed iframe,.embed video{width:100%;aspect-ratio:16/9;border:0;display:block}
 .c-audio{margin:26px 0}

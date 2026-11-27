@@ -17,9 +17,12 @@
 
   if (intro.dataset.scene === 'poster') {
     var firstArt = document.querySelector('#readBody .scene-media img, #readBody .c-img img, #readBody video[poster]');
-    if (firstArt) {
-      var artUrl = firstArt.tagName === 'VIDEO' ? firstArt.poster : (firstArt.currentSrc || firstArt.src);
-      if (artUrl) intro.querySelector('.chapter-intro__poster').style.backgroundImage =
+    var artUrl = intro.dataset.cover;
+    if (!artUrl && firstArt) {
+      artUrl = firstArt.tagName === 'VIDEO' ? firstArt.poster : (firstArt.currentSrc || firstArt.src);
+    }
+    if (artUrl) {
+      intro.querySelector('.chapter-intro__poster').style.backgroundImage =
         'linear-gradient(0deg,#04080cf5,transparent 68%),linear-gradient(90deg,#04080cc0,transparent 65%),linear-gradient(180deg,#03070c90,transparent 25%),url(' + JSON.stringify(artUrl) + ')';
     }
     return;
