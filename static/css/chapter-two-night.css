@@ -48,7 +48,6 @@ body.reading.chapter-two-night {
   from { transform: translate3d(-6%, 2%, 0); opacity: .42; }
   to { transform: translate3d(6%, -2%, 0); opacity: .92; }
 }
-[data-scene="bunker-night"].paused :is(.bunker-mist,.chapter-intro__poster) { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   [data-scene="bunker-night"] :is(.bunker-mist,.chapter-intro__poster) { animation: none; }
 }
