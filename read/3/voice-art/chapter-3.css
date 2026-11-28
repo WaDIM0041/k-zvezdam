@@ -1,0 +1,77 @@
+.chapter-intro[data-scene="static-voice"] .chapter-intro__stage {
+  background: #060c10;
+  overflow: hidden;
+}
+
+.static-voice-backdrop,
+.static-voice-foreground,
+.static-voice-mist {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.static-voice-backdrop,
+.static-voice-foreground {
+  object-fit: cover;
+  object-position: 58% center;
+}
+
+.static-voice-mist {
+  background: radial-gradient(ellipse at 36% 74%, #809ca346, transparent 55%);
+}
+
+.static-voice-pause {
+  padding: .65rem 1rem;
+  border: 1px solid #ffffff90;
+  border-radius: .45rem;
+  background: #080e14ed;
+  color: #fff;
+  cursor: pointer;
+}
+
+.static-voice-illustration {
+  margin: 2rem 0;
+}
+
+.static-voice-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .static-voice-active .static-voice-backdrop {
+    animation: static-voice-distant 18s ease-in-out infinite alternate;
+  }
+
+  .static-voice-active .static-voice-mist {
+    animation: static-voice-drift 12s ease-in-out infinite alternate;
+  }
+
+  .static-voice-active .static-voice-foreground {
+    animation: static-voice-near 18s ease-in-out infinite alternate;
+  }
+
+  .static-voice-active.static-voice-paused :is(.static-voice-backdrop, .static-voice-mist, .static-voice-foreground) {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes static-voice-distant {
+  from { transform: scale(1.04) translateX(-.6%); }
+  to { transform: scale(1.04) translateX(.6%); }
+}
+
+@keyframes static-voice-drift {
+  from { transform: translateX(-11%); opacity: .35; }
+  to { transform: translateX(9%); opacity: .75; }
+}
+
+@keyframes static-voice-near {
+  from { transform: scale(1.09) translateX(-3%); }
+  to { transform: scale(1.09) translateX(3%); }
+}
