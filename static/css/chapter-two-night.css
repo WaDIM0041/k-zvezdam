@@ -29,7 +29,8 @@ body.reading.chapter-two-night {
 }
 /* Keep the opening artwork independent of the reading illustrations. */
 [data-scene="bunker-night"] .chapter-intro__poster {
-  background-image: url("../chapter-images/glava2.jpg");
+  background-image: url("../chapter-images/blockpost-facade-ref-v001.webp");
+  background-position: 58% center;
   animation: bunker-distance 15s ease-in-out infinite alternate;
 }
 [data-scene="bunker-night"] .bunker-mist {
