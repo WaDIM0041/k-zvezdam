@@ -1,0 +1,29 @@
+/* Night outside the bunker. The reading column sits in the darkest part of the scene. */
+body.reading.chapter-two-night {
+  background-color: #030509;
+}
+
+.chapter-two-night .reader-stars {
+  background:
+    radial-gradient(ellipse 32% 95% at 50% 48%, #05070bf5 28%, #05070b9e 70%, transparent 100%),
+    radial-gradient(ellipse 74% 12% at 2% 78%, #5b6a7338, transparent 75%),
+    radial-gradient(ellipse 62% 9% at 97% 86%, #59718431, transparent 75%),
+    radial-gradient(ellipse 38% 21% at -4% 47%, #64738439, transparent 80%),
+    radial-gradient(ellipse 50% 45% at 105% 64%, #22384966, transparent 80%),
+    linear-gradient(165deg, #030509 12%, #0b1219 62%, #04070b 100%);
+}
+
+.chapter-two-night .chapter-intro {
+  left: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.chapter-two-night .chapter-intro__stage {
+  background-color: #030509;
+}
+
+.chapter-two-night .closing-space {
+  background-color: #05070c;
+}
