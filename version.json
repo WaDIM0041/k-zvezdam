@@ -32,7 +32,7 @@
   },
   "pageCommits": {
     "/read/2/": "837544940ada379976f0299dc624b2cb9a854147",
-    "/read/3/": "ba18302f95b4433a1471cd4533c545147dfd1fb9",
+    "/read/3/": "8801946a58efea337119183b13adf81df7a3862b",
     "/read/1/": "e47d815ed7744cc256b863dc23d8d45805c119be",
     "/read/4/": "c99b2df4442d766e0e2288d9e66dc39d8bd72055"
   },
@@ -65,9 +65,9 @@
   },
   "chapter3Build": {
     "edition": "static-voice-20261128-door",
-    "pageCommit": "ba18302f95b4433a1471cd4533c545147dfd1fb9",
+    "pageCommit": "8801946a58efea337119183b13adf81df7a3862b",
     "path": "/read/3/",
-    "htmlSha256": "004f352af4afc38910f272c61a4d8d7c922a9fe282bac6731ae7613f889fb768",
+    "htmlSha256": "bd12fdc9b340e5988c4a7480c61e864b5d77e2dfd837ea2138f2e41e834efaf9",
     "textSha256": "54cfa16979867c5eaddc333dd595add5986b7d18fd23d3c137d10b8bff9982d2",
     "basePagesCommit": "fe68b938741a6a66547d79becbc0e8d0403d0654"
   },
