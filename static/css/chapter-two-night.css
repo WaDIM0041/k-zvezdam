@@ -27,3 +27,28 @@ body.reading.chapter-two-night {
 .chapter-two-night .closing-space {
   background-color: #05070c;
 }
+/* Keep the opening artwork independent of the reading illustrations. */
+[data-scene="bunker-night"] .chapter-intro__poster {
+  background-image: url("../chapter-images/glava2.jpg");
+  animation: bunker-distance 15s ease-in-out infinite alternate;
+}
+[data-scene="bunker-night"] .bunker-mist {
+  position: absolute;
+  inset: -8% -15%;
+  pointer-events: none;
+  background: radial-gradient(ellipse 40% 11% at 35% 64%, #9ab8c455, transparent),
+              radial-gradient(ellipse 45% 9% at 75% 71%, #7599b05c, transparent);
+  animation: bunker-fog 9s ease-in-out infinite alternate;
+}
+@keyframes bunker-distance {
+  from { transform: scale(1.04) translateX(-.8%); }
+  to { transform: scale(1.105) translateX(.8%); }
+}
+@keyframes bunker-fog {
+  from { transform: translate3d(-6%, 2%, 0); opacity: .42; }
+  to { transform: translate3d(6%, -2%, 0); opacity: .92; }
+}
+[data-scene="bunker-night"].paused :is(.bunker-mist,.chapter-intro__poster) { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  [data-scene="bunker-night"] :is(.bunker-mist,.chapter-intro__poster) { animation: none; }
+}
