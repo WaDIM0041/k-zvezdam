@@ -32,7 +32,7 @@
   },
   "pageCommits": {
     "/read/2/": "837544940ada379976f0299dc624b2cb9a854147",
-    "/read/3/": "c6f76ba2d025584a98c295377aec410336e3337c",
+    "/read/3/": "03be0c608a6ed88060455f69418528a9f7e61e7c",
     "/read/1/": "e47d815ed7744cc256b863dc23d8d45805c119be",
     "/read/4/": "c99b2df4442d766e0e2288d9e66dc39d8bd72055"
   },
@@ -64,11 +64,12 @@
     "cacheKey": "inline-chapter-2"
   },
   "chapter3Build": {
-    "edition": "static-voice-v001",
-    "pageCommit": "c99b2df4442d766e0e2288d9e66dc39d8bd72055",
-    "htmlSha256": "cae369540acb1d63f061cc7e4248481b3f2fa7ae3230a04629918d0888b347eb",
-    "textSha256": "2b21c1c4ec1b21aee4638b5bf207e45fe7f0599f77a82950edefcd902fda8652",
-    "basePagesCommit": "7b02ffb232b9cdd488d0145e7b2c046dc77bcad7"
+    "edition": "static-voice-20261128",
+    "pageCommit": "03be0c608a6ed88060455f69418528a9f7e61e7c",
+    "path": "/read/3/",
+    "htmlSha256": "aa490929c2e9076653837d8fc0a66be065e54f8b227b43147ee5e981974cc82d",
+    "textSha256": "9a46ff34972fa92379b37bc87ddbabec1534fe43f0aa57be0109229a92645a33",
+    "basePagesCommit": "f51f42e1153f4970d6cbb7093f9ac68f129f37fd"
   },
   "chapter4Build": {
     "edition": "radio-room-v001",
