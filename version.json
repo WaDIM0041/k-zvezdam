@@ -31,10 +31,10 @@
     "sourceCommit": "d7a9971cfe69fd49704a9e9efbd0b665963370cd"
   },
   "pageCommits": {
-    "/read/2/": "837544940ada379976f0299dc624b2cb9a854147",
+    "/read/2/": "8df67a84a0e0f2064298e5454431fc7de7da4aa7",
     "/read/3/": "8801946a58efea337119183b13adf81df7a3862b",
-    "/read/1/": "e47d815ed7744cc256b863dc23d8d45805c119be",
-    "/read/4/": "c99b2df4442d766e0e2288d9e66dc39d8bd72055"
+    "/read/1/": "8df67a84a0e0f2064298e5454431fc7de7da4aa7",
+    "/read/4/": "8df67a84a0e0f2064298e5454431fc7de7da4aa7"
   },
   "chapterIntro": {
     "edition": "prologue-layered-v003",
@@ -74,12 +74,31 @@
   "chapter4Build": {
     "edition": "radio-room-v001",
     "basePagesCommit": "02cad5262cc041a132716625686fbcd1c8e2cb83",
-    "htmlSha256": "c5b0ac188a27afb83349154152f947e7ab4671ea6c8659bc6753cf57352dda07",
+    "htmlSha256": "5a0b743c771a267f2805de4b86b201eb394e75170e9d88f94024cf96dc0b9363",
     "textSha256": "5918a7e55c14e000da46f7a949ae79cd57c9ce0debf98b4c734a36130d031ff5"
   },
   "prologueOpening": {
     "edition": "cryo-sequence-v001",
     "pageCommit": "e47d815ed7744cc256b863dc23d8d45805c119be",
     "loadingFixCommit": "2d364e46212a9e53789c9a6e893a6b25386b2719"
+  },
+  "bunkerContinuityBuild": {
+    "edition": "blockpost-ref-v001",
+    "pageCommit": "8df67a84a0e0f2064298e5454431fc7de7da4aa7",
+    "basePagesCommit": "9be9a6465d46850aff390a773cc2cb82087374b8",
+    "chapters": {
+      "/read/1/": {
+        "htmlSha256": "920fb42abc48987a54c2777c30bf4ab7ff97ee388eff2430f828b4dd14dcbc50",
+        "textSha256": "22a02a1fb8f6cd311fff1e7aad714292f346256f83ba6c56597ce4af119d5e98"
+      },
+      "/read/2/": {
+        "htmlSha256": "64363f6e06393e48f66e35ca6f759b2cf04644e270aaec83a4c0cee5a2b1fc95",
+        "textSha256": "5c7791398e47e838c087b97212da77a901910a1b02ef146b010b23eebe7c216f"
+      },
+      "/read/4/": {
+        "htmlSha256": "5a0b743c771a267f2805de4b86b201eb394e75170e9d88f94024cf96dc0b9363",
+        "textSha256": "5918a7e55c14e000da46f7a949ae79cd57c9ce0debf98b4c734a36130d031ff5"
+      }
+    }
   }
 }
